@@ -125,6 +125,7 @@ See `context/PRIORITY.md` for full rules.
 
 | Workflow | Purpose |
 |----------|---------|
+| `workflows/commit.md` | **Smart Commit**: Standardizes atomic git commits (Code + Context) |
 | `workflows/upgrade.md` | Upgrade existing .ai/ to new version |
 | `workflows/export.md` | Export all knowledge for migration |
 

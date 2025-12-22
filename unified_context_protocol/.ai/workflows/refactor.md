@@ -29,8 +29,7 @@
 - Check for regressions
 - Validate performance if relevant
 
-### 6. Update Context
-- Add to `changelog.md`
-- Update `knowledge/patterns.md` if new patterns
-- Document decision in `knowledge/decisions.md`
-- Add to `knowledge/learnings.md` if refactor revealed insights
+### 6. Finalize & Commit
+1. **Batch Updates**: Stage fix + `changelog.md` + `knowledge/`.
+2. **Commit**: Run `.ai/workflows/commit.md`.
+

@@ -24,8 +24,8 @@
 - Check for regressions
 - Test edge cases
 
-### 5. Update Context
-- Add to `changelog.md`
-- Update `context/tech.md` if new patterns introduced
-- Add to `knowledge/decisions.md` if significant
-- Add to `knowledge/learnings.md` if something worked/failed unexpectedly
+### 5. Finalize & Commit
+1. **Batch Updates**: Stage code changes AND context updates (`tech.md`, `changelog.md`, `learnings.md`) together.
+2. **Review**: Ensure no context files are missing.
+3. **Commit**: Run `.ai/workflows/commit.md`.
+

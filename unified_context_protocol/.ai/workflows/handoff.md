@@ -8,10 +8,13 @@
 - Log all significant changes in `context/changelog.md`
 - Use the format: `[YYYY-MM-DD] - [Summary]`
 
-### 2. Update Status
-- Update `context/MASTER.md`
-- Mark completed tasks as ✅
-- Update "Active Focus" if the goal posts moved
+### 2. Commit & Update Status
+1. **Batch Changes**: Stage your code changes + `context/changelog.md` + `knowledge/`.
+2. **Commit**: Run `.ai/workflows/commit.md`.
+3. **Update Status**: Edit `context/MASTER.md` to reflect new reality.
+
+## Example Handoff
+"Session complete. Batched commit `feat(auth): implement login` includes code, changelog, and pattern updates. MASTER.md updated to 'Stable'."
 
 ### 3. Capture Knowledge
 - Did you learn a new pattern? -> `knowledge/patterns.md`

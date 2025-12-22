@@ -12,6 +12,7 @@
 | **The Core / Root Config / Specs** | `context/MASTER.md` |
 | **A Specific Sub-Project** | `context/map.md` (finds your project context) |
 | **A New Feature / Bugfix** | `workflows/README.md` (guides you) |
+| **Committing Changes** | `workflows/commit.md` (atomic commits) |
 | **Picking up a shared task** | `context/active/README.md` (check for collisions) |
 
 ## 🚨 Agent Boot Protocol
