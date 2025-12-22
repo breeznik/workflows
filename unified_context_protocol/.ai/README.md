@@ -37,19 +37,42 @@
 
 ```
 .ai/
-├── context/          # State & Memory
-│   ├── MASTER.md     # Global Root
-│   ├── projects/     # Sub-Project Roots
-│   └── active/       # Short-term Scratchpad
+├── context/              # State & Memory
+│   ├── MASTER.md         # Project state (P0)
+│   ├── PRIORITY.md       # Context budget rules (P0)
+│   ├── tech.md           # Tech stack (P1)
+│   ├── user-prefs.md     # User coding style (P1)
+│   ├── dependencies.md   # External APIs (P1)
+│   ├── changelog.md      # Change history (P2)
+│   ├── active/           # In-progress tasks
+│   ├── product/          # Product docs
+│   └── projects/         # Sub-project contexts
 │
-├── adapters/         # Agent Integration
-│   ├── manifest.yaml # Detection rules
-│   └── [agent].md    # Per-agent guides
+├── knowledge/            # Learning Bank
+│   ├── patterns.md       # Code patterns (P1)
+│   ├── gotchas.md        # Footguns (P1)
+│   ├── learnings.md      # What works/fails (P1)
+│   ├── decisions.md      # Architecture ADRs (P2)
+│   └── boundaries.md     # Agent knowledge limits (P2)
 │
-├── workflows/        # Operating Procedures
-├── knowledge/        # Learning Bank
-└── archive/          # History
+├── adapters/             # Agent Integration
+│   ├── manifest.yaml     # Detection rules
+│   └── [agent].md        # Per-agent guides
+│
+├── workflows/            # Operating Procedures
+└── archive/              # History (P3 - never auto-load)
 ```
+
+### 📊 Context Priority
+
+| Priority | Files | Load When |
+|----------|-------|-----------|
+| **P0** | MASTER.md, PRIORITY.md, adapter | Always |
+| **P1** | tech, user-prefs, patterns, gotchas | Based on task |
+| **P2** | decisions, boundaries, product | On demand |
+| **P3** | archive | Never auto-load |
+
+> See `context/PRIORITY.md` for full budget rules.
 
 ## 🔌 Agent Detection
 

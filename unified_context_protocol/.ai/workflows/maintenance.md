@@ -1,45 +1,111 @@
 # Maintenance Workflow
 
-> Use periodically (every ~20 sessions) to keep context lean.
+> Keep context lean and efficient. Run when triggered or every ~20 sessions.
 
-## When to Run
-- Changelog exceeds 50 entries
-- MASTER.md feels cluttered
-- Knowledge files are getting long
+---
+
+## 🚨 Auto-Triggers
+
+Run this workflow when ANY of these apply:
+
+| Trigger | Threshold |
+|---------|-----------|
+| Changelog entries | > 30 entries |
+| MASTER.md lines | > 100 lines |
+| Any knowledge file | > 200 lines |
+| User says "context feels slow" | Immediately |
+| Last maintenance | > 30 days ago |
+
+---
 
 ## Steps
 
-### 1. Archive Old Changelog
-Move entries older than 30 days to `archive/changelog-YYYY-MM.md`
-Keep only the last 10-15 entries in main changelog.
+### 1. Audit Context Sizes
 
-### 2. Compress MASTER.md
+Check each file against limits:
+
+| File | Soft Limit | Hard Limit | Action |
+|------|------------|------------|--------|
+| MASTER.md | 80 lines | 120 lines | Archive Recent Changes |
+| changelog.md | 30 entries | 50 entries | Archive old entries |
+| Each knowledge file | 150 lines | 250 lines | Split or archive |
+| Each active task | - | 7 days old | Complete or archive |
+
+### 2. Archive Old Changelog
+
+```
+1. Move entries older than 30 days to archive/changelog-YYYY-MM.md
+2. Keep only last 15 entries in main changelog
+3. Add summary line: "See archive/ for older entries"
+```
+
+### 3. Prune MASTER.md
+
 - Remove resolved warnings
-- Summarize old "Recent Changes" into one line
+- Collapse old "Recent Changes" into one-liner
 - Keep only currently relevant state
+- Target: < 80 lines
 
-### 3. Prune Knowledge Files
-- Merge duplicate patterns
-- Archive obsolete gotchas
-- Keep only actively-used decisions
+### 4. Prune Knowledge Files
 
-### 4. Create Snapshot
-Save current MASTER.md to `archive/snapshot-YYYY-MM-DD.md` before major changes.
+| File | Action |
+|------|--------|
+| `patterns.md` | Merge duplicates, archive unused |
+| `gotchas.md` | Remove fixed gotchas |
+| `decisions.md` | Archive superseded decisions |
+| `learnings.md` | Move "Superseded" to archive |
+| `boundaries.md` | Update with current state |
 
-## Context Size Guidelines
+### 5. Validate Learnings
 
-| File | Target Size | Action if Exceeded |
-|------|-------------|-------------------|
-| MASTER.md | < 100 lines | Summarize or archive |
-| changelog.md | < 50 entries | Archive old entries |
-| Each knowledge file | < 200 lines | Split or archive |
+For each entry in `learnings.md`:
 
-## Archive Naming
+```
+- Is it still accurate? → Keep
+- Is it outdated? → Move to "Superseded" section
+- Is it now a pattern? → Move to patterns.md
+```
+
+### 6. Clean Active Tasks
+
+```bash
+ls .ai/context/active/
+```
+
+For each task file:
+- Older than 7 days? → Archive or complete it
+- Still relevant? → Keep
+- Blocked? → Note in MASTER.md warnings
+
+### 7. Create Snapshot
+
+Before destructive changes, save:
+
+```bash
+cp context/MASTER.md archive/snapshot-YYYY-MM-DD.md
+```
+
+---
+
+## Archive Structure
 
 ```
 archive/
-├── changelog-2024-12.md
+├── changelog-2024-12.md      # Monthly changelogs
 ├── changelog-2025-01.md
-├── snapshot-2025-01-15.md
-└── deprecated-patterns.md
+├── snapshot-2025-01-15.md    # Point-in-time MASTER.md
+├── deprecated-patterns.md    # Old patterns
+├── superseded-decisions.md   # Old decisions
+└── resolved-gotchas.md       # Fixed gotchas
 ```
+
+---
+
+## Post-Maintenance Checklist
+
+- [ ] All files under soft limits
+- [ ] MASTER.md current and concise
+- [ ] No stale active tasks
+- [ ] Learnings validated
+- [ ] Snapshot saved if major pruning
+

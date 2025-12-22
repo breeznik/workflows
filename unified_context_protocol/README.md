@@ -49,8 +49,24 @@ Pre-built SOPs in `workflows/`:
 - `feature.md` — Adding new features
 - `bugfix.md` — Fixing issues
 - `refactor.md` — Code improvements
-- `boot.md` — Session startup
+- `boot.md` — Session startup with context budget
+- `maintenance.md` — Prune and archive context
 - `integrate-agent.md` — Set up your agent config
+
+### ⚡ Context Budget System (NEW)
+Prevents LLM overload with tiered loading:
+
+| Priority | Files | Load When |
+|----------|-------|-----------|
+| **P0** | MASTER.md, adapter | Always |
+| **P1** | tech, patterns, user-prefs | Based on task |
+| **P2** | decisions, boundaries | On demand |
+
+### 🎓 Agent Learning (NEW)
+- `user-prefs.md` — Remembers your coding style
+- `learnings.md` — What worked/failed in this project
+- `boundaries.md` — What agent knows vs. needs to ask
+- `dependencies.md` — External APIs reference
 
 ---
 
