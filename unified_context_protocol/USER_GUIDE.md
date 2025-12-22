@@ -44,6 +44,57 @@ Every few weeks:
 1.  **Run Maintenance**: Ask AI to "Run the maintenance workflow".
 2.  **Prune Knowledge**: It will summarize old changelogs and consolidate the knowledge base.
 
+## ⚠️ For AI Agents with Internal Memory
+
+Some AI tools (like Cursor Composer, Windsurf Cascade, Gemini Antigravity, or other agentic IDEs) have their own internal "brain" or "artifact" directories for task tracking.
+
+> [!CAUTION]
+> **DO NOT use your internal memory systems for this project.**
+
+Use `.ai/` exclusively for:
+
+| Purpose | Location |
+|---------|----------|
+| Task tracking | `.ai/context/active/` |
+| Session memory | `.ai/context/MASTER.md` |
+| Knowledge storage | `.ai/knowledge/` |
+| Changelogs | `.ai/context/changelog.md` |
+
+The `.ai/` directory is the **single source of truth**. Creating parallel tracking systems causes context fragmentation and defeats the purpose of this protocol.
+
+---
+
+## 🔌 Multi-Agent Support
+
+The `.ai/` system works with any AI coding assistant. The `adapters/` directory contains:
+
+- **manifest.yaml**: Machine-readable agent detection rules
+- **[agent].md**: Human-readable integration guides for each agent
+
+### Supported Agents
+
+| Agent | Adapter File |
+|-------|--------------|
+| Cursor | `.ai/adapters/cursor.md` |
+| Windsurf | `.ai/adapters/windsurf.md` |
+| Claude Code | `.ai/adapters/claude.md` |
+| Antigravity | `.ai/adapters/antigravity.md` |
+| GitHub Copilot | `.ai/adapters/copilot.md` |
+| JetBrains AI | `.ai/adapters/jetbrains.md` |
+| Aider | `.ai/adapters/aider.md` |
+| Generic LLM | `.ai/adapters/generic.md` |
+
+### If You Use Multiple Tools
+
+If you use Cursor, Claude, and Antigravity on the same project:
+
+1. Each tool should read `.ai/context/MASTER.md` at session start
+2. Each tool should update `.ai/context/changelog.md` at session end
+3. Agent-specific configs (like `.cursor/rules/`) can reference `.ai/` content
+4. All project state stays in `.ai/` — never fragmented across tools
+
+---
+
 ## ❓ FAQ
 
 **Q: Should I commit this folder?**

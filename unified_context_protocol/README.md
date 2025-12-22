@@ -29,3 +29,5 @@ To adopt this protocol:
 
 For a deep dive into the protocol's mechanics, see the [User Guide](USER_GUIDE.md).
 
+For AI agent configuration templates (Cursor, Windsurf, Claude, etc.), see the [Agent Config Guide](AGENT_CONFIG.md).
+

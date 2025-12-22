@@ -1,0 +1,123 @@
+# Agent Detection & Integration Manifest
+# This file tells AI agents how to detect themselves and integrate with .ai/
+
+version: "1.0"
+description: "Maps AI coding assistants to their config directories and integration rules"
+
+# Known agents and their detection patterns
+agents:
+  cursor:
+    name: "Cursor AI"
+    detect:
+      - ".cursor/rules/"
+      - ".cursorrules"
+    config_format: "mdc (markdown + YAML frontmatter)"
+    scope: "project"
+    adapter_file: "adapters/cursor.md"
+    
+  windsurf:
+    name: "Windsurf / Codeium"
+    detect:
+      - ".windsurf/rules/"
+      - ".windsurfrules"
+    config_format: "markdown"
+    scope: "project"
+    adapter_file: "adapters/windsurf.md"
+    
+  claude:
+    name: "Claude Code / Anthropic"
+    detect:
+      - "CLAUDE.md"
+      - ".claude/"
+    config_format: "markdown"
+    scope: "project"
+    adapter_file: "adapters/claude.md"
+    
+  jetbrains:
+    name: "JetBrains AI Assistant"
+    detect:
+      - ".aiassistant/rules/"
+    config_format: "markdown"
+    scope: "project"
+    adapter_file: "adapters/jetbrains.md"
+    
+  copilot:
+    name: "GitHub Copilot"
+    detect:
+      - ".github/copilot/"
+      - "AGENTS.md"
+    config_format: "yaml + markdown"
+    scope: "project"
+    adapter_file: "adapters/copilot.md"
+    
+  antigravity:
+    name: "Antigravity (Google)"
+    detect:
+      - ".agent/workflows/"
+    config_format: "markdown"
+    scope: "global"
+    notes: "Global user-level config, not project-specific"
+    adapter_file: "adapters/antigravity.md"
+    
+  aider:
+    name: "Aider"
+    detect:
+      - ".aider.conf.yml"
+    config_format: "yaml"
+    scope: "project + global"
+    adapter_file: "adapters/aider.md"
+
+# Precedence rules for config resolution
+precedence:
+  description: "When multiple configs exist, use this priority order"
+  order:
+    - ".ai/workflows/"           # 1. Project-specific AI context (HIGHEST)
+    - ".cursor/rules/"           # 2. Agent + project specific
+    - ".windsurf/rules/"
+    - ".claude/"
+    - ".agent/workflows/"        # 3. User-global workflows (LOWEST for project work)
+    - "~/.aider.conf.yml"        # 4. Global configs
+
+# Self-Identification Protocol
+# Agents should follow this process to identify themselves:
+self_identification:
+  description: "How an agent determines which adapter to use"
+  steps:
+    - step: 1
+      action: "Check system prompt or environment"
+      details: "Many agents have identifiers in their system prompt (e.g., 'You are Cursor', 'You are Antigravity')"
+      
+    - step: 2
+      action: "Check for agent-specific directories"
+      details: "Look for detect patterns listed in agents section above"
+      
+    - step: 3
+      action: "If uncertain, ASK THE USER"
+      prompt: |
+        I'm not sure which AI coding assistant I am. Please tell me:
+        - Cursor
+        - Windsurf/Cascade
+        - Claude Code
+        - GitHub Copilot
+        - JetBrains AI
+        - Aider
+        - Antigravity
+        - Other (please specify)
+        
+    - step: 4
+      action: "Fall back to generic.md"
+      details: "If user doesn't know or you're via API, use adapters/generic.md"
+
+# Integration rules
+rules:
+  - name: "Always Read .ai First"
+    description: "Regardless of agent type, always run .ai/workflows/boot.md at session start"
+    
+  - name: "Project Context in .ai Only"
+    description: "Store all project state (MASTER.md, changelog.md) in .ai/context/, never in agent-specific dirs"
+    
+  - name: "Knowledge Stays in .ai"
+    description: "Project learnings go to .ai/knowledge/, not agent memory systems"
+    
+  - name: "Agent Configs for Agent-Specific Features"
+    description: "Use .cursor/rules/ for Cursor-specific features like file globs, but reference .ai/ for content"
