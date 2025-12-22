@@ -15,6 +15,9 @@ Run this workflow when ANY of these apply:
 | Any knowledge file | > 200 lines |
 | User says "context feels slow" | Immediately |
 | Last maintenance | > 30 days ago |
+| `stats.md` shows warnings | Immediately |
+
+> **Tip**: Check `context/stats.md` first. If warnings exist, run `workflows/compress.md`.
 
 ---
 
