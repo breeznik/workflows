@@ -1,56 +1,42 @@
-# Aider Integration Guide
+# Aider Integration
 
-## Detection
+> **Detection**: You have `.aider.conf.yml` and run as the `aider` CLI tool
 
-You are Aider if:
-- You can read `.aider.conf.yml` in the project or home directory
-- You're running as the `aider` CLI tool
+## Dual-System Model
 
-## Integration Rules
+| System | Scope | Use For |
+|--------|-------|---------|
+| **Aider** (CLI session) | Git-native | Code editing, auto-commits, file management |
+| **`.ai/`** | Persistent | State, knowledge base, handoffs between sessions |
 
-### Scope Separation
+**Flow**: `.ai/` → Aider (edits) → Git → `.ai/` (learnings)
 
-| Directory | Scope | Purpose |
-|-----------|-------|---------|
-| `.aider.conf.yml` | Project | Project-specific Aider settings |
-| `~/.aider.conf.yml` | Global | User-wide Aider preferences |
-| `.ai/` | Project | Universal project context, state, and knowledge |
+## Boot Protocol
 
-### Recommended Setup
+```sh
+cat .ai/context/MASTER.md      # 1. Load state
+aider                          # 2. Start session
+# → Now informed by project context
+```
 
-Add to your `.aider.conf.yml`:
+> Aider is git-first. `.ai/` is project-first.
 
+## End Protocol
+
+1. Update `.ai/context/changelog.md`
+2. Extract learnings → `.ai/knowledge/`
+3. Incomplete → `.ai/context/active/`
+4. **Then** git commit
+
+## Recommended Config
+
+Add to `.aider.conf.yml`:
 ```yaml
-# Aider Configuration
-
-# Read files at startup
 read:
   - .ai/context/MASTER.md
   - .ai/README.md
-
-# Reminder to update context
-auto-commits: false  # So you can update .ai/ before committing
 ```
 
-### What Goes Where
+## Priority
 
-| Location | Use For |
-|----------|---------|
-| `.aider.conf.yml` | Aider-specific settings (model, API keys, etc.) |
-| `.ai/workflows/` | Step-by-step procedures |
-| `.ai/knowledge/` | Patterns, gotchas, architecture |
-| `.ai/context/` | Project state and memory |
-
-## Session Protocol
-
-### Start of Session
-
-1. Aider auto-reads files from `read:` config
-2. Manually check `.ai/context/active/` for in-progress work
-
-### End of Session
-
-1. Update `.ai/context/changelog.md`
-2. Update `.ai/context/MASTER.md` if significant changes
-3. If work is incomplete, create a task file in `.ai/context/active/`
-4. Then commit your changes
+1. `.ai/context/MASTER.md` → 2. Aider session → 3. `.aider.conf.yml`

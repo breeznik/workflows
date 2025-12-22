@@ -1,76 +1,39 @@
-# GitHub Copilot Integration Guide
+# GitHub Copilot Integration
 
-## Detection
+> **Detection**: You have `.github/copilot-instructions.md` or `AGENTS.md`
 
-You are GitHub Copilot if:
-- You can read `.github/copilot/` directory
-- You can read `AGENTS.md` in the project root
+## System Model
 
-## Integration Rules
+| System | Scope | Limitation |
+|--------|-------|------------|
+| **Copilot** | File/Tab | Context from *open files only* |
+| **`.ai/`** | Project-wide | Persistent, full codebase context |
 
-### Scope Separation
+**Reality**: Copilot is mostly stateless. `.ai/` fills the gap.
 
-| Directory | Purpose |
-|-----------|---------|
-| `.github/copilot/` | Copilot-specific configuration |
-| `AGENTS.md` | Agent instructions for Copilot Workspace |
-| `.ai/` | Universal project context, state, and knowledge |
+## Boot Protocol
 
-### Recommended Setup
-
-Add to `.github/copilot-instructions.md`:
-
-```markdown
-# Unified Context Protocol
-
-This project follows the Unified Context Protocol.
-
-## Context Sources
-
-- Project state: `.ai/context/MASTER.md`
-- Active tasks: `.ai/context/active/`
-- Workflows: `.ai/workflows/`
-- Knowledge: `.ai/knowledge/`
-
-## Session Protocol
-
-Always read `MASTER.md` before starting work.
-Update `changelog.md` after making changes.
+```sh
+cat .ai/context/MASTER.md      # Load project state
+# → Copilot now has project-level awareness
 ```
 
-For Copilot Workspace, add to `AGENTS.md`:
+> Copilot sees files. `.ai/` sees the *project*.
 
-```markdown
-# Agent Instructions
-
-## Context System
-
-This project uses `.ai/` for all context management.
-
-Read `.ai/context/MASTER.md` to understand current state.
-Check `.ai/context/active/` for in-progress work.
-Follow workflows in `.ai/workflows/`.
-```
-
-### What Goes Where
-
-| Location | Use For |
-|----------|---------|
-| `.github/copilot/` | Copilot-specific settings |
-| `AGENTS.md` | High-level agent instructions |
-| `.ai/workflows/` | Step-by-step procedures |
-| `.ai/knowledge/` | Patterns, gotchas, architecture |
-| `.ai/context/` | Project state and memory |
-
-## Session Protocol
-
-### Start of Session
-
-1. Run `.ai/workflows/boot.md`
-2. Apply any Copilot-specific configuration
-
-### End of Session
+## End Protocol
 
 1. Update `.ai/context/changelog.md`
-2. Update `.ai/context/MASTER.md` if significant changes
-3. If work is incomplete, create a task file in `.ai/context/active/`
+2. Document patterns → `.ai/knowledge/patterns.md`
+3. Incomplete → `.ai/context/active/`
+
+## Recommended Setup
+
+Add to `.github/copilot-instructions.md`:
+```markdown
+Always read `.ai/context/MASTER.md` for project state.
+Update `.ai/context/changelog.md` after edits.
+```
+
+## Priority
+
+1. `.ai/context/MASTER.md` → 2. Open tabs → 3. `.github/copilot-instructions.md`

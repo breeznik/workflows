@@ -1,74 +1,41 @@
-# Claude Code Integration Guide
+# Claude Integration
 
-## Detection
+> **Detection**: You have access to Projects, Artifacts, and contextual chat
 
-You are Claude Code if:
-- You can read `CLAUDE.md` in the project root
-- You have access to `.claude/commands/` directory
+## Dual-System Model
 
-## Integration Rules
+| System | Scope | Use For |
+|--------|-------|---------|
+| **Claude Artifacts/Chat** | Conversation | Drafts, brainstorming, ephemeral planning |
+| **`.ai/`** | Permanent | Finalized state, knowledge, handoff instructions |
 
-### Scope Separation
+**Flow**: `.ai/` → Conversation → Artifact (draft) → `.ai/` (commit)
 
-| Directory | Purpose |
-|-----------|---------|
-| `CLAUDE.md` | Project-level instructions for Claude |
-| `.claude/commands/` | Custom slash commands |
-| `.ai/` | Universal project context, state, and knowledge |
+## Boot Protocol
 
-### Recommended Setup
-
-Add this to your `CLAUDE.md`:
-
-```markdown
-# Project Context
-
-This project uses the Unified Context Protocol. 
-
-## Before Any Work
-
-1. Read `.ai/context/MASTER.md` for current project state
-2. Check `.ai/context/active/` for in-progress work
-3. Follow workflows in `.ai/workflows/`
-
-## After Work
-
-1. Update `.ai/context/changelog.md` with changes
-2. Update `.ai/context/MASTER.md` if significant
-3. Create task file in `.ai/context/active/` if incomplete
-
-## Important
-
-Use `.ai/` for all project context. Do not rely on conversation memory alone.
+```sh
+cat .ai/context/MASTER.md      # 1. Ground in reality
+ls .ai/context/active/         # 2. Check for handoffs
+# → Start conversation informed by truth
 ```
 
-### Custom Commands
+> Conversation is for thinking. `.ai/` is for remembering.
 
-Create `.claude/commands/boot.md`:
+## End Protocol
+
+1. **Distill from conversation**: What's permanent?
+2. Update `.ai/context/changelog.md`
+3. Save insights → `.ai/knowledge/learnings.md`
+4. Incomplete → `.ai/context/active/`
+
+## Recommended CLAUDE.md
 
 ```markdown
-Read .ai/context/MASTER.md and .ai/context/active/ to load project state.
+# Context Protocol
+Read `.ai/context/MASTER.md` at session start.
+Write permanent learnings to `.ai/knowledge/`.
 ```
 
-### What Goes Where
+## Priority
 
-| Location | Use For |
-|----------|---------|
-| `CLAUDE.md` | High-level project instructions |
-| `.claude/commands/` | Reusable slash commands |
-| `.ai/workflows/` | Step-by-step procedures |
-| `.ai/knowledge/` | Patterns, gotchas, architecture decisions |
-| `.ai/context/` | Project state and memory |
-
-## Session Protocol
-
-### Start of Session
-
-1. Run `.ai/workflows/boot.md` (or `/boot` command)
-2. Read any Claude-specific instructions from `CLAUDE.md`
-
-### End of Session
-
-1. Update `.ai/context/changelog.md`
-2. Update `.ai/context/MASTER.md` if significant changes
-3. If work is incomplete, create a task file in `.ai/context/active/`
+1. `.ai/context/MASTER.md` → 2. Conversation → 3. `CLAUDE.md` → 4. `.ai/workflows/`

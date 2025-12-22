@@ -1,56 +1,38 @@
-# Generic LLM Integration Guide
+# Generic LLM Integration
 
-## Detection
+> **Detection**: No agent-specific config. Running via API, chat, or simple CLI.
 
-You are a generic LLM if:
-- You don't have access to any agent-specific directories
-- You're running via API, chat interface, or a tool without its own config system
+## System Model
 
-## Integration Rules
+**Reality**: You are stateless. `.ai/` is your only memory.
 
-You should use `.ai/` exclusively for all context management:
+| System | Scope |
+|--------|-------|
+| **You** | This session only |
+| **`.ai/`** | Forever |
 
-| Purpose | Location |
-|---------|----------|
-| Project state | `.ai/context/MASTER.md` |
-| Change tracking | `.ai/context/changelog.md` |
-| In-progress work | `.ai/context/active/` |
-| Workflows | `.ai/workflows/` |
-| Learnings | `.ai/knowledge/` |
+## Boot Protocol
 
-## Session Protocol
-
-### Start of Session
-
-```bash
-# Load project state
-cat .ai/context/MASTER.md
-
-# Check for in-progress work
-ls .ai/context/active/
+```sh
+cat .ai/context/MASTER.md      # Load truth
+ls .ai/context/active/         # Check handoffs
 ```
 
-### During Session
+> You forget. `.ai/` remembers.
 
-- Follow workflows in `.ai/workflows/` for structured tasks
-- Store any patterns or learnings in `.ai/knowledge/`
-- Use `.ai/context/active/` for task tracking
+## End Protocol
 
-### End of Session
+1. Update `.ai/context/changelog.md`
+2. Save insights → `.ai/knowledge/learnings.md`
+3. Incomplete → `.ai/context/active/handoff-[date].md`
 
-```bash
-# Update changelog
-echo "## $(date)" >> .ai/context/changelog.md
-echo "- [Your changes here]" >> .ai/context/changelog.md
-```
+## For API Users
 
-1. Update `.ai/context/MASTER.md` if significant changes
-2. If work is incomplete, create a task file in `.ai/context/active/`
+If integrating via API:
+1. **System prompt**: Include `.ai/context/MASTER.md`
+2. **After session**: Write back to `.ai/`
+3. **Structured output**: Request changelog format
 
-## Tips for API Users
+## Priority
 
-If you're using an LLM via API (OpenAI, Anthropic, etc.):
-
-1. **Include context in system prompt**: Read `.ai/context/MASTER.md` and include it
-2. **Persist changes**: After each session, update the relevant `.ai/` files
-3. **Use structured output**: Ask the LLM to output changelog entries in a consistent format
+1. `.ai/context/MASTER.md` → 2. `.ai/workflows/` → 3. Session input

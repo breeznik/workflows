@@ -1,58 +1,41 @@
-# Windsurf / Codeium Integration Guide
+# Windsurf Integration
 
-## Detection
+> **Detection**: You have Cascade memory and `.windsurf/rules/`
 
-You are Windsurf/Cascade if:
-- You can read `.windsurf/rules/` or `.windsurfrules`
-- You have access to Cascade-specific features
+## Dual-System Model
 
-## Integration Rules
+| System | Scope | Use For |
+|--------|-------|---------|
+| **Cascade** (Windsurf memory) | Session | Real-time flow, chat history, ephemeral insights |
+| **`.ai/`** | Persistent | Permanent state, knowledge base, handoffs |
 
-### Scope Separation
+**Flow**: `.ai/` → Cascade (work) → Cascade → `.ai/` (commit learnings)
 
-| Directory | Purpose |
-|-----------|---------|
-| `.windsurf/rules/` | Windsurf-specific rules and preferences |
-| `.ai/` | Universal project context, state, and knowledge |
+## Boot Protocol
 
-### Recommended Setup
-
-Add to your Cascade Rules:
-
-```
-CRITICAL: This project uses the Unified Context Protocol.
-
-ON SESSION START:
-- Read .ai/README.md and .ai/context/MASTER.md immediately
-- Check .ai/context/active/ for in-progress work
-
-THROUGHOUT SESSION:
-- Use .ai/ for all task tracking (not internal memory)
-- Update .ai/context/changelog.md with changes
-
-ON SESSION END:
-- Update .ai/context/MASTER.md if significant changes made
-- Create task file in .ai/context/active/ if work incomplete
+```sh
+cat .ai/context/MASTER.md      # 1. Load project truth
+ls .ai/context/active/         # 2. Check for handoffs
+# → Cascade now has full context
 ```
 
-### What Goes Where
+> Cascade is brilliant for the session. `.ai/` is the transcript.
 
-| Location | Use For |
-|----------|---------|
-| `.windsurf/rules/` | Windsurf-specific behavior rules |
-| `.ai/workflows/` | Step-by-step procedures for features, bugfixes, refactors |
-| `.ai/knowledge/` | Patterns, gotchas, architecture decisions |
-| `.ai/context/` | Project state and memory |
+## End Protocol
 
-## Session Protocol
+1. **Extract from Cascade**: What did I learn?
+2. Update `.ai/context/changelog.md`
+3. Update `.ai/knowledge/learnings.md` (session insights)
+4. Incomplete → `.ai/context/active/`
 
-### Start of Session
+## Recommended Rule
 
-1. Run `.ai/workflows/boot.md`
-2. Apply any Windsurf-specific rules
+Add to `.windsurf/rules`:
+```
+ON BOOT: Read .ai/context/MASTER.md
+ON END: Sync learnings to .ai/knowledge/
+```
 
-### End of Session
+## Priority
 
-1. Update `.ai/context/changelog.md`
-2. Update `.ai/context/MASTER.md` if significant changes
-3. If work is incomplete, create a task file in `.ai/context/active/`
+1. `.ai/context/MASTER.md` → 2. Cascade → 3. `.windsurf/rules/` → 4. `.ai/workflows/`
