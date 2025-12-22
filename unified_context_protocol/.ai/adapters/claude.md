@@ -1,41 +1,39 @@
-# Claude Integration
+# Claude
 
-> **Detection**: You have access to Projects, Artifacts, and contextual chat
+> Detect: Artifacts + conversation
 
-## Dual-System Model
+## Model
 
-| System | Scope | Use For |
-|--------|-------|---------|
-| **Claude Artifacts/Chat** | Conversation | Drafts, brainstorming, ephemeral planning |
-| **`.ai/`** | Permanent | Finalized state, knowledge, handoff instructions |
+| System | Use |
+|--------|-----|
+| Conversation | Thinking |
+| `.ai/` | Memory |
 
-**Flow**: `.ai/` → Conversation → Artifact (draft) → `.ai/` (commit)
+Flow: `.ai/` → Chat → `.ai/`
 
-## Boot Protocol
+## Boot
 
 ```sh
-cat .ai/context/MASTER.md      # 1. Ground in reality
-ls .ai/context/active/         # 2. Check for handoffs
-# → Start conversation informed by truth
+cat .ai/context/MASTER.md
+ls .ai/context/active/
 ```
 
-> Conversation is for thinking. `.ai/` is for remembering.
+## End
 
-## End Protocol
+```sh
+# Distill permanent insights
+echo "learnings" >> .ai/knowledge/learnings.md
+echo "changes" >> .ai/context/changelog.md
+```
 
-1. **Distill from conversation**: What's permanent?
-2. Update `.ai/context/changelog.md`
-3. Save insights → `.ai/knowledge/learnings.md`
-4. Incomplete → `.ai/context/active/`
+## Setup
 
-## Recommended CLAUDE.md
-
+`CLAUDE.md`:
 ```markdown
-# Context Protocol
-Read `.ai/context/MASTER.md` at session start.
-Write permanent learnings to `.ai/knowledge/`.
+Read `.ai/context/MASTER.md` on boot.
+Write learnings to `.ai/knowledge/`.
 ```
 
 ## Priority
 
-1. `.ai/context/MASTER.md` → 2. Conversation → 3. `CLAUDE.md` → 4. `.ai/workflows/`
+MASTER → Conversation → CLAUDE.md

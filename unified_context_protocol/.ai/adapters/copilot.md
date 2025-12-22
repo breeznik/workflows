@@ -1,39 +1,37 @@
-# GitHub Copilot Integration
+# Copilot
 
-> **Detection**: You have `.github/copilot-instructions.md` or `AGENTS.md`
+> Detect: `.github/copilot-instructions.md`
 
-## System Model
+## Model
 
-| System | Scope | Limitation |
-|--------|-------|------------|
-| **Copilot** | File/Tab | Context from *open files only* |
-| **`.ai/`** | Project-wide | Persistent, full codebase context |
+| System | Limit |
+|--------|-------|
+| Copilot | Tab context only |
+| `.ai/` | Full project |
 
-**Reality**: Copilot is mostly stateless. `.ai/` fills the gap.
+Reality: Copilot is stateless. `.ai/` fills gap.
 
-## Boot Protocol
+## Boot
 
 ```sh
-cat .ai/context/MASTER.md      # Load project state
-# → Copilot now has project-level awareness
+cat .ai/context/MASTER.md
 ```
 
-> Copilot sees files. `.ai/` sees the *project*.
+## End
 
-## End Protocol
+```sh
+echo "changes" >> .ai/context/changelog.md
+echo "patterns" >> .ai/knowledge/patterns.md
+```
 
-1. Update `.ai/context/changelog.md`
-2. Document patterns → `.ai/knowledge/patterns.md`
-3. Incomplete → `.ai/context/active/`
+## Setup
 
-## Recommended Setup
-
-Add to `.github/copilot-instructions.md`:
+`.github/copilot-instructions.md`:
 ```markdown
-Always read `.ai/context/MASTER.md` for project state.
+Read `.ai/context/MASTER.md` for state.
 Update `.ai/context/changelog.md` after edits.
 ```
 
 ## Priority
 
-1. `.ai/context/MASTER.md` → 2. Open tabs → 3. `.github/copilot-instructions.md`
+MASTER → Open tabs → copilot-instructions

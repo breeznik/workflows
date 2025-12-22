@@ -1,38 +1,32 @@
-# Generic LLM Integration
+# Generic LLM
 
-> **Detection**: No agent-specific config. Running via API, chat, or simple CLI.
+> Detect: No agent config. API/chat/CLI.
 
-## System Model
+## Reality
 
-**Reality**: You are stateless. `.ai/` is your only memory.
+You are stateless. `.ai/` is your only memory.
 
-| System | Scope |
-|--------|-------|
-| **You** | This session only |
-| **`.ai/`** | Forever |
-
-## Boot Protocol
+## Boot
 
 ```sh
-cat .ai/context/MASTER.md      # Load truth
-ls .ai/context/active/         # Check handoffs
+cat .ai/context/MASTER.md
+ls .ai/context/active/
 ```
 
-> You forget. `.ai/` remembers.
+## End
 
-## End Protocol
+```sh
+echo "changes" >> .ai/context/changelog.md
+echo "insights" >> .ai/knowledge/learnings.md
+# Create handoff if incomplete
+```
 
-1. Update `.ai/context/changelog.md`
-2. Save insights → `.ai/knowledge/learnings.md`
-3. Incomplete → `.ai/context/active/handoff-[date].md`
+## API Integration
 
-## For API Users
-
-If integrating via API:
-1. **System prompt**: Include `.ai/context/MASTER.md`
-2. **After session**: Write back to `.ai/`
-3. **Structured output**: Request changelog format
+1. System prompt: Include MASTER.md
+2. After session: Write to `.ai/`
+3. Structured output: Changelog format
 
 ## Priority
 
-1. `.ai/context/MASTER.md` → 2. `.ai/workflows/` → 3. Session input
+MASTER → workflows → Session input
