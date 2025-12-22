@@ -28,3 +28,4 @@
 - Add to `changelog.md`
 - Update `context/tech.md` if new patterns introduced
 - Add to `knowledge/decisions.md` if significant
+- Add to `knowledge/learnings.md` if something worked/failed unexpectedly

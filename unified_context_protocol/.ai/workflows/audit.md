@@ -31,9 +31,10 @@ Update `context/MASTER.md`:
 
 ### 5. Document Knowledge
 Add to `knowledge/` if discovered:
-- Architecture decisions
-- Code patterns
-- Common gotchas
+- Architecture decisions -> `decisions.md`
+- Code patterns -> `patterns.md`
+- Common gotchas -> `gotchas.md`
+- What worked/failed -> `learnings.md`
 
 ## Output
 

@@ -1,7 +1,9 @@
-# Project Context
+# Project Context [TEMPLATE]
 
 > **Read this first.** Updated after every significant change.
 > *[Multi-Project Setup? Check context/map.md]*
+> 
+> ⚠️ This is a template. Replace placeholders after first audit.
 
 ## Current State
 

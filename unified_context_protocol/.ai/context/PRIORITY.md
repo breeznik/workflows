@@ -3,6 +3,15 @@
 > Controls what agents read and when — prevents LLM context overload.
 > Agents MUST respect these priorities to stay within token budgets.
 
+## TL;DR
+
+| Priority | Files | Tokens | When |
+|----------|-------|--------|------|
+| **P0** | MASTER, PRIORITY, adapter | ~2k | Always |
+| **P1** | tech, prefs, patterns | ~3k | Task-based |
+| **P2** | decisions, boundaries | - | On-demand |
+| **P3** | archive | - | Never auto |
+
 ## 📊 Context Budget
 
 | Context Size | Strategy |

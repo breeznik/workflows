@@ -33,3 +33,4 @@
 - Add to `changelog.md`
 - Update `knowledge/patterns.md` if new patterns
 - Document decision in `knowledge/decisions.md`
+- Add to `knowledge/learnings.md` if refactor revealed insights

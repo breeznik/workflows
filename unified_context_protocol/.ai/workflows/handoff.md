@@ -17,9 +17,14 @@
 - Did you learn a new pattern? -> `knowledge/patterns.md`
 - Did you make a big decision? -> `knowledge/decisions.md`
 - Did you hit a trap? -> `knowledge/gotchas.md`
+- Did something work/fail unexpectedly? -> `knowledge/learnings.md`
+- Unsure what you know? -> Update `knowledge/boundaries.md`
 
-### 4. Leave a Note (Optional)
-If there is unfinished work, add a `TODO` section to `context/MASTER.md` for the next agent.
+### 4. Create Handoff Task (if incomplete)
+If work is unfinished:
+1. Create task file in `context/active/`
+2. Include: status, next steps, blockers
+3. Reference relevant files
 
 ## Example Handoff
 "Session complete. Updated changelog with new Auth implementation. Updated MASTER.md to show Auth is now 'Stable'. Added a new pattern for 'Protected Routes' to knowledge/patterns.md."

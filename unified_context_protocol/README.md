@@ -52,8 +52,10 @@ Pre-built SOPs in `workflows/`:
 - `boot.md` — Session startup with context budget
 - `maintenance.md` — Prune and archive context
 - `integrate-agent.md` — Set up your agent config
+- `upgrade.md` — Upgrade existing .ai/ to new version
+- `export.md` — Export all knowledge for migration
 
-### ⚡ Context Budget System (NEW)
+### ⚡ Context Budget System
 Prevents LLM overload with tiered loading:
 
 | Priority | Files | Load When |
@@ -62,11 +64,16 @@ Prevents LLM overload with tiered loading:
 | **P1** | tech, patterns, user-prefs | Based on task |
 | **P2** | decisions, boundaries | On demand |
 
-### 🎓 Agent Learning (NEW)
+### 🎓 Agent Learning
 - `user-prefs.md` — Remembers your coding style
 - `learnings.md` — What worked/failed in this project
 - `boundaries.md` — What agent knows vs. needs to ask
 - `dependencies.md` — External APIs reference
+
+### 🔄 Upgrade & Migration
+- **VERSION** file tracks installed UCP version
+- **upgrade.md** workflow for non-destructive upgrades
+- **export.md** compiles all knowledge to portable document
 
 ---
 

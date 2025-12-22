@@ -1,0 +1,9 @@
+version: "1.1.0"
+installed: 2025-12-22
+last_upgrade: 2025-12-22
+
+# UCP Version Tracking
+# 
+# version: Semantic version of UCP template
+# installed: When this .ai/ was first created
+# last_upgrade: When upgrade.md was last run

@@ -95,6 +95,43 @@ If you use Cursor, Claude, and Antigravity on the same project:
 
 ---
 
+## ⚡ Context Budget (v1.1.0)
+
+Agents use tiered loading to prevent context overload:
+
+| Priority | Files | When |
+|----------|-------|------|
+| **P0** | MASTER.md, PRIORITY.md, adapter | Always |
+| **P1** | tech, patterns, user-prefs | Based on task |
+| **P2** | decisions, boundaries | On demand |
+| **P3** | archive | Never auto-load |
+
+See `context/PRIORITY.md` for full rules.
+
+---
+
+## 🎓 Knowledge Management (v1.1.0)
+
+| File | Purpose |
+|------|---------|
+| `knowledge/learnings.md` | What worked/failed in this project |
+| `knowledge/boundaries.md` | What agent knows vs. needs to ask |
+| `context/user-prefs.md` | Your coding style preferences |
+| `context/dependencies.md` | External APIs reference |
+
+---
+
+## 🔄 Upgrade & Migration (v1.1.0)
+
+| Workflow | Purpose |
+|----------|---------|
+| `workflows/upgrade.md` | Upgrade existing .ai/ to new version |
+| `workflows/export.md` | Export all knowledge for migration |
+
+Check `.ai/VERSION` for current version. See `.ai/CHANGELOG.md` for release notes.
+
+---
+
 ## ❓ FAQ
 
 **Q: Should I commit this folder?**
@@ -102,3 +139,9 @@ A: **YES.** This is the "operating system" for your agents. It must be versioned
 
 **Q: Can I edit files manually?**
 A: Yes. You are the **Architect**; the AI is the **Builder**. You set the plans in `MASTER.md`, and the AI executes them.
+
+**Q: How do I upgrade to a new UCP version?**
+A: Run `workflows/upgrade.md`. It adds new files without overwriting your data.
+
+**Q: How do I export knowledge for migration?**
+A: Run `workflows/export.md`. It compiles everything into `KNOWLEDGE_EXPORT.md`.

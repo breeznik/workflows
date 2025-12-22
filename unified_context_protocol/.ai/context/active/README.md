@@ -41,4 +41,5 @@ If you are hitting context limits, **dump your state here**:
 ### 3. Completion
 1. Update project-specific changelog: `context/projects/[project]/changelog.md`
 2. Update project status: `context/projects/[project]/MASTER.md`
-3. Delete the task file in `active/[project]/`.
+3. Record learnings: `knowledge/learnings.md` (if something worked/failed)
+4. Delete the task file in `active/[project]/`.

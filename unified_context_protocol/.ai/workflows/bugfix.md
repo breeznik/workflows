@@ -32,3 +32,4 @@
 ### 6. Update Context
 - Add to `changelog.md`
 - Add to `knowledge/gotchas.md` if it's a common trap
+- Add to `knowledge/learnings.md` if root cause was unexpected
