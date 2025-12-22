@@ -1,31 +1,79 @@
-# Unified Context Protocol
+# Unified Context Protocol (UCP)
 
-This directory contains the **Unified Context Protocol**, a system for orchestrating AI development across complex, multi-project environments.
+> A drop-in context system that makes AI agents **actually remember** your project.
 
-## Purpose
+## The Problem
 
-The Standard `.ai` structure defined here is not just a template; it is a **Protocol** for:
+AI coding assistants forget everything between sessions. You waste time re-explaining your project, and agents create conflicting work.
 
-1.  **Multi-Project Orchestration**: Managing context across monorepos (e.g., `projects/frontend`, `projects/backend`) while maintaining a unified vision.
-2.  **State Unification**: Bringing together architectural decisions, technical constraints, and active task states into a single, queryable interface.
-3.  **Agent Governance**: Defining standardized workflows (`workflows/audit.md`, `workflows/refactor.md`) to ensure consistent AI behavior.
+## The Solution
 
-## Contents
+Drop `.ai/` into your project. Agents automatically discover it, load project state, and coordinate with each other.
 
-- **`.ai/`**: The implementation of the protocol.
-    - **`context/projects/`**: The dedicated space for scoped sub-project contexts.
-    - **`context/active/`**: A synchronization layer for locking active tasks to prevent agent collisions.
-    - **`workflows/`**: Standard Operating Procedures (SOPs) ensuring repeatable success.
+---
 
-## Usage
+## ✨ Features
 
-To adopt this protocol:
+### 🚀 Boot Protocol
+Agents automatically run a startup checklist:
+1. Load `MASTER.md` — current project state
+2. Check `context/active/` — pick up where the last agent left off
+3. Read their adapter — agent-specific integration rules
 
-1.  **Deploy**: Copy `.ai` to your root.
-2.  **Configure**: adapting `context/map.md` to define your project boundaries.
-3.  **Orchestrate**: Use the defined workflows to guide agents through complex, multi-step tasks.
+### 🔌 Multi-Agent Support
+Works with **8 AI coding assistants** out of the box:
 
-## Documentation
+| Agent | Adapter |
+|-------|---------|
+| Cursor | `adapters/cursor.md` |
+| Windsurf | `adapters/windsurf.md` |
+| Claude Code | `adapters/claude.md` |
+| Antigravity | `adapters/antigravity.md` |
+| GitHub Copilot | `adapters/copilot.md` |
+| JetBrains AI | `adapters/jetbrains.md` |
+| Aider | `adapters/aider.md` |
+| Generic LLM | `adapters/generic.md` |
 
-For a deep dive into the protocol's mechanics, see the [User Guide](USER_GUIDE.md).
+### 🤝 Session Handoffs
+When work is incomplete, agents save state to `context/active/`. Next session picks it up — even if it's a different agent.
+
+### 📂 Monorepo Ready
+Define sub-projects in `context/map.md`. Each gets its own scoped context while sharing the global knowledge base.
+
+### 🧠 Knowledge Persistence
+Patterns, gotchas, and decisions go in `knowledge/`. Agents can learn and remember across sessions.
+
+### 📋 Standardized Workflows
+Pre-built SOPs in `workflows/`:
+- `audit.md` — Initial project discovery
+- `feature.md` — Adding new features
+- `bugfix.md` — Fixing issues
+- `refactor.md` — Code improvements
+- `boot.md` — Session startup
+- `integrate-agent.md` — Set up your agent config
+
+---
+
+## 🚀 Quick Start
+
+```bash
+# 1. Copy .ai to your project
+cp -r unified_context_protocol/.ai /path/to/your/project/
+
+# 2. Run the audit workflow
+# Tell your agent: "Read .ai/workflows/audit.md and audit this project"
+
+# 3. Done! Agent now has persistent context
+```
+
+---
+
+## 📖 Documentation
+
+| Resource | Description |
+|----------|-------------|
+| [User Guide](USER_GUIDE.md) | Detailed setup and usage for humans |
+| [.ai/README.md](.ai/README.md) | Agent entry point (boot protocol, structure) |
+| [.ai/workflows/integrate-agent.md](.ai/workflows/integrate-agent.md) | Set up your agent to auto-discover UCP |
+
 
