@@ -1,6 +1,15 @@
 # Workflow: Project Audit
 
-> **Trigger**: First time setup || Periodic Health Check
+> **Trigger**: First time setup || Periodic Health Check || Post-Version Upgrade
+
+## 0. Reference Integrity (Safety Layer)
+
+```pseudo
+SCAN all_files:
+  Grep for ".ai/workflows/", ".ai/adapters/", ".ai/VERSION"
+  IF count > 0:
+    FAIL "Legacy pathing detected. Run upgrade.md or manual fix required."
+```
 
 ## 1. Discovery Phase
 

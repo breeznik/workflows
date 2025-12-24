@@ -19,7 +19,7 @@
 # Read at EVERY session start
 .ai/context/MASTER.md         # Project state
 .ai/context/PRIORITY.md       # This file
-.ai/adapters/[agent].md       # Tool-specific rules
+.ai/bin/adapters/[agent].md       # Tool-specific rules
 ```
 
 **Max**: 1,200 tokens total

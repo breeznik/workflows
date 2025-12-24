@@ -5,8 +5,8 @@
 ## 1. Version Handshake
 
 ```pseudo
-LOCAL_VER = READ "./.ai/VERSION"
-CHORE_VER = READ "template://.ai/VERSION"
+LOCAL_VER = READ "./.ai/bin/VERSION"
+CHORE_VER = READ "template://.ai/bin/VERSION"
 
 IF LOCAL_VER == CHORE_VER:
   EXIT "UCP is already up to date (v${LOCAL_VER})."
@@ -53,7 +53,7 @@ safe_patch("./.ai/README.md", "template://.ai/README.md")
 
 ```pseudo
 // Sync version file
-WRITE CHORE_VER TO "./.ai/VERSION"
+WRITE CHORE_VER TO "./.ai/bin/VERSION"
 APPEND to "./.ai/CHANGELOG.md": "[${DATE}] - Upgraded UCP to v${CHORE_VER}"
 
 LOG "Upgrade complete. System is now v${CHORE_VER}."

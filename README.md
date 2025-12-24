@@ -6,9 +6,9 @@ This directory contains various workflows for working with AI agents. These work
 
 ### Core Protocols
 
-- [`Unified Context Protocol`](./unified_context_protocol/README.md)
+- [`Unified Context Protocol v2.0`](./unified_context_protocol/README.md)
   ```text
-  A system for orchestrating AI development across complex, multi-project environments.
+  A deterministic, high-performance context system with separated bin/ engine and data.
   ```
 
 ## Contributing

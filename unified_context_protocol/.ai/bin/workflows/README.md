@@ -16,8 +16,8 @@
 
 ## Workflow Protocol
 
-1. **Read** `context/MASTER.md` first
+1. **Read** `.ai/context/MASTER.md` first
 2. **Follow** the relevant workflow
-3. **Update** `context/changelog.md` when done
-4. **Update** `context/MASTER.md` if state changed
-5. **Add** learnings to `knowledge/` if applicable
+3. **Update** `.ai/context/changelog.md` when done
+4. **Update** `.ai/context/MASTER.md` if state changed
+5. **Add** learnings to `.ai/knowledge/` if applicable

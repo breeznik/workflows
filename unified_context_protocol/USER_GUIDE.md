@@ -17,7 +17,7 @@ cp -r workflows/unified_context_protocol/.ai /path/to/your/project/
 
 ### 2. Initialization
 Ask your AI agent:
-> "Read `.ai/workflows/audit.md` and run an initial audit of this project to populate the unified context."
+> "Read `.ai/bin/workflows/audit.md` and run an initial audit of this project to populate the unified context."
 
 ### 3. Verification
 Check that `context/MASTER.md` and `context/tech.md` have been correctly populated.
@@ -75,14 +75,14 @@ The `.ai/` system works with any AI coding assistant. The `adapters/` directory 
 
 | Agent | Adapter File |
 |-------|--------------|
-| Cursor | `.ai/adapters/cursor.md` |
-| Windsurf | `.ai/adapters/windsurf.md` |
-| Claude Code | `.ai/adapters/claude.md` |
-| Antigravity | `.ai/adapters/antigravity.md` |
-| GitHub Copilot | `.ai/adapters/copilot.md` |
-| JetBrains AI | `.ai/adapters/jetbrains.md` |
-| Aider | `.ai/adapters/aider.md` |
-| Generic LLM | `.ai/adapters/generic.md` |
+| Cursor | `.ai/bin/adapters/cursor.md` |
+| Windsurf | `.ai/bin/adapters/windsurf.md` |
+| Claude Code | `.ai/bin/adapters/claude.md` |
+| Antigravity | `.ai/bin/adapters/antigravity.md` |
+| GitHub Copilot | `.ai/bin/adapters/copilot.md` |
+| JetBrains AI | `.ai/bin/adapters/jetbrains.md` |
+| Aider | `.ai/bin/adapters/aider.md` |
+| Generic LLM | `.ai/bin/adapters/generic.md` |
 
 ### If You Use Multiple Tools
 
@@ -131,7 +131,7 @@ See `context/PRIORITY.md` for full rules.
 | `workflows/upgrade.md` | Upgrade existing .ai/ to new version |
 | `workflows/export.md` | Export all knowledge for migration |
 
-Check `.ai/VERSION` for current version. See `.ai/CHANGELOG.md` for release notes.
+Check `.ai/bin/VERSION` for current version. See `.ai/CHANGELOG.md` for release notes.
 
 ---
 

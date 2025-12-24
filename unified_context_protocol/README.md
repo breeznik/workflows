@@ -16,23 +16,23 @@ Drop `.ai/` into your project. Agents automatically discover it, load project st
 
 ### 🚀 Boot Protocol
 Agents automatically run a startup checklist:
-1. Load `MASTER.md` — current project state
-2. Check `context/active/` — pick up where the last agent left off
-3. Read their adapter — agent-specific integration rules
+1. Read `.ai/README.md` -> [Pointer] -> `.ai/bin/workflows/boot.md`
+2. Load `MASTER.md` — current project state
+3. Read `.ai/bin/adapters/` — agent-defined integration rules
 
 ### 🔌 Multi-Agent Support
 Works with **8 AI coding assistants** out of the box:
 
 | Agent | Adapter |
 |-------|---------|
-| Cursor | `adapters/cursor.md` |
-| Windsurf | `adapters/windsurf.md` |
-| Claude Code | `adapters/claude.md` |
-| Antigravity | `adapters/antigravity.md` |
-| GitHub Copilot | `adapters/copilot.md` |
-| JetBrains AI | `adapters/jetbrains.md` |
-| Aider | `adapters/aider.md` |
-| Generic LLM | `adapters/generic.md` |
+| Cursor | `bin/adapters/cursor.md` |
+| Windsurf | `bin/adapters/windsurf.md` |
+| Claude Code | `bin/adapters/claude.md` |
+| Antigravity | `bin/adapters/antigravity.md` |
+| GitHub Copilot | `bin/adapters/copilot.md` |
+| JetBrains AI | `bin/adapters/jetbrains.md` |
+| Aider | `bin/adapters/aider.md` |
+| Generic LLM | `bin/adapters/generic.md` |
 
 ### 🤝 Session Handoffs
 When work is incomplete, agents save state to `context/active/`. Next session picks it up — even if it's a different agent.
@@ -44,7 +44,7 @@ Define sub-projects in `context/map.md`. Each gets its own scoped context while 
 Patterns, gotchas, and decisions go in `knowledge/`. Agents can learn and remember across sessions.
 
 ### 📋 Standardized Workflows
-Pre-built SOPs in `workflows/`:
+Pre-built high-perf Pseudo-Code in `bin/workflows/`:
 - `audit.md` — Initial project discovery
 - `feature.md` — Adding new features
 - `bugfix.md` — Fixing issues
@@ -52,7 +52,7 @@ Pre-built SOPs in `workflows/`:
 - `boot.md` — Session startup with context budget
 - `maintenance.md` — Prune and archive context
 - `integrate-agent.md` — Set up your agent config
-- `upgrade.md` — Upgrade existing .ai/ to new version
+- `upgrade.md` — SmartSync non-destructive upgrade
 - `export.md` — Export all knowledge for migration
 
 ### ⚡ Context Budget System
@@ -65,9 +65,9 @@ Prevents LLM overload with tiered loading:
 | **P2** | decisions, boundaries | On demand |
 
 ### 🎓 Agent Learning
-- `user-prefs.md` — Remembers your coding style
+- `user-prefs.md` — Remembers style & Anti-Patterns
 - `learnings.md` — What worked/failed in this project
-- `workflows/learning.md` — Protocol for active context refinement
+- `bin/workflows/learning.md` — Active context refinement loop
 - `boundaries.md` — What agent knows vs. needs to ask
 - `dependencies.md` — External APIs reference
 
@@ -85,7 +85,7 @@ Prevents LLM overload with tiered loading:
 cp -r unified_context_protocol/.ai /path/to/your/project/
 
 # 2. Run the audit workflow
-# Tell your agent: "Read .ai/workflows/audit.md and audit this project"
+# Tell your agent: "Read .ai/bin/workflows/audit.md and audit this project"
 
 # 3. Done! Agent now has persistent context
 ```
@@ -98,6 +98,6 @@ cp -r unified_context_protocol/.ai /path/to/your/project/
 |----------|-------------|
 | [User Guide](USER_GUIDE.md) | Detailed setup and usage for humans |
 | [.ai/README.md](.ai/README.md) | Agent entry point (boot protocol, structure) |
-| [.ai/workflows/integrate-agent.md](.ai/workflows/integrate-agent.md) | Set up your agent to auto-discover UCP |
+| [.ai/bin/workflows/integrate-agent.md](.ai/bin/workflows/integrate-agent.md) | Set up your agent to auto-discover UCP |
 
 
