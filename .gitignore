@@ -1,2 +1,4 @@
 # Ignore root project .ai (personal context, not shareable template)
 /.ai/
+
+VISION_CONTEXT_SYNC.md

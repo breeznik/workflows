@@ -10,6 +10,15 @@ CHORE_VER = READ "template://.ai/VERSION"
 
 IF LOCAL_VER == CHORE_VER:
   EXIT "UCP is already up to date (v${LOCAL_VER})."
+
+## 1.5. Major Version Hook
+
+```pseudo
+IF CHORE_VER.major > LOCAL_VER.major:
+  LOG "🚨 Major version jump detected (v${LOCAL_VER} -> v${CHORE_VER})"
+  RUN ".ai/bin/migrations/v${LOCAL_VER.major}_to_v${CHORE_VER.major}.md"
+  ASSERT migration.success == true
+```
 ```
 
 ## 2. Atomic Workflow Sync (Overwrite Safe)

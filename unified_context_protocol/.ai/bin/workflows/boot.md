@@ -2,7 +2,19 @@
 
 > **Trigger**: Start of every session.
 
-## 1. Context Budget (P0)
+## 0. Format Detection (Evolution Layer)
+
+```pseudo
+// Support future format shifts (e.g., .yaml, .json)
+CONFIG_EXT = SCAN_FOR_EXTENSION(".ai/context/MASTER.*")
+IF CONFIG_EXT != ".md":
+  LOG "🔄 Evolution format detected: ${CONFIG_EXT}"
+  SET state.format = CONFIG_EXT
+ELSE:
+  SET state.format = ".md"
+```
+
+## 1. Load State
 
 ```pseudo
 // Always load these first
