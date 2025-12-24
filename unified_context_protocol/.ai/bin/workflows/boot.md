@@ -32,7 +32,7 @@ MATCH task_type:
     LOAD ".ai/knowledge/learnings.md"
   CASE "feature":
     LOAD ".ai/context/user-prefs.md"
-    LOAD ".ai/workflows/feature.md"
+    LOAD ".ai/bin/workflows/feature.md"
   CASE "external_api":
     LOAD ".ai/context/dependencies.md"
 ```
@@ -53,7 +53,7 @@ FUNCTION end_session():
   UPDATE ".ai/context/changelog.md"
   IF work_complete:
     UPDATE ".ai/context/MASTER.md"
-    RUN ".ai/workflows/learning.md" // Crucial: Capture learnings
+    RUN ".ai/bin/workflows/learning.md" // Crucial: Capture learnings
   ELSE:
-    RUN ".ai/workflows/handoff.md"
+    RUN ".ai/bin/workflows/handoff.md"
 ```

@@ -24,7 +24,7 @@ MATCH observation:
 ## 3. Commit Cycle
 
 ```pseudo
-RUN ".ai/workflows/commit.md" // Batch code + context + knowledge
+RUN ".ai/bin/workflows/commit.md" // Batch code + context + knowledge
 ```
 
 ## 4. Handoff Task (If Incomplete)

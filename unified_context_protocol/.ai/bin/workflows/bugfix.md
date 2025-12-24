@@ -31,5 +31,5 @@
 
 ### 6. Finalize & Commit
 1. **Batch Updates**: Stage fix + `changelog.md` + `knowledge/`.
-2. **Commit**: Run `.ai/workflows/commit.md`.
+2. **Commit**: Run `.ai/bin/workflows/commit.md`.
 

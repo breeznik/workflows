@@ -27,5 +27,5 @@
 ### 5. Finalize & Commit
 1. **Batch Updates**: Stage code changes AND context updates (`tech.md`, `changelog.md`, `learnings.md`) together.
 2. **Review**: Ensure no context files are missing.
-3. **Commit**: Run `.ai/workflows/commit.md`.
+3. **Commit**: Run `.ai/bin/workflows/commit.md`.
 
