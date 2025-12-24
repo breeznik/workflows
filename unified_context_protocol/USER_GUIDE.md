@@ -15,11 +15,16 @@ Copy the `.ai/` folder from this directory into your project root.
 cp -r workflows/unified_context_protocol/.ai /path/to/your/project/
 ```
 
-### 2. Initialization
+### 2. Onboarding (One-Time per Agent)
+Ask your AI agent:
+> "Read `.ai/bin/workflows/onboarding.md` and follow the instructions."
+This ensures your agent has the "Universal Pointer" to always find UCP context.
+
+### 3. Initialization (Per Project)
 Ask your AI agent:
 > "Read `.ai/bin/workflows/audit.md` and run an initial audit of this project to populate the unified context."
 
-### 3. Verification
+### 4. Verification
 Check that `context/MASTER.md` and `context/tech.md` have been correctly populated.
 
 ## 📂 Orchestrating Multi-Project Repos

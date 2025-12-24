@@ -50,6 +50,7 @@ Pre-built high-perf Pseudo-Code in `bin/workflows/`:
 - `bugfix.md` — Fixing issues
 - `refactor.md` — Code improvements
 - `boot.md` — Session startup with context budget
+- `onboarding.md` — One-time agent setup (The "Key")
 - `maintenance.md` — Prune and archive context
 - `integrate-agent.md` — Set up your agent config
 - `upgrade.md` — SmartSync non-destructive upgrade
@@ -84,10 +85,13 @@ Prevents LLM overload with tiered loading:
 # 1. Copy .ai to your project
 cp -r unified_context_protocol/.ai /path/to/your/project/
 
-# 2. Run the audit workflow
+# 2. Run the onboarding workflow (One-time setup)
+# Tell your agent: "Read .ai/bin/workflows/onboarding.md" and follow the instructions.
+
+# 3. Run the audit workflow
 # Tell your agent: "Read .ai/bin/workflows/audit.md and audit this project"
 
-# 3. Done! Agent now has persistent context
+# 4. Done! Agent now has persistent context
 ```
 
 ---

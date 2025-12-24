@@ -7,6 +7,7 @@
 | Workflow | When to Use |
 |----------|-------------|
 | [audit.md](./audit.md) | First session or periodic health check |
+| [onboarding.md](./onboarding.md) | **First time agent setup** (The "Key") |
 | [bugfix.md](./bugfix.md) | Fixing a reported bug |
 | [feature.md](./feature.md) | Adding new functionality |
 | [refactor.md](./refactor.md) | Improving existing code |
