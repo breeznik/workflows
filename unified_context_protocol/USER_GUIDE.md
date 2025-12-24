@@ -41,7 +41,7 @@ For monorepos (e.g., `./frontend`, `./backend`, `./mobile`):
 
 When starting a session, paste this prompt to ground the agent:
 
-> "Check `.ai/README.md` to understand the Unified Protocol, then read `.ai/context/MASTER.md` for the current system state."
+> "Check `.ai/boot.md` to understand the Unified Protocol, then read `.ai/context/MASTER.md` for the current system state."
 
 ## 🧹 Maintenance
 

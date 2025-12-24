@@ -11,8 +11,8 @@ description: Set up your agent to auto-discover .ai/ context system
 Instead of per-project rules, add this to your **Global Agent Instructions**:
 
 ```pseudo
-IF exists(".ai/README.md"):
-  1. READ ".ai/README.md" FIRST (Priority 0)
+IF exists(".ai/boot.md"):
+  1. READ ".ai/boot.md" FIRST (Priority 0)
   2. RUN ".ai/bin/workflows/boot.md"
   3. USE ".ai/" as the only source of truth for project rules.
   4. IGNORE internal agent memory if it contradicts project context.
@@ -22,9 +22,9 @@ IF exists(".ai/README.md"):
 
 | Agent | Config Path | Instructions (Add/Replace) |
 |-------|-------------|----------------------------|
-| **Antigravity** | `~/.agent/workflows/ucp.md` | `Read .ai/README.md and run boot.md` |
-| **Cursor** | `.cursorrules` (Global) | `If .ai exists, follow .ai/README.md` |
-| **Windsurf** | `.windsurf/rules/ai.md` | `Follow .ai/README.md boot protocol` |
+| **Antigravity** | `~/.agent/workflows/ucp.md` | `Read .ai/boot.md and run boot.md` |
+| **Cursor** | `.cursorrules` (Global) | `If .ai exists, follow .ai/boot.md` |
+| **Windsurf** | `.windsurf/rules/ai.md` | `Follow .ai/boot.md boot protocol` |
 | **Claude Code**| `CLAUDE.md` | `Refer to .ai/ for all project rules` |
 
 ## 3. Benefits of Pointer Logic

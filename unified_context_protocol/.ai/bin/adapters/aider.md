@@ -32,7 +32,7 @@ echo "learnings" >> .ai/knowledge/learnings.md
 ```yaml
 read:
   - .ai/context/MASTER.md
-  - .ai/README.md
+  - .ai/boot.md
 ```
 
 ## Priority

@@ -46,7 +46,7 @@ FUNCTION safe_patch(local_file, template_file):
 // Execute for core stateful files
 safe_patch("./.ai/context/user-prefs.md", "template://.ai/context/user-prefs.md")
 safe_patch("./.ai/context/MASTER.md", "template://.ai/context/MASTER.md")
-safe_patch("./.ai/README.md", "template://.ai/README.md")
+safe_patch("./.ai/boot.md", "template://.ai/boot.md")
 ```
 
 ## 4. Housekeeping

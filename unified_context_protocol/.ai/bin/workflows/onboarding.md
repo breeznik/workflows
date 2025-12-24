@@ -19,7 +19,7 @@ Copy the following text and add it to your agent's **global** system instruction
 # The source of truth for ALL context is the ".ai/" directory.
 #
 # RULE:
-# Before starting ANY task, you MUST check for the existence of ".ai/README.md".
+# Before starting ANY task, you MUST check for the existence of ".ai/boot.md".
 # If it exists, read it immediately. It contains the instructions,
 # workflows, and architectural context for this project.
 #
