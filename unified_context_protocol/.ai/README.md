@@ -14,6 +14,7 @@
 | **First Time Setup** | `bin/workflows/onboarding.md` (The "Key") |
 | **A New Feature / Bugfix** | `bin/workflows/README.md` (guides you) |
 | **Committing Changes** | `bin/workflows/commit.md` (atomic commits) |
+| **Saving Progress** | `bin/workflows/sync.md` (dump memory to disk) |
 | **Picking up a shared task** | `context/active/README.md` (check for collisions) |
 
 ## 🚨 Agent Boot Protocol

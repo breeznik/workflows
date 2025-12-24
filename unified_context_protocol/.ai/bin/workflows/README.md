@@ -13,6 +13,7 @@
 | [refactor.md](./refactor.md) | Improving existing code |
 | [maintenance.md](./maintenance.md) | Prune context when files grow large |
 | [handoff.md](./handoff.md) | End of session context transfer |
+| [sync.md](./sync.md) | **Flush RAM to Disk** (Save Checkpoint) |
 | [product-spec.md](./product-spec.md) | Define features from business/sales view |
 
 ## Workflow Protocol

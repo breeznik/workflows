@@ -32,7 +32,12 @@ ELSE:
   READY for_new_instruction
 ```
 
-## 3. Context Loading (P1)
+## 3. Work Execution
+
+> **Rule**: You may use your internal memory/artifacts for speed.
+> **Constraint**: You MUST run `bin/workflows/sync.md` at key checkpoints (Plan Finished, Session End).
+
+## 4. Context Loading (P1)
 
 ```pseudo
 MATCH task_type:
