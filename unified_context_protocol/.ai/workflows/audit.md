@@ -1,41 +1,42 @@
-# Audit Workflow
+# Workflow: Project Audit
 
-> Use this for first session on a project or periodic health checks.
+> **Trigger**: First time setup || Periodic Health Check
 
-## Steps
+## 1. Discovery Phase
 
-### 1. Explore Structure
+```pseudo
+SCAN root_directory:
+  IDENTIFY frameworks, languages, databases
+  IDENTIFY entry_points (main.py, index.js)
+  IDENTIFY key_dependencies (package.json, requirements.txt)
 ```
-List root directory
-List key subdirectories (src/, app/, lib/)
-Identify entry points
+
+## 2. Context Population
+
+```pseudo
+FUNCTION update_context(findings):
+  WRITE to ".ai/context/tech.md":
+    - Frameworks & Versions
+    - Architecture patterns identified
+  
+  WRITE to ".ai/context/MASTER.md":
+    - Current State (Working/Broken)
+    - Active concerns
 ```
 
-### 2. Identify Tech Stack
-- Framework (React, FastAPI, etc.)
-- Database (if any)
-- Auth system (if any)
-- Key dependencies
+## 3. Knowledge Extraction
 
-### 3. Update Context
-Update `context/tech.md` with findings:
-- Frameworks and versions
-- Key file paths
-- Observed patterns
+```pseudo
+IF findings.architecture_decisions:
+  APPEND to ".ai/knowledge/decisions.md"
 
-### 4. Assess State
-Update `context/MASTER.md`:
-- Current state table (working/broken/unknown)
-- Any critical warnings
-- Recent changes if visible in git
+IF findings.code_patterns:
+  APPEND to ".ai/knowledge/patterns.md"
 
-### 5. Document Knowledge
-Add to `knowledge/` if discovered:
-- Architecture decisions -> `decisions.md`
-- Code patterns -> `patterns.md`
-- Common gotchas -> `gotchas.md`
-- What worked/failed -> `learnings.md`
+IF findings.known_issues:
+  APPEND to ".ai/knowledge/gotchas.md"
+```
 
-## Output
+## 4. Final Output
 
-After audit, the context files should be populated enough for any AI to understand the project quickly.
+> "Audit complete. Context populated in `.ai/`. Ready for tasks."

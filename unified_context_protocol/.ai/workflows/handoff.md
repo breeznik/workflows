@@ -1,33 +1,40 @@
-# Handoff Workflow
+# Workflow: Session Handoff
 
-> Use at the end of every session to ensure the next AI picks up exactly where you left off.
+> **Trigger**: End of every session.
 
-## Steps
+## 1. Documentation Update
 
-### 1. Update Changelog
-- Log all significant changes in `context/changelog.md`
-- Use the format: `[YYYY-MM-DD] - [Summary]`
+```pseudo
+FUNCTION sync_documentation():
+  APPEND to ".ai/context/changelog.md": [YYYY-MM-DD] - Summary of changes
+  UPDATE ".ai/context/MASTER.md": current_state, focus, warnings
+```
 
-### 2. Commit & Update Status
-1. **Batch Changes**: Stage your code changes + `context/changelog.md` + `knowledge/`.
-2. **Commit**: Run `.ai/workflows/commit.md`.
-3. **Update Status**: Edit `context/MASTER.md` to reflect new reality.
+## 2. Knowledge Capture
 
-## Example Handoff
-"Session complete. Batched commit `feat(auth): implement login` includes code, changelog, and pattern updates. MASTER.md updated to 'Stable'."
+```pseudo
+MATCH observation:
+  CASE new_habit: UPDATE ".ai/context/user-prefs.md"
+  CASE new_lesson: UPDATE ".ai/knowledge/learnings.md"
+  CASE new_pattern: UPDATE ".ai/knowledge/patterns.md"
+  CASE new_decision: UPDATE ".ai/knowledge/decisions.md"
+  CASE new_trap: UPDATE ".ai/knowledge/gotchas.md"
+```
 
-### 3. Capture Knowledge
-- Did you learn a new pattern? -> `knowledge/patterns.md`
-- Did you make a big decision? -> `knowledge/decisions.md`
-- Did you hit a trap? -> `knowledge/gotchas.md`
-- Did something work/fail unexpectedly? -> `knowledge/learnings.md`
-- Unsure what you know? -> Update `knowledge/boundaries.md`
+## 3. Commit Cycle
 
-### 4. Create Handoff Task (if incomplete)
-If work is unfinished:
-1. Create task file in `context/active/`
-2. Include: status, next steps, blockers
-3. Reference relevant files
+```pseudo
+RUN ".ai/workflows/commit.md" // Batch code + context + knowledge
+```
 
-## Example Handoff
-"Session complete. Updated changelog with new Auth implementation. Updated MASTER.md to show Auth is now 'Stable'. Added a new pattern for 'Protected Routes' to knowledge/patterns.md."
+## 4. Handoff Task (If Incomplete)
+
+```pseudo
+IF work_is_unfinished:
+  CREATE ".ai/context/active/handoff-[task].md"
+  WRITE status, next_steps, blockers, relative_file_paths
+```
+
+## 5. Exit Message
+
+> "Session complete. [Summary of commits]. [Link to handoff task if created]."

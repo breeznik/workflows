@@ -1,76 +1,43 @@
-# Compress Workflow
+# Workflow: Context Compression
 
-> Reduce context bloat. Run monthly or when stats.md shows warnings.
+> **Trigger**: `stats.md` warnings || Knowledge files > 1KB || Subscription to lean context.
 
-## When to Run
+## 1. Metrics Audit
 
-- `stats.md` shows file size warnings
-- Knowledge files exceed 1KB
-- Duplicate entries suspected
-- Before major releases
-
-## Steps
-
-### 1. Measure Current State
-
-```sh
-# Check file sizes
-ls -la .ai/context/*.md
-ls -la .ai/knowledge/*.md
-
-# Update stats.md with current counts
+```pseudo
+SCAN ".ai/context/*.md", ".ai/knowledge/*.md":
+  RECORD file_sizes
+  COMPARE against thresholds in "maintenance.md"
 ```
 
-### 2. Archive Old Entries
+## 2. Archival Logic
 
-```sh
-# Move entries older than 30 days to archive
-# Format: archive/[file]-[date].md
-
-# From learnings.md → archive/learnings-2025-12.md
-# From changelog.md → archive/changelog-2025-12.md
+```pseudo
+FOREACH context_file:
+  IF entries > 30 OR age > 30_days:
+    MOVE old_entries TO ".ai/archive/[file]-YYYY-MM.md"
+    RETAIN last_10_entries IN active_file
 ```
 
-**Keep in active file**: Last 10 entries or 30 days, whichever is less.
+## 3. Deduplication
 
-### 3. Merge Duplicates
-
-Check for overlap between:
-- `patterns.md` ↔ `learnings.md`
-- `gotchas.md` ↔ `learnings.md`
-- `decisions.md` ↔ `patterns.md`
-
-**Rule**: If same concept appears twice, keep in most specific file.
-
-### 4. Compress Verbose Entries
-
-Before:
-```markdown
-### Pattern: Error Handling
-We discovered that when dealing with API errors, the best approach
-is to always wrap calls in try-catch and log the full error object
-including the stack trace for debugging purposes.
+```pseudo
+MATCH overlap:
+  CASE pattern IN learnings: MOVE to "patterns.md", DELETE from "learnings.md"
+  CASE gotcha IN learnings: MOVE to "gotchas.md", DELETE from "learnings.md"
+  CASE decision IN patterns: MOVE to "decisions.md", DELETE from "patterns.md"
 ```
 
-After:
-```markdown
-### Error Handling
-API calls: try-catch + log full error w/ stack.
+## 4. Verbosity Pruning
+
+```pseudo
+FOREACH entry:
+  TRANSFORM prose TO bullet_points
+  REMOVE conversational_fluff
 ```
 
-### 5. Update stats.md
+## 5. Stats Update
 
-```yaml
-last_compress: [DATE]
-before:
-  total_bytes: [X]
-after:
-  total_bytes: [Y]
-savings: [X-Y] bytes ([%]%)
+```pseudo
+WRITE to "stats.md": last_compress, bytes_saved, %_reduction
 ```
-
-## Output
-
-- Archived files in `archive/`
-- Leaner knowledge files
-- Updated `stats.md`

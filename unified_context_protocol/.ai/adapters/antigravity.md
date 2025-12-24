@@ -26,7 +26,8 @@ ls .ai/context/active/         # 2. Check pending work
 1. Update `.ai/context/MASTER.md` (if significant)
 2. Update `.ai/context/changelog.md`
 3. Incomplete work → `.ai/context/active/`
-4. Learnings → `.ai/knowledge/`
+43. Incomplete work → `.ai/context/active/`
+4. Run `workflows/learning.md`
 
 ## Priority
 

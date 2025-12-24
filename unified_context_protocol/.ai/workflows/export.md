@@ -1,183 +1,41 @@
----
-description: Compile all project knowledge into a portable handoff document
----
+# Workflow: Knowledge Export
 
-# Knowledge Export Workflow
+> **Trigger**: Migration || Team Sharing || Project Archive.
 
-> Create a standalone document containing all accumulated project knowledge.
-> Use when migrating, sharing with teams, or archiving.
+## 1. Aggregation Engine
 
----
-
-## Output
-
-Creates `KNOWLEDGE_EXPORT.md` in project root (or specified location).
-
----
-
-## Steps
-
-### 1. Create Export Header
-
-```markdown
-# [Project Name] Knowledge Export
-
-**Generated:** YYYY-MM-DD  
-**UCP Version:** [from VERSION file]  
-**Export Type:** Full / Partial
+```pseudo
+FUNCTION compile_export():
+  INITIALIZE "KNOWLEDGE_EXPORT.md"
+  
+  APPEND header: [Project Name], [Date], [UCP Version]
+  
+  // High-Priority Context
+  APPEND from "MASTER.md": current_status, active_focus, warnings
+  APPEND from "tech.md": stack, paths, patterns
+  
+  // Personalization
+  APPEND from "user-prefs.md": style, tools, habits
+  
+  // Knowledge Base
+  FOREACH file IN ".ai/knowledge/*.md":
+    APPEND content AS section
+  
+  // Active Pipeline
+  APPEND from ".ai/context/active/": all_task_summaries
 ```
 
-### 2. Compile Project State
+## 2. Summary Generation
 
-From `context/MASTER.md`:
-- Current status table
-- Active focus
-- Critical warnings
-
-### 3. Compile Tech Stack
-
-From `context/tech.md`:
-- Frameworks and versions
-- Key file paths
-- Observed patterns
-
-### 4. Compile User Preferences
-
-From `context/user-prefs.md`:
-- Coding style
-- Tool preferences
-- Workflow preferences
-
-### 5. Compile External Dependencies
-
-From `context/dependencies.md`:
-- External APIs with docs links
-- Pinned packages with reasons
-- Integration gotchas
-
-### 6. Compile All Knowledge
-
-From `knowledge/`:
-
-| File | Section Title |
-|------|---------------|
-| patterns.md | Code Patterns |
-| gotchas.md | Known Issues & Gotchas |
-| decisions.md | Architecture Decisions |
-| learnings.md | What Works / What Failed |
-| boundaries.md | Knowledge Boundaries |
-
-### 7. Compile Open Tasks
-
-From `context/active/`:
-- List all active task files
-- Include status and next steps
-
-### 8. Generate Executive Summary
-
-At the top, add:
-- Project health (based on warnings count)
-- Key recommendations
-- Outstanding issues
-
----
-
-## Export Template
-
-```markdown
-# [Project Name] Knowledge Export
-
-**Generated:** YYYY-MM-DD  
-**UCP Version:** 1.1.0
-
----
-
-## Executive Summary
-
-**Health:** 🟢 Good / 🟡 Needs Attention / 🔴 Critical Issues
-
-**Key Points:**
-- [3-5 most important things about this project]
-
-**Outstanding:**
-- [Open tasks or issues]
-
----
-
-## Project State
-
-[Content from MASTER.md]
-
----
-
-## Tech Stack
-
-[Content from tech.md]
-
----
-
-## Code Patterns
-
-[Content from patterns.md]
-
----
-
-## Known Issues & Gotchas
-
-[Content from gotchas.md]
-
----
-
-## Architecture Decisions
-
-[Content from decisions.md]
-
----
-
-## Learnings
-
-### What Works
-[From learnings.md]
-
-### What Failed
-[From learnings.md]
-
----
-
-## User Preferences
-
-[Content from user-prefs.md]
-
----
-
-## External Dependencies
-
-[Content from dependencies.md]
-
----
-
-## Open Tasks
-
-[List from context/active/]
-
----
-
-## Knowledge Boundaries
-
-[Content from boundaries.md]
-
----
-
-*Export complete. This document is self-contained.*
+```pseudo
+GENERATE executive_summary:
+  CALCULATE project_health (warning_count)
+  IDENTIFY key_recommendations (top_3_learnings)
+  LIST outstanding_blockers (active_tasks)
 ```
 
----
+## 3. Output Checklist
 
-## Use Cases
-
-| Scenario | Export Type |
-|----------|-------------|
-| Migrating to new system | Full |
-| Sharing with contractor | Full minus user-prefs |
-| End of project archive | Full |
-| Team onboarding doc | Partial (patterns + tech) |
+- [ ] Self-contained (no external links required)
+- [ ] Exec Summary at top
+- [ ] All knowledge sections included

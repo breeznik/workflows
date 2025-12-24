@@ -67,6 +67,7 @@ Prevents LLM overload with tiered loading:
 ### 🎓 Agent Learning
 - `user-prefs.md` — Remembers your coding style
 - `learnings.md` — What worked/failed in this project
+- `workflows/learning.md` — Protocol for active context refinement
 - `boundaries.md` — What agent knows vs. needs to ask
 - `dependencies.md` — External APIs reference
 

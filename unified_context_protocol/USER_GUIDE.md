@@ -119,6 +119,8 @@ See `context/PRIORITY.md` for full rules.
 | `context/user-prefs.md` | Your coding style preferences |
 | `context/dependencies.md` | External APIs reference |
 
+> **Active Learning Loop**: Agents should run `workflows/learning.md` at the end of sessions to automatically update `user-prefs.md` and `learnings.md` based on your feedback.
+
 ---
 
 ## 🔄 Upgrade & Migration (v1.1.0)

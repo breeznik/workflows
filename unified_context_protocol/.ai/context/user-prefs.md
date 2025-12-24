@@ -24,6 +24,11 @@ type_hints: always       # always | public_only | never
 tests: pytest            # pytest | unittest | jest | vitest
 ```
 
+## 🚫 Anti-Patterns
+> Technologies or patterns the user specifically rejected.
+- *None yet*
+
+
 ## Communication Style
 
 ```yaml
@@ -51,6 +56,17 @@ commits: conventional    # conventional | descriptive | short
 branches: feature/xxx    # feature/xxx | xxx-feature
 pr_size: small           # small (<200 lines) | medium | large
 ```
+
+
+## 🚫 Anti-Patterns
+> Technologies or patterns the user specifically rejected.
+- *None yet*
+
+## 🧠 Learning Strategy
+
+- **Passive**: Observe manual edits to identify style.
+- **Active**: When corrected ("Don't use Lodash"), immediately update `tech.md` / `user-prefs.md`.
+- **Retrospective**: At session end, summarize stylistic learnings.
 
 ---
 
