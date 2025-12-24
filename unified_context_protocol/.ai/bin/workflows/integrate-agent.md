@@ -29,5 +29,5 @@ IF exists(".ai/README.md"):
 
 ## 3. Benefits of Pointer Logic
 - **Zero Config**: Drop `.ai/` into any new project; it works instantly.
-- **Agent Agnostic**: The agent discovers its own adapter in `.ai/adapters/`.
+- **Agent Agnostic**: The agent discovers its own adapter in `.ai/bin/adapters/`.
 - **Version Resilience**: The agent follows the local `boot.md`, ensuring it uses the correct v1.1, v1.2, or future protocols.
