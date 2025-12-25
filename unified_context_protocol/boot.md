@@ -3,6 +3,17 @@
 > **A drop-in documentation system for AI-assisted development.**
 > Agents: Start here.
 
+## 🛠️ Tooling (Optional)
+This protocol is designed to be **Agent-Agnostic**. You can manage these files manually, or use the **ContextAI CLI** for automation.
+
+### Using with ContextAI CLI (Recommended)
+If you are using the CLI (`@contextai-core/cli`), it provides "Bridge Tools" that allow your Agent to self-maintain this context.
+
+- **Initialization**: `npx @contextai-core/cli init`
+- **Maintenance**: `contextai write`, `contextai read`
+
+See `context/CLI_GUIDE.md` for tool instructions if you are using the CLI. If you are using this raw, you can ignore that file.
+
 ## 🧭 Navigation
 
 **Where should you start?**
@@ -21,8 +32,8 @@
 
 **Every session MUST begin with these steps:**
 
-1. `cat .ai/context/MASTER.md` — Load current project state
-2. `ls .ai/context/active/` — Check for in-progress work
+1. `cat context/MASTER.md` — Load current project state
+2. `ls context/active/` — Check for in-progress work
 3. If resuming: Read the active task file and continue
 4. If starting fresh: Read the relevant workflow in `bin/workflows/`
 
@@ -39,8 +50,8 @@
 ## 🏗️ Structure
 
 ```
-.ai/
-├── bin/                  # THE UCP ENGINE (Managed by CLI)
+. (Pack Root)
+├── bin/                  # THE CONTEXT ENGINE (Managed by CLI)
 │   ├── workflows/        # Operating Procedures
 │   ├── adapters/         # Agent Integration
 │   └── VERSION           # System Version
@@ -83,7 +94,7 @@ Before starting work, identify yourself:
    - Aider: `bin/adapters/aider.md`
    - Generic: `bin/adapters/generic.md`
 3. Follow the integration rules in your adapter file
-4. Regardless of agent type, `.ai/` is the source of truth
+4. Regardless of agent type, the pack root is the source of truth
 
 ---
 

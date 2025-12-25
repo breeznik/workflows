@@ -8,7 +8,18 @@ AI coding assistants forget everything between sessions. You waste time re-expla
 
 ## The Solution
 
-Drop `.ai/` into your project. Agents automatically discover it, load project state, and coordinate with each other.
+Install this pack into your project's `.ai/` directory. Agents automatically discover it, load project state, and coordinate with each other.
+
+## 🛠️ Tooling (Optional)
+This protocol is designed to be **Agent-Agnostic**. You can manage these files manually, or use the **ContextAI CLI** for automation.
+
+### Using with ContextAI CLI (Recommended)
+If you are using the CLI (`@contextai-core/cli`), it provides "Bridge Tools" that allow your Agent to self-maintain this context.
+
+- **Initialization**: `npx @contextai-core/cli init`
+- **Maintenance**: `contextai write`, `contextai read`
+
+See `context/CLI_GUIDE.md` for tool instructions if you are using the CLI. If you are using this raw, you can ignore that file.
 
 ---
 
@@ -16,9 +27,9 @@ Drop `.ai/` into your project. Agents automatically discover it, load project st
 
 ### 🚀 Boot Protocol
 Agents automatically run a startup checklist:
-1. Read `.ai/README.md` -> [Pointer] -> `.ai/bin/workflows/boot.md`
-2. Load `MASTER.md` — current project state
-3. Read `.ai/bin/adapters/` — agent-defined integration rules
+1. Read `boot.md` -> [Pointer] -> `bin/workflows/boot.md`
+2. Load `context/MASTER.md` — current project state
+3. Read `bin/adapters/` — agent-defined integration rules
 
 ### 🔌 Multi-Agent Support
 Works with **8 AI coding assistants** out of the box:
@@ -55,6 +66,7 @@ Pre-built high-perf Pseudo-Code in `bin/workflows/`:
 - `integrate-agent.md` — Set up your agent config
 - `upgrade.md` — SmartSync non-destructive upgrade
 - `export.md` — Export all knowledge for migration
+- `sync.md` — Hybrid Sync (Dump memory to disk)
 
 ### ⚡ Context Budget System
 Prevents LLM overload with tiered loading:
@@ -82,17 +94,21 @@ Prevents LLM overload with tiered loading:
 ## 🚀 Quick Start
 
 ```bash
-# 1. Copy .ai to your project
-cp -r unified_context_protocol/.ai /path/to/your/project/
+# 1. Install UCP Pack
+# Manually:
+cp -r * /path/to/your/project/.ai/
+
+# OR via CLI:
+npx contextai install ucp
+```
 
 # 2. Run the onboarding workflow (One-time setup)
-# Tell your agent: "Read .ai/bin/workflows/onboarding.md" and follow the instructions.
+# Tell your agent: "Read bin/workflows/onboarding.md" and follow the instructions.
 
 # 3. Run the audit workflow
-# Tell your agent: "Read .ai/bin/workflows/audit.md and audit this project"
+# Tell your agent: "Read bin/workflows/audit.md and audit this project"
 
 # 4. Done! Agent now has persistent context
-```
 
 ---
 
@@ -101,7 +117,5 @@ cp -r unified_context_protocol/.ai /path/to/your/project/
 | Resource | Description |
 |----------|-------------|
 | [User Guide](USER_GUIDE.md) | Detailed setup and usage for humans |
-| [.ai/README.md](.ai/README.md) | Agent entry point (boot protocol, structure) |
-| [.ai/bin/workflows/integrate-agent.md](.ai/bin/workflows/integrate-agent.md) | Set up your agent to auto-discover UCP |
-
-
+| [boot.md](boot.md) | Agent entry point (boot protocol, structure) |
+| [bin/workflows/integrate-agent.md](bin/workflows/integrate-agent.md) | Set up your agent to auto-discover UCP |

@@ -13,7 +13,7 @@ Instead of per-project rules, add this to your **Global Agent Instructions**:
 ```pseudo
 IF exists(".ai/boot.md"):
   1. READ ".ai/boot.md" FIRST (Priority 0)
-  2. RUN ".ai/bin/workflows/boot.md"
+  2. RUN "bin/workflows/boot.md" from the pack.
   3. USE ".ai/" as the only source of truth for project rules.
   4. IGNORE internal agent memory if it contradicts project context.
 ```

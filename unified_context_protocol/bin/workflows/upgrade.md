@@ -5,8 +5,8 @@
 ## 1. Version Handshake
 
 ```pseudo
-LOCAL_VER = READ "./.ai/bin/VERSION"
-CHORE_VER = READ "template://.ai/bin/VERSION"
+LOCAL_VER = READ "./bin/VERSION"
+CHORE_VER = READ "template://bin/VERSION"
 
 IF LOCAL_VER == CHORE_VER:
   EXIT "UCP is already up to date (v${LOCAL_VER})."
@@ -16,7 +16,7 @@ IF LOCAL_VER == CHORE_VER:
 ```pseudo
 IF CHORE_VER.major > LOCAL_VER.major:
   LOG "🚨 Major version jump detected (v${LOCAL_VER} -> v${CHORE_VER})"
-  RUN ".ai/bin/migrations/v${LOCAL_VER.major}_to_v${CHORE_VER.major}.md"
+  RUN "bin/migrations/v${LOCAL_VER.major}_to_v${CHORE_VER.major}.md"
   ASSERT migration.success == true
 ```
 ```
@@ -24,9 +24,9 @@ IF CHORE_VER.major > LOCAL_VER.major:
 ## 2. Atomic Workflow Sync (Overwrite Safe)
 
 ```pseudo
-FOREACH workflow_file IN "template://.ai/bin/workflows/":
+FOREACH workflow_file IN "template://bin/workflows/":
   // Core pseudo-code logic is always safe to update
-  WRITE template_version TO "./.ai/bin/workflows/${workflow_file.filename}"
+  WRITE template_version TO "./bin/workflows/${workflow_file.filename}"
   LOG "Updated workflow: ${workflow_file.filename}"
 ```
 
@@ -44,24 +44,24 @@ FUNCTION safe_patch(local_file, template_file):
     LOG "Patched ${local_file}: Added section ${section}"
 
 // Execute for core stateful files
-safe_patch("./.ai/context/user-prefs.md", "template://.ai/context/user-prefs.md")
-safe_patch("./.ai/context/MASTER.md", "template://.ai/context/MASTER.md")
-safe_patch("./.ai/boot.md", "template://.ai/boot.md")
+safe_patch("./context/user-prefs.md", "template://context/user-prefs.md")
+safe_patch("./context/MASTER.md", "template://context/MASTER.md")
+safe_patch("./boot.md", "template://boot.md")
 ```
 
 ## 4. Housekeeping
 
 ```pseudo
 // Sync version file
-WRITE CHORE_VER TO "./.ai/bin/VERSION"
-APPEND to "./.ai/CHANGELOG.md": "[${DATE}] - Upgraded UCP to v${CHORE_VER}"
+WRITE CHORE_VER TO "./bin/VERSION"
+APPEND to "./CHANGELOG.md": "[${DATE}] - Upgraded UCP to v${CHORE_VER}"
 
 LOG "Upgrade complete. System is now v${CHORE_VER}."
 ```
 
 ## 5. Verification Checklist
 
-- [ ] All workflows in `.ai/bin/workflows/` match template
+- [ ] All workflows in `bin/workflows/` match template
 - [ ] `user-prefs.md` contains latest section headers
 - [ ] `MASTER.md` contains latest section headers
 - [ ] `VERSION` file reflects the upgrade
