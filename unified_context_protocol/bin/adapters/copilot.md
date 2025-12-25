@@ -7,29 +7,32 @@
 | System | Limit |
 |--------|-------|
 | Copilot | Tab context only |
-| `.ai/` | Full project |
+| `[CONTEXT_ROOT]/` | Full project |
 
-Reality: Copilot is stateless. `.ai/` fills gap.
+Reality: Copilot is stateless. `[CONTEXT_ROOT]/` fills gap.
+
+> **Note**: `[CONTEXT_ROOT]` refers to your installation directory (e.g. `.ai`, `.context`).
 
 ## Boot
 
 ```sh
-cat .ai/context/MASTER.md
+```sh
+cat [CONTEXT_ROOT]/context/MASTER.md
 ```
 
 ## End
 
 ```sh
-echo "changes" >> .ai/context/changelog.md
-echo "patterns" >> .ai/knowledge/patterns.md
+echo "changes" >> [CONTEXT_ROOT]/context/changelog.md
+echo "patterns" >> [CONTEXT_ROOT]/knowledge/patterns.md
 ```
 
 ## Setup
 
 `.github/copilot-instructions.md`:
 ```markdown
-Read `.ai/context/MASTER.md` for state.
-Update `.ai/context/changelog.md` after edits.
+Read `[CONTEXT_ROOT]/context/MASTER.md` for state.
+Update `[CONTEXT_ROOT]/context/changelog.md` after edits.
 ```
 
 ## Priority

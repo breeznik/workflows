@@ -4,25 +4,25 @@
 
 ## What is this?
 
-The `unified_context_protocol` (implemented via the `.ai/` directory) is a **standardized governance layer** between your codebase and AI agents. It does more than just provide context; it allows you to **orchestrate** complex, multi-project workflows by giving agents a structured way to read state, write memory, and follow procedures.
+The `unified_context_protocol` is a **standardized governance layer** between your codebase and AI agents. It does more than just provide context; it allows you to **orchestrate** complex, multi-project workflows by giving agents a structured way to read state, write memory, and follow procedures.
 
 ## 🚀 Setup
 
 ### 1. Installation
-Copy the `.ai/` folder from this directory into your project root.
+Copy the `unified_context_protocol` context folder from this directory into your project root.
 
 ```bash
-cp -r workflows/unified_context_protocol/.ai /path/to/your/project/
+cp -r unified_context_protocol/* /path/to/your/project/context/
 ```
 
 ### 2. Onboarding (One-Time per Agent)
 Ask your AI agent:
-> "Read `.ai/bin/workflows/onboarding.md` and follow the instructions."
+> "Read `bin/workflows/onboarding.md` and follow the instructions."
 This ensures your agent has the "Universal Pointer" to always find UCP context.
 
 ### 3. Initialization (Per Project)
 Ask your AI agent:
-> "Read `.ai/bin/workflows/audit.md` and run an initial audit of this project to populate the unified context."
+> "Read `bin/workflows/audit.md` and run an initial audit of this project to populate the unified context."
 
 ### 4. Verification
 Check that `context/MASTER.md` and `context/tech.md` have been correctly populated.
@@ -31,9 +31,9 @@ Check that `context/MASTER.md` and `context/tech.md` have been correctly populat
 
 For monorepos (e.g., `./frontend`, `./backend`, `./mobile`):
 
-1.  **Define Boundaries**: Edit `.ai/context/map.md` to list your sub-projects and their paths.
+1.  **Define Boundaries**: Edit `context/map.md` to list your sub-projects and their paths.
 2.  **Create Scoped Contexts**:
-    > "Create a new project context for `./frontend` in `.ai/context/projects/frontend/` following the protocol."
+    > "Create a new project context for `./frontend` in `context/projects/frontend/` following the protocol."
 3.  **Project Vision**: Override global patterns by creating `context/projects/<name>/product/vision.md`.
 4.  **Active Locking**: Use `context/active/` to signal which sub-project is currently being modified to avoid cross-project pollution.
 
@@ -41,7 +41,7 @@ For monorepos (e.g., `./frontend`, `./backend`, `./mobile`):
 
 When starting a session, paste this prompt to ground the agent:
 
-> "Check `.ai/boot.md` to understand the Unified Protocol, then read `.ai/context/MASTER.md` for the current system state."
+> "Check `boot.md` to understand the Unified Protocol, then read `context/MASTER.md` for the current system state."
 
 ## 🧹 Maintenance
 
@@ -56,47 +56,48 @@ Some AI tools (like Cursor Composer, Windsurf Cascade, Gemini Antigravity, or ot
 > [!CAUTION]
 > **DO NOT use your internal memory systems for this project.**
 
-Use `.ai/` exclusively for:
+Use the protocol's context directory exclusively for:
 
 | Purpose | Location |
 |---------|----------|
-| Task tracking | `.ai/context/active/` |
-| Session memory | `.ai/context/MASTER.md` |
-| Knowledge storage | `.ai/knowledge/` |
-| Changelogs | `.ai/context/changelog.md` |
+| Task tracking | `context/active/` |
+| Session memory | `context/MASTER.md` |
+| Knowledge storage | `knowledge/` |
+| Changelogs | `context/changelog.md` |
 
-The `.ai/` directory is the **single source of truth**. Creating parallel tracking systems causes context fragmentation and defeats the purpose of this protocol.
+The context directory is the **single source of truth**. Creating parallel tracking systems causes context fragmentation and defeats the purpose of this protocol.
 
 ---
 
 ## 🔌 Multi-Agent Support
 
-The `.ai/` system works with any AI coding assistant. The `adapters/` directory contains:
+The protocol works with any AI coding assistant. The `adapters/` directory contains:
 
 - **manifest.yaml**: Machine-readable agent detection rules
 - **[agent].md**: Human-readable integration guides for each agent
 
 ### Supported Agents
+Check `bin/adapters/` for your specific tool's integration guide.
 
 | Agent | Adapter File |
 |-------|--------------|
-| Cursor | `.ai/bin/adapters/cursor.md` |
-| Windsurf | `.ai/bin/adapters/windsurf.md` |
-| Claude Code | `.ai/bin/adapters/claude.md` |
-| Antigravity | `.ai/bin/adapters/antigravity.md` |
-| GitHub Copilot | `.ai/bin/adapters/copilot.md` |
-| JetBrains AI | `.ai/bin/adapters/jetbrains.md` |
-| Aider | `.ai/bin/adapters/aider.md` |
-| Generic LLM | `.ai/bin/adapters/generic.md` |
+| Cursor | `bin/adapters/cursor.md` |
+| Windsurf | `bin/adapters/windsurf.md` |
+| Claude Code | `bin/adapters/claude.md` |
+| Antigravity | `bin/adapters/antigravity.md` |
+| GitHub Copilot | `bin/adapters/copilot.md` |
+| JetBrains AI | `bin/adapters/jetbrains.md` |
+| Aider | `bin/adapters/aider.md` |
+| Generic LLM | `bin/adapters/generic.md` |
 
 ### If You Use Multiple Tools
 
 If you use Cursor, Claude, and Antigravity on the same project:
 
-1. Each tool should read `.ai/context/MASTER.md` at session start
-2. Each tool should update `.ai/context/changelog.md` at session end
-3. Agent-specific configs (like `.cursor/rules/`) can reference `.ai/` content
-4. All project state stays in `.ai/` — never fragmented across tools
+1. Each tool should read `context/MASTER.md` at session start
+2. Each tool should update `context/changelog.md` at session end
+3. Agent-specific configs (like `.cursor/rules/`) can reference protocol context content
+4. All project state stays in the protocol context — never fragmented across tools
 
 ---
 
@@ -133,10 +134,10 @@ See `context/PRIORITY.md` for full rules.
 | Workflow | Purpose |
 |----------|---------|
 | `workflows/commit.md` | **Smart Commit**: Standardizes atomic git commits (Code + Context) |
-| `workflows/upgrade.md` | Upgrade existing .ai/ to new version |
+| `workflows/upgrade.md` | Upgrade existing context to new version |
 | `workflows/export.md` | Export all knowledge for migration |
 
-Check `.ai/bin/VERSION` for current version. See `.ai/CHANGELOG.md` for release notes.
+Check `bin/VERSION` for current version. See `CHANGELOG.md` for release notes.
 
 ---
 

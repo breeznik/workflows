@@ -7,28 +7,29 @@
 | System | Scope | Use For |
 |--------|-------|---------|
 | **Brain** (`~/.gemini/.../brain/`) | Session | `task.md`, `implementation_plan.md`, `walkthrough.md` |
-| **`.ai/`** | Persistent | `MASTER.md`, `knowledge/`, `active/` handoffs |
+| **`[CONTEXT_ROOT]/`** | Persistent | `MASTER.md`, `knowledge/`, `active/` handoffs |
 
-**Flow**: `.ai/` → Brain (boot) → Brain → `.ai/` (sync)
+**Flow**: `[CONTEXT_ROOT]/` → Brain (boot) → Brain → `[CONTEXT_ROOT]/` (sync)
+
+> **Note**: `[CONTEXT_ROOT]` refers to your installation directory (e.g. `.ai`, `.context`).
 
 ## Boot Protocol
 
 ```sh
-cat .ai/context/MASTER.md      # 1. Load state
-ls .ai/context/active/         # 2. Check pending work
+cat [CONTEXT_ROOT]/context/MASTER.md      # 1. Load state
+ls [CONTEXT_ROOT]/context/active/         # 2. Check pending work
 # → Use brain for session planning
 ```
 
-> `.ai/` is truth. Brain is informed by `.ai/`, not vice versa.
+> `[CONTEXT_ROOT]/` is truth. Brain is informed by `[CONTEXT_ROOT]/`, not vice versa.
 
 ## End Protocol
 
-1. Update `.ai/context/MASTER.md` (if significant)
-2. Update `.ai/context/changelog.md`
-3. Incomplete work → `.ai/context/active/`
-43. Incomplete work → `.ai/context/active/`
+1. Update `[CONTEXT_ROOT]/context/MASTER.md` (if significant)
+2. Update `[CONTEXT_ROOT]/context/changelog.md`
+3. Incomplete work → `[CONTEXT_ROOT]/context/active/`
 4. Run `bin/workflows/learning.md`
 
 ## Priority
 
-1. `.ai/context/MASTER.md` → 2. `.ai/context/active/` → 3. Brain → 4. `.agent/workflows/`
+1. `[CONTEXT_ROOT]/context/MASTER.md` → 2. `[CONTEXT_ROOT]/context/active/` → 3. Brain → 4. `.agent/workflows/`

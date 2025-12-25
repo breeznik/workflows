@@ -8,7 +8,7 @@ AI coding assistants forget everything between sessions. You waste time re-expla
 
 ## The Solution
 
-Install this pack into your project's `.ai/` directory. Agents automatically discover it, load project state, and coordinate with each other.
+Install this pack into your project's context directory (e.g. `.context` or `.doc`). Agents automatically discover it, load project state, and coordinate with each other.
 
 ## 🛠️ Tooling (Optional)
 This protocol is designed to be **Agent-Agnostic**. You can manage these files manually, or use the **ContextAI CLI** for automation.
@@ -96,10 +96,10 @@ Prevents LLM overload with tiered loading:
 ```bash
 # 1. Install UCP Pack
 # Manually:
-cp -r * /path/to/your/project/.ai/
+cp -r * /path/to/your/project/context/
 
 # OR via CLI:
-npx contextai install ucp
+npx contextai install ucp --target ./context
 ```
 
 # 2. Run the onboarding workflow (One-time setup)

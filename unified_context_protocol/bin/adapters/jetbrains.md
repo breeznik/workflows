@@ -7,28 +7,32 @@
 | System | Use |
 |--------|-----|
 | IDE | Syntax/refactor |
-| `.ai/` | Strategy |
+| `[CONTEXT_ROOT]/` | Strategy |
+
+> **Note**: `[CONTEXT_ROOT]` refers to your installation directory (e.g. `.ai`, `.context`).
 
 ## Boot
 
 ```sh
-cat .ai/context/MASTER.md
-ls .ai/context/active/
+```sh
+cat [CONTEXT_ROOT]/context/MASTER.md
+ls [CONTEXT_ROOT]/context/active/
 ```
 
 ## End
 
 ```sh
-echo "changes" >> .ai/context/changelog.md
-echo "refactor patterns" >> .ai/knowledge/patterns.md
+```sh
+echo "changes" >> [CONTEXT_ROOT]/context/changelog.md
+echo "refactor patterns" >> [CONTEXT_ROOT]/knowledge/patterns.md
 ```
 
 ## Setup
 
 `.aiassistant/rules/context.md`:
 ```markdown
-Read `.ai/context/MASTER.md` before work.
-Update `.ai/knowledge/` with insights.
+Read `[CONTEXT_ROOT]/context/MASTER.md` before work.
+Update `[CONTEXT_ROOT]/knowledge/` with insights.
 ```
 
 ## Priority

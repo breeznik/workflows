@@ -7,15 +7,19 @@
 | System | Use |
 |--------|-----|
 | Cascade | Session flow |
-| `.ai/` | Permanent state |
+| Cascade | Session flow |
+| `[CONTEXT_ROOT]/` | Permanent state |
 
-Flow: `.ai/` → Cascade → `.ai/`
+Flow: `[CONTEXT_ROOT]/` → Cascade → `[CONTEXT_ROOT]/`
+
+> **Note**: `[CONTEXT_ROOT]` refers to your installation directory (e.g. `.ai`, `.context`).
 
 ## Boot
 
 ```sh
-cat .ai/context/MASTER.md
-ls .ai/context/active/
+```sh
+cat [CONTEXT_ROOT]/context/MASTER.md
+ls [CONTEXT_ROOT]/context/active/
 # Cascade now grounded
 ```
 
@@ -23,16 +27,16 @@ ls .ai/context/active/
 
 ```sh
 # Extract session learnings
-echo "insights" >> .ai/knowledge/learnings.md
-echo "changes" >> .ai/context/changelog.md
+echo "insights" >> [CONTEXT_ROOT]/knowledge/learnings.md
+echo "changes" >> [CONTEXT_ROOT]/context/changelog.md
 ```
 
 ## Rule
 
 `.windsurf/rules`:
 ```
-ON BOOT: Read .ai/context/MASTER.md
-ON END: Sync to .ai/knowledge/
+ON BOOT: Read [CONTEXT_ROOT]/context/MASTER.md
+ON END: Sync to [CONTEXT_ROOT]/knowledge/
 ```
 
 ## Priority

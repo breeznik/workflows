@@ -8,13 +8,14 @@ description: Set up your agent to auto-discover .ai/ context system
 
 ## 1. Smart Discovery Rule (Universal)
 
-Instead of per-project rules, add this to your **Global Agent Instructions**:
+Instead of per-project rules, add this to your **Global Agent Instructions**.
+Replace `[CONTEXT_ROOT]` with your chosen folder name (e.g. `.context`).
 
 ```pseudo
-IF exists(".ai/boot.md"):
-  1. READ ".ai/boot.md" FIRST (Priority 0)
+IF exists("[CONTEXT_ROOT]/boot.md"):
+  1. READ "[CONTEXT_ROOT]/boot.md" FIRST (Priority 0)
   2. RUN "bin/workflows/boot.md" from the pack.
-  3. USE ".ai/" as the only source of truth for project rules.
+  3. USE "[CONTEXT_ROOT]/" as the only source of truth for project rules.
   4. IGNORE internal agent memory if it contradicts project context.
 ```
 
@@ -22,12 +23,12 @@ IF exists(".ai/boot.md"):
 
 | Agent | Config Path | Instructions (Add/Replace) |
 |-------|-------------|----------------------------|
-| **Antigravity** | `~/.agent/workflows/ucp.md` | `Read .ai/boot.md and run boot.md` |
-| **Cursor** | `.cursorrules` (Global) | `If .ai exists, follow .ai/boot.md` |
-| **Windsurf** | `.windsurf/rules/ai.md` | `Follow .ai/boot.md boot protocol` |
-| **Claude Code**| `CLAUDE.md` | `Refer to .ai/ for all project rules` |
+| **Antigravity** | `~/.agent/workflows/ucp.md` | `Read [CONTEXT_ROOT]/boot.md and run boot.md` |
+| **Cursor** | `.cursorrules` (Global) | `If [CONTEXT_ROOT] exists, follow boot.md` |
+| **Windsurf** | `.windsurf/rules/ai.md` | `Follow [CONTEXT_ROOT]/boot.md boot protocol` |
+| **Claude Code**| `CLAUDE.md` | `Refer to [CONTEXT_ROOT]/ for all project rules` |
 
 ## 3. Benefits of Pointer Logic
-- **Zero Config**: Drop `.ai/` into any new project; it works instantly.
-- **Agent Agnostic**: The agent discovers its own adapter in `.ai/bin/adapters/`.
-- **Version Resilience**: The agent follows the local `boot.md`, ensuring it uses the correct v1.1, v1.2, or future protocols.
+- **Zero Config**: Drop `context/` into any new project; it works instantly.
+- **Agent Agnostic**: The agent discovers its own adapter in `bin/adapters/`.
+- **Version Resilience**: The agent follows the local `boot.md`.

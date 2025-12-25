@@ -10,21 +10,22 @@ You have installed the Unified Context Protocol (UCP). To ensure your AI agent (
 Think of this as a key. You only need to put this key in your agent's pocket *once*, and it will be able to unlock the context for any UCP-enabled project you work on.
 
 ## The Universal Pointer
-Copy the following text and add it to your agent's **global** system instructions (e.g., `.cursorrules` or `Global Custom Instructions`).
+Copy the text below. Replace `[CONTEXT_ROOT]` with your installation directory (e.g. `.context`, `.docs`, `.ai`).
+Add it to your agent's **global** system instructions.
 
 ```text
 # Universal Context Pointer (UCP)
 # -------------------------------
 # This project uses the Unified Context Protocol (UCP).
-# The source of truth for ALL context is the ".ai/" directory.
+# The source of truth for ALL context is the "[CONTEXT_ROOT]/" directory.
 #
 # RULE:
-# Before starting ANY task, you MUST check for the existence of ".ai/boot.md".
+# Before starting ANY task, you MUST check for the existence of "[CONTEXT_ROOT]/boot.md".
 # If it exists, read it immediately. It contains the instructions,
 # workflows, and architectural context for this project.
 #
 # Do NOT rely on hardcoded prompt settings for this project.
-# Delegate all logic to the protocol defined in ".ai/".
+# Delegate all logic to the protocol defined in "[CONTEXT_ROOT]/".
 ```
 
 ## Verification

@@ -7,20 +7,22 @@
 | System | Use |
 |--------|-----|
 | `.cursor/rules/` | File syntax rules |
-| `.ai/` | Project state |
+| `[CONTEXT_ROOT]/` | Project state |
+
+> **Note**: `[CONTEXT_ROOT]` refers to your installation directory (e.g. `.ai`, `.context`).
 
 ## Boot
 
 ```sh
-cat .ai/context/MASTER.md
+cat [CONTEXT_ROOT]/context/MASTER.md
 cat .cursor/rules/*.mdc
-ls .ai/context/active/
+ls [CONTEXT_ROOT]/context/active/
 ```
 
 ## End
 
 ```sh
-echo "changes" >> .ai/context/changelog.md
+echo "changes" >> [CONTEXT_ROOT]/context/changelog.md
 # Update MASTER if significant
 ```
 
@@ -31,7 +33,8 @@ echo "changes" >> .ai/context/changelog.md
 ---
 alwaysApply: true
 ---
-Read `.ai/context/MASTER.md` on boot.
+---
+Read `[CONTEXT_ROOT]/context/MASTER.md` on boot.
 ```
 
 ## Priority

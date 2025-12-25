@@ -7,22 +7,24 @@
 | System | Use |
 |--------|-----|
 | Aider | Git-native edits |
-| `.ai/` | Project memory |
+| `[CONTEXT_ROOT]/` | Project memory |
 
-Flow: `.ai/` → Aider → Git → `.ai/`
+Flow: `[CONTEXT_ROOT]/` → Aider → Git → `[CONTEXT_ROOT]/`
+
+> **Note**: `[CONTEXT_ROOT]` refers to your installation directory (e.g. `.ai`, `.context`).
 
 ## Boot
 
 ```sh
-cat .ai/context/MASTER.md
+cat [CONTEXT_ROOT]/context/MASTER.md
 aider
 ```
 
 ## End
 
 ```sh
-echo "changes" >> .ai/context/changelog.md
-echo "learnings" >> .ai/knowledge/learnings.md
+echo "changes" >> [CONTEXT_ROOT]/context/changelog.md
+echo "learnings" >> [CONTEXT_ROOT]/knowledge/learnings.md
 # Then git commit
 ```
 
@@ -31,8 +33,8 @@ echo "learnings" >> .ai/knowledge/learnings.md
 `.aider.conf.yml`:
 ```yaml
 read:
-  - .ai/context/MASTER.md
-  - .ai/boot.md
+  - [CONTEXT_ROOT]/context/MASTER.md
+  - [CONTEXT_ROOT]/boot.md
 ```
 
 ## Priority

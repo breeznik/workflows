@@ -4,27 +4,31 @@
 
 ## Reality
 
-You are stateless. `.ai/` is your only memory.
+You are stateless. `[CONTEXT_ROOT]/` is your only memory.
+
+> **Note**: `[CONTEXT_ROOT]` refers to your installation directory (e.g. `.ai`, `.context`).
 
 ## Boot
 
 ```sh
-cat .ai/context/MASTER.md
-ls .ai/context/active/
+```sh
+cat [CONTEXT_ROOT]/context/MASTER.md
+ls [CONTEXT_ROOT]/context/active/
 ```
 
 ## End
 
 ```sh
-echo "changes" >> .ai/context/changelog.md
-echo "insights" >> .ai/knowledge/learnings.md
+```sh
+echo "changes" >> [CONTEXT_ROOT]/context/changelog.md
+echo "insights" >> [CONTEXT_ROOT]/knowledge/learnings.md
 # Create handoff if incomplete
 ```
 
 ## API Integration
 
 1. System prompt: Include MASTER.md
-2. After session: Write to `.ai/`
+2. After session: Write to `[CONTEXT_ROOT]/`
 3. Structured output: Changelog format
 
 ## Priority
