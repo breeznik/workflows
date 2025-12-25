@@ -18,11 +18,11 @@ FUNCTION compile_export():
   APPEND from "user-prefs.md": style, tools, habits
   
   // Knowledge Base
-  FOREACH file IN ".ai/knowledge/*.md":
+  FOREACH file IN "[CONTEXT_ROOT]/knowledge/*.md":
     APPEND content AS section
   
   // Active Pipeline
-  APPEND from ".ai/context/active/": all_task_summaries
+  APPEND from "[CONTEXT_ROOT]/context/active/": all_task_summaries
 ```
 
 ## 2. Summary Generation

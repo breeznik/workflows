@@ -5,7 +5,7 @@
 ## 1. Safety Check
 
 ```pseudo
-SNAPSHOT ".ai/context/MASTER.md" TO ".ai/archive/snapshot-YYYY-MM-DD.md"
+SNAPSHOT "[CONTEXT_ROOT]/context/MASTER.md" TO "[CONTEXT_ROOT]/archive/snapshot-YYYY-MM-DD.md"
 ```
 
 ## 2. Pruning Logic
@@ -18,7 +18,7 @@ FOREACH file IN context:
       REMOVE resolved_warnings
     
     CASE "changelog.md":
-      IF entries > 30: MOVE old_entries TO ".ai/archive/changelog-YYYY-MM.md"
+      IF entries > 30: MOVE old_entries TO "[CONTEXT_ROOT]/archive/changelog-YYYY-MM.md"
     
     CASE "knowledge/*.md":
       IF lines > 200: SPLIT or ARCHIVE old_sections
@@ -31,12 +31,12 @@ FOREACH file IN context:
 
 ```pseudo
 FUNCTION validate_learnings():
-  FOREACH entry IN ".ai/knowledge/learnings.md":
+  FOREACH entry IN "[CONTEXT_ROOT]/knowledge/learnings.md":
     IF entry.is_outdated: MOVE TO archive
-    IF entry.is_pattern: MOVE TO ".ai/knowledge/patterns.md"
+    IF entry.is_pattern: MOVE TO "[CONTEXT_ROOT]/knowledge/patterns.md"
 
 FUNCTION validate_prefs():
-  SCAN ".ai/context/user-prefs.md"
+  SCAN "[CONTEXT_ROOT]/context/user-prefs.md"
   IF contradiction_found: ASK user
 ```
 

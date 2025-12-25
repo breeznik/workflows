@@ -6,7 +6,7 @@
 
 ```pseudo
 SCAN all_files:
-  Grep for ".ai/workflows/", ".ai/adapters/", ".ai/VERSION"
+  Grep for "workflows/", "adapters/", "VERSION"
   IF count > 0:
     FAIL "Legacy pathing detected. Run upgrade.md or manual fix required."
 ```
@@ -24,11 +24,11 @@ SCAN root_directory:
 
 ```pseudo
 FUNCTION update_context(findings):
-  WRITE to ".ai/context/tech.md":
+  WRITE to "[CONTEXT_ROOT]/context/tech.md":
     - Frameworks & Versions
     - Architecture patterns identified
   
-  WRITE to ".ai/context/MASTER.md":
+  WRITE to "[CONTEXT_ROOT]/context/MASTER.md":
     - Current State (Working/Broken)
     - Active concerns
 ```
@@ -37,15 +37,15 @@ FUNCTION update_context(findings):
 
 ```pseudo
 IF findings.architecture_decisions:
-  APPEND to ".ai/knowledge/decisions.md"
+  APPEND to "[CONTEXT_ROOT]/knowledge/decisions.md"
 
 IF findings.code_patterns:
-  APPEND to ".ai/knowledge/patterns.md"
+  APPEND to "[CONTEXT_ROOT]/knowledge/patterns.md"
 
 IF findings.known_issues:
-  APPEND to ".ai/knowledge/gotchas.md"
+  APPEND to "[CONTEXT_ROOT]/knowledge/gotchas.md"
 ```
 
 ## 4. Final Output
 
-> "Audit complete. Context populated in `.ai/`. Ready for tasks."
+> "Audit complete. Context populated in `[CONTEXT_ROOT]/`. Ready for tasks."
