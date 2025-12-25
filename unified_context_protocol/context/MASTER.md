@@ -24,11 +24,12 @@
 ## Warning
 
 > [!NOTE]
-> Fresh context. Run [audit](../workflows/audit.md).
+> Fresh- [ ] **Audit**: [Run Audit](../bin/workflows/audit.md)
 
 ## Links
 
-- [Tech](./tech.md) | [Changelog](./changelog.md) | [Workflows](../workflows/) | [Knowledge](../knowledge/)
+- [Tech](./tech.md)
+- [ ] **Sync**: [Run Sync](../bin/workflows/sync.md) | [Changelog](./changelog.md) | [Workflows](../bin/workflows/) | [Knowledge](../knowledge/)
 
 ---
 
