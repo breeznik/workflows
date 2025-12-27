@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unified Context Protocol: The TCP/IP for Agentic Intelligence</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #f9f9f9;
+        }
+
+        article {
+            background: white;
+            padding: 60px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.2em;
+            color: #111;
+        }
+
+        h2 {
+            margin-top: 2.5em;
+            color: #222;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            margin-top: 2em;
+            color: #444;
+            font-weight: 600;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            font-size: 0.9em;
+            color: #d63384;
+        }
+
+        pre {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            padding: 16px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            color: #24292e;
+        }
+
+        .tree-view {
+            font-family: monospace;
+            white-space: pre;
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            line-height: 1.4;
+        }
+
+        blockquote {
+            border-left: 4px solid #007bff;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8faff;
+            color: #555;
+        }
+
+        .mermaid {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+            background: #fff;
+        }
+
+        .author {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 40px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .p0 {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .p1 {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .p2 {
+            background: #f3e5f5;
+            color: #7b1fa2;
+        }
+
+        .cta {
+            background: #007bff;
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .cta pre {
+            background: rgba(0, 0, 0, 0.2);
+            color: white;
+            border: none;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .cta code {
+            background: none;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <article>
+        <h1>Unified Context Protocol: The TCP/IP for Agentic Intelligence</h1>
+        <p class="author">By ContextAI Labs | Engineering Deep Dive</p>
+
+        <hr>
+
+        <p>We are building the internet of agents, but we are missing the networking layer. <strong>Unified Context
+                Protocol (UCP)</strong> is not just a standard documentation format; it is an <strong>Operating System
+                for Agentic State</strong>.</p>
+
+        <p>This technical dive explores the architecture, the kernel logic, and the synchronization protocols that make
+            UCP the standard for persistent AI memory.</p>
+
+        <h2>1. The Problem: "Smart Agents, Dumb Repos"</h2>
+
+        <p>Current AI development suffers from the <strong>Siloed Intelligence Problem</strong>. Context is trapped in
+            proprietary SaaS databases (Cursor's cloud, OpenAI's chat history) rather than living with the code.</p>
+
+        <div class="mermaid">
+            graph TD
+            subgraph "The Silo Model (Current)"
+            A[User] -->|Prompt| Tool1[Cursor Endpoint]
+            A -->|Prompt| Tool2[Copilot Endpoint]
+
+            Tool1 --x|No State Sharing| Tool2
+
+            Tool1 -->|Read-Only| Repo[Codebase]
+            Tool2 -->|Read-Only| Repo
+            end
+
+            style Tool1 fill:#f9f,stroke:#333
+            style Tool2 fill:#bbf,stroke:#333
+        </div>
+
+        <h2>2. Architecture: The "Atomic Pack"</h2>
+
+        <p>UCP treats "Context" as a first-class citizen of the repository. It introduces a standardized, atomic
+            directory structure that serves as the <strong>Shared Memory Bus</strong> for all agents.</p>
+
+        <h3>2.1 The Core File Structure</h3>
+        <p>This diagram illustrates the hierarchy and relationships within a UCP-compliant pack. It is designed to be
+            "Drop-in Ready" into any project location (<code>.context/</code>, <code>.ai/</code>, etc.).</p>
+
+        <div class="mermaid">
+            graph TB
+            subgraph "Pack Root"
+            Boot["🔑 boot.md<br />(Kernel Entry Point)"]
+            end
+
+            subgraph "Engine (bin/)"
+            Adapters["⚙️ adapters/<br />Cursor, Windsurf, Claude"]
+            Workflows["📜 workflows/<br />audit, sync, upgrade"]
+            Version["📌 VERSION"]
+            end
+
+            subgraph "State (context/)"
+            MASTER["📊 MASTER.md<br />(Active State - P0)"]
+            Active["🔒 active/<br />(Task Mutex Locks)"]
+            Tech["💻 tech.md<br />(Stack Definitions)"]
+            end
+
+            subgraph "Wisdom (knowledge/)"
+            Patterns["💡 patterns.md"]
+            Gotchas["⚠️ gotchas.md"]
+            Learnings["📚 learnings.md"]
+            end
+
+            Boot --> Adapters
+            Boot --> Workflows
+            Boot --> MASTER
+            Boot --> Patterns
+
+            Workflows --> Active
+            Workflows --> Learnings
+        </div>
+
+        <h3>2.2 Component Logic</h3>
+
+        <div class="mermaid">
+            classDiagram
+            class PackRoot {
+            +boot.md (Kernel)
+            }
+
+            class Engine {
+            +bin/workflows/
+            +bin/adapters/
+            }
+
+            class State {
+            +context/MASTER.md
+            +context/active/
+            }
+
+            class Knowledge {
+            +knowledge/patterns.md
+            }
+
+            PackRoot --> Engine : "Executes"
+            PackRoot --> State : "Loads"
+            PackRoot --> Knowledge : "Learns"
+        </div>
+
+        <h2>3. The Protocol Specification</h2>
+
+        <h3>3.1. The Universal Pointer</h3>
+        <p>UCP solves the "Discovery Problem" (How does an agent find the context?) using a recursive discovery rule
+            injected into the agent's system prompt:</p>
+
+        <blockquote>
+            <strong>Protocol Rule:</strong> "Before performing any task, assert the existence of
+            <code>[CONTEXT_ROOT]/boot.md</code>. If found, execute the instructions within."
+        </blockquote>
+
+        <h3>3.2. The Context Budget (Tiered Loading)</h3>
+        <p>To prevent context window overflow, UCP implements a rigorous priority system:</p>
+
+        <ul>
+            <li><span class="badge p0">P0 (Critical)</span> <strong>Always Load:</strong> <code>boot.md</code>,
+                <code>context/MASTER.md</code>. (Cost: ~500 tokens)
+            </li>
+            <li><span class="badge p1">P1 (Task-Aware)</span> <strong>Load based on Task:</strong>
+                <code>context/tech.md</code>, <code>knowledge/patterns.md</code>.
+            </li>
+            <li><span class="badge p2">P2 (On-Demand)</span> <strong>Reference Only:</strong>
+                <code>knowledge/decisions.md</code>, <code>archive/</code>.
+            </li>
+        </ul>
+
+        <h2>4. The Application Layer: Lifecycle</h2>
+
+        <p>UCP defines a strict lifecycle for AI sessions to ensure state consistency.</p>
+
+        <div class="mermaid">
+            sequenceDiagram
+            participant User
+            participant AI as AI Agent
+            participant UCP as UCP Kernel
+
+            Note over AI, UCP: 1. BOOT PHASE
+            User->>AI: "Implement feature X"
+            AI->>UCP: READ boot.md
+            UCP-->>AI: Load Tier P0 (MASTER + Active Locks)
+
+            Note over AI: Decision: Is project locked?
+
+            alt Project is Free
+            AI->>UCP: WRITE context/active/PLAN.md (Lock)
+            else Project is Locked
+            AI->>User: "Collision detected in active/PLAN.md"
+            end
+
+            Note over AI, UCP: 2. EXECUTION PHASE
+            AI->>AI: Write Code / Run Tests
+
+            Note over AI, UCP: 3. SYNC PHASE (Hybrid Sync)
+            AI->>UCP: APPEND context/changelog.md
+            AI->>UCP: UPDATE knowledge/learnings.md
+            AI->>UCP: CLEAR active/PLAN.md (Unlock)
+        </div>
+
+        <h2>5. The Ecosystem</h2>
+
+        <p>UCP is designed to be the common language for <strong>all</strong> AI tools. It includes native adapters for:
+        </p>
+
+        <ul>
+            <li><strong>Cursor</strong> (via <code>.cursorrules</code>)</li>
+            <li><strong>Windsurf</strong> (via Cascade awareness)</li>
+            <li><strong>Antigravity</strong> (Native graph integration)</li>
+            <li><strong>Claude Code</strong>, <strong>GitHub Copilot</strong>, <strong>JetBrains AI</strong>, and
+                <strong>Aider</strong>.
+            </li>
+        </ul>
+
+        <h2>6. The Future: "Installable Intelligence"</h2>
+
+        <p>By standardizing the <em>structure</em> of context, we enable the <strong>Distribution of
+                Intelligence</strong>.</p>
+        <p>Currently, to add a feature like Stripe or Firebase, you read documentation. In the UCP future, you install a
+            <strong>Context Pack</strong>.
+        </p>
+
+        <pre><code>npx contextai install @packs/stripe-payment</code></pre>
+
+        <p>This command injects Implementation Plans, Security Patterns, and API Gotchas directly into your repo's
+            memory.</p>
+
+        <div class="cta">
+            <h3>Ready to Upgrade your Repo?</h3>
+            <p>Make your codebase Agent-Ready today.</p>
+            <pre><code>npx contextai install ucp --target ./context</code></pre>
+            <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.9">Open Source & Agent Agnostic</p>
+        </div>
+    </article>
+
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'default', securityLevel: 'loose' });
+    </script>
+
+</body>
+
+</html>
