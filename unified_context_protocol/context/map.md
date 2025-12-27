@@ -3,9 +3,8 @@
 > **Purpose**: Quick navigation index for Agents.
 
 ## 🔑 Key Files
-- `boot.md`: Kernel Entry Point
-- `bin/`: Executable Logic
-- `context/`: State & Data
+- `bin/workflows/`: Agent Meta-Instructions
+- `bin/ops/`: Project Procedures (Test, Deploy)
 
 ## 📂 Directories
 - `context/active/`: Volatile State (Lock file)
