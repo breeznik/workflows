@@ -1,0 +1,19 @@
+# System
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Dependencies
+node_modules/
+
+# Local Artifacts
+ucp.zip
+ucp_blog_post.html
+ucp_blog_post.md
+verify_links.py
+
+# Editor
+.vscode/
+.idea/
