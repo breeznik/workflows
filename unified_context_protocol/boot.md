@@ -4,15 +4,34 @@
 > Agents: Start here.
 
 ## 🛠️ Tooling (Optional)
-This protocol is designed to be **Agent-Agnostic**. You can manage these files manually, or use the **ContextAI CLI** for automation.
+This protocol is designed to be **Agent-Agnostic**. You can manage these files manually, or use the **corepackai CLI** for automation.
 
-### Using with ContextAI CLI (Recommended)
-If you are using the CLI (`@contextai-core/cli`), it provides "Bridge Tools" that allow your Agent to self-maintain this context.
+### Using with corepackai CLI (Recommended)
+If you are using the CLI (`corepackai`), it provides a suite of tools for auth, package management, and agent bridging.
 
-- **Initialization**: `npx @contextai-core/cli init`
-- **Maintenance**: `contextai write`, `contextai read`
+#### Auth Commands
+- `corepackai login`: Authenticate with CorePack AI via GitHub
+- `corepackai whoami`: Show current logged in user
+- `corepackai logout`: Log out and remove saved credentials
 
-See `context/CLI_GUIDE.md` for tool instructions if you are using the CLI. If you are using this raw, you can ignore that file.
+#### Core Commands
+- `corepackai init`: Initialize a new .ai/ context in the current directory
+- `corepackai install <package_name>`: Install a context package (e.g. npx corepackai install @username/pack)
+- `corepackai update <package_name>`: Update/Re-install a context package
+- `corepackai list`: List installed context packages
+- `corepackai publish`: Publish a context package to the registry
+- `corepackai doctor`: Check environment for issues
+- `corepackai hook [agent]`: Manually bridge installed packs to a specific Agent/IDE
+- `corepackai mcp`: Start Model Context Protocol server (stdio)
+
+#### Agent Bridge Commands (Advanced)
+- `corepackai write <file> [content]`: Write file and auto-log to changelog
+- `corepackai read <file>`: Read file with context injection
+- `corepackai patch <file> <search> <replace>`: Search and Replace content
+- `corepackai run <command>`: Run shell command with auto-documentation
+
+#### Deprecated
+- `corepackai pull <slug>`: Use `install` instead
 
 ## 🧭 Navigation
 

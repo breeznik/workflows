@@ -1,0 +1,46 @@
+{
+  "hooks": {
+    "antigravity": {
+      "target": ".agent/workflows/ucp.md",
+      "action": "write",
+      "content_file": "boot.md",
+      "description": "Sets up the Global UCP Pointer workflow"
+    },
+    "cursor": {
+      "target": ".cursorrules",
+      "action": "append",
+      "content": "\n# UCP Protocol\nThis project uses Unified Context Protocol.\nALWAYS read .ai/corepackai-ucp/boot.md at the start of a session.\n",
+      "description": "Appends UCP rule to Cursor config"
+    },
+    "vscode": {
+      "target": ".vscode/UCP_INSTRUCTIONS.md",
+      "action": "write",
+      "content": "# UCP Protocol\n\nThis project uses the Unified Context Protocol.\n\nAI Agent Instructions:\n1. Read the Boot File: `.ai/corepackai-ucp/boot.md`\n2. Follow the instructions in that file to understand the project structure and state.\n",
+      "description": "Creates a generic instruction file for VS Code agents"
+    },
+    "kilocode": {
+      "target": ".kilocode/UCP_INSTRUCTIONS.md",
+      "action": "write",
+      "content": "# UCP Protocol\n\nThis project uses the Unified Context Protocol.\n\nAI Agent Instructions:\n1. Read the Boot File: `.ai/corepackai-ucp/boot.md`\n",
+      "description": "Creates instruction file for Kilocode"
+    },
+    "windsurf": {
+      "target": ".windsurfrules",
+      "action": "append",
+      "content": "\n# UCP Protocol\nALWAYS read .ai/corepackai-ucp/boot.md\n",
+      "description": "Appends UCP rule to Windsurf config"
+    },
+    "cline": {
+      "target": ".cline/room.md",
+      "action": "append",
+      "content": "\nSYSTEM INSTRUCTION: This project uses UCP. Read .ai/corepackai-ucp/boot.md.\n",
+      "description": "Adds UCP instruction to Cline room memory"
+    },
+    "aider": {
+      "target": ".aider.conf.yml",
+      "action": "append",
+      "content": "\n# UCP Protocol\nread: .ai/corepackai-ucp/boot.md\n",
+      "description": "Adds boot.md to Aider read list"
+    }
+  }
+}

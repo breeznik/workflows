@@ -11,13 +11,13 @@ AI coding assistants forget everything between sessions. You waste time re-expla
 Install this pack into your project's context directory (e.g. `.context` or `.doc`). Agents automatically discover it, load project state, and coordinate with each other.
 
 ## 🛠️ Tooling (Optional)
-This protocol is designed to be **Agent-Agnostic**. You can manage these files manually, or use the **ContextAI CLI** for automation.
+This protocol is designed to be **Agent-Agnostic**. You can manage these files manually, or use the **corepackai CLI** for automation.
 
-### Using with ContextAI CLI (Recommended)
-If you are using the CLI (`@contextai-core/cli`), it provides "Bridge Tools" that allow your Agent to self-maintain this context.
+### Using with corepackai CLI (Recommended)
+If you are using the CLI (`corepackai`), it provides "Bridge Tools" that allow your Agent to self-maintain this context.
 
-- **Initialization**: `npx @contextai-core/cli init`
-- **Maintenance**: `contextai write`, `contextai read`
+- **Initialization**: `npx corepackai init`
+- **Maintenance**: `corepackai write`, `corepackai read`
 
 See `context/CLI_GUIDE.md` for tool instructions if you are using the CLI. If you are using this raw, you can ignore that file.
 
@@ -99,7 +99,7 @@ Prevents LLM overload with tiered loading:
 cp -r * /path/to/your/project/context/
 
 # OR via CLI:
-npx contextai install ucp --target ./context
+npx corepackai install ucp --target ./context
 ```
 
 # 2. Run the onboarding workflow (One-time setup)

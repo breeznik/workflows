@@ -32,4 +32,4 @@ FUNCTION migrate_to_v3():
 
 ## 3. Post-Migration Verification
 - [ ] `boot.md` successfully detects and loads `.yaml` variants
-- [ ] `npx contextai` CLI reports "Format: YAML"
+- [ ] `npx corepackai` CLI reports "Format: YAML"
