@@ -4,6 +4,7 @@
 
 > [!CAUTION]
 > **BOOT CHECKLIST** — Complete ALL steps before any work:
+> 0. ☐ Check `bin/VERSION` → if `breaking` field is not empty, **ALERT USER FIRST**
 > 1. ☐ Read `context/PRIORITY.md` (budget rules)
 > 2. ☐ Read `context/MASTER.md` (project state)
 > 3. ☐ Read `bin/adapters/[your-agent].md` (integration rules)
