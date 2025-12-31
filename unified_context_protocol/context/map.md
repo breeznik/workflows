@@ -1,8 +1,7 @@
 # Codebase Map (Token-Optimized)
 
 > **Purpose**: Quick navigation index for Agents.
-> **Preferred I/O**: `cpackai` CLI (if available).
-> **Preferred I/O**: `cpackai` CLI (if available).
+> **Preferred I/O**: `corepackai` CLI (if available).
 
 ## 🔑 Key Files
 - `bin/workflows/`: Agent Meta-Instructions

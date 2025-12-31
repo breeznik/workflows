@@ -1,45 +1,26 @@
-# Tech Stack Reference
+# Tech Stack [TEMPLATE]
 
-> Populated after first audit or manually filled.
+> Populated after audit.
 
 ## Backend
-
-| Component | Technology |
-|-----------|------------|
-| Framework | *e.g., FastAPI, Django, Express* |
-| Database | *e.g., PostgreSQL, SQLite* |
-| Auth | *e.g., Clerk, Auth0, Custom* |
-
-### Key Files
-- `*path/to/entry*` - Entry point
-- `*path/to/routes*` - API endpoints
-
-### Patterns
-- *Document key patterns here*
-
----
+| Component | Tech |
+|-----------|------|
+| Framework | *TBD* |
+| Database | *TBD* |
+| Auth | *TBD* |
 
 ## Frontend
+| Component | Tech |
+|-----------|------|
+| Framework | *TBD* |
+| Language | *TBD* |
+| Styling | *TBD* |
 
-| Component | Technology |
-|-----------|------------|
-| Framework | *e.g., React, Vue, Svelte* |
-| Language | *e.g., TypeScript, JavaScript* |
-| Styling | *e.g., Tailwind, CSS Modules* |
-
-### Key Files
-- `*path/to/app*` - Entry point
-- `*path/to/api*` - API client
-
-### Patterns
-- *Document key patterns here*
+## Infra
+| Component | Tech |
+|-----------|------|
+| Deploy | *TBD* |
+| CI/CD | *TBD* |
 
 ---
-
-## Infrastructure
-
-| Component | Technology |
-|-----------|------------|
-| Container | *e.g., Docker* |
-| Deployment | *e.g., Vercel, Railway, AWS* |
-| CI/CD | *e.g., GitHub Actions* |
+*Run `bin/workflows/audit.md` to populate.*

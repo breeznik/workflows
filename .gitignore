@@ -3,3 +3,6 @@ ucp.zip
 .DS_Store
 workfiles
 /.ai
+node_modules
+.ucp
+new_ucp_revamp

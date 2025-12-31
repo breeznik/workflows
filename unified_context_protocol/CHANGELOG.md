@@ -4,6 +4,29 @@
 
 ---
 
+## v2.1.0 (2025-12-31)
+
+### Fixed
+- **Template Size Violations**: Trimmed all P0/P1 templates to comply with size limits
+  - `MASTER.md`: 792B → ~280B (P0 ≤500B)
+  - `tech.md`: 968B → ~400B (P1 ≤1KB)
+  - `user-prefs.md`: 1873B → ~500B (P1 ≤1KB)
+  - `PRIORITY.md`: 1802B → ~750B (still P0, more concise)
+
+### Added
+- **Mandatory Boot Checklist**: Added `[!CAUTION]` checklist to `boot.md` that agents MUST complete
+- **Pre-Flight Validation**: Added ASSERT statements to `bin/workflows/boot.md`
+- **Size Warnings**: Added `[!WARNING]` alerts to `PRIORITY.md` for size enforcement
+- **Sync Reminder**: Added `[!IMPORTANT]` to remind agents to run sync at session end
+- **Agent Greeting Menu**: Agents now present users with 13-option categorized menu after boot
+
+### Changed
+- `boot.md`: Rewritten — 4.8KB → 2.8KB (42% smaller), added 14-item menu + loop
+- `PRIORITY.md`: Trimmed and added enforcement alerts
+- All templates now clearly marked `[TEMPLATE]`
+
+---
+
 ## v1.1.0 (2025-12-22)
 
 ### Added

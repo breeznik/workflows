@@ -1,73 +1,31 @@
-# User Preferences
+# User Preferences [TEMPLATE]
 
-> Coding style and tool preferences. Agents learn and respect these.
-> Update as you discover what works best for your workflow.
+> Coding style. Agents learn and respect these.
 
-## Coding Style
-
+## Style
 ```yaml
-# Naming Conventions
-naming:
-  variables: snake_case  # or camelCase
-  functions: snake_case
-  classes: PascalCase
-  files: kebab-case
-
-# Code Style
-comments: minimal        # minimal | moderate | detailed
-docstrings: google       # google | numpy | sphinx | none
+naming: { vars: snake_case, funcs: snake_case, classes: PascalCase }
+comments: minimal
 line_length: 88
-error_handling: explicit # explicit try/catch | let it crash
-
-# Preferences
-type_hints: always       # always | public_only | never
-tests: pytest            # pytest | unittest | jest | vitest
+type_hints: always
 ```
 
 ## 🚫 Anti-Patterns
-> Technologies or patterns the user specifically rejected.
+> Rejected patterns. Add as you work.
 - *None yet*
 
-
-## Communication Style
-
+## Tools
 ```yaml
-verbosity: concise       # concise | detailed | minimal
-explanations: when_asked # always | when_asked | never
-ask_before:
-  - large refactors
-  - deleting files
-  - external API calls
+pkg_manager: npm
+formatter: prettier
+linter: eslint
 ```
 
-## Tool Preferences
-
+## Communication
 ```yaml
-package_manager: npm     # npm | pnpm | yarn | bun
-python_env: uv           # pip | uv | poetry | conda
-formatter: prettier      # prettier | black | ruff
-linter: eslint           # eslint | ruff | flake8
+verbosity: concise
+ask_before: [large refactors, deleting files]
 ```
-
-## Workflow Preferences
-
-```yaml
-commits: conventional    # conventional | descriptive | short
-branches: feature/xxx    # feature/xxx | xxx-feature
-pr_size: small           # small (<200 lines) | medium | large
-```
-
-
-## 🚫 Anti-Patterns
-> Technologies or patterns the user specifically rejected.
-- *None yet*
-
-## 🧠 Learning Strategy
-
-- **Passive**: Observe manual edits to identify style.
-- **Active**: When corrected ("Don't use Lodash"), immediately update `tech.md` / `user-prefs.md`.
-- **Retrospective**: At session end, summarize stylistic learnings.
 
 ---
-
-*Last updated: [DATE]*
+*Updated: [DATE]*
