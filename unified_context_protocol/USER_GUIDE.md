@@ -77,18 +77,9 @@ The protocol works with any AI coding assistant. The `adapters/` directory conta
 - **[agent].md**: Human-readable integration guides for each agent
 
 ### Supported Agents
-Check `bin/adapters/` for your specific tool's integration guide.
+All agents use the unified adapter: **`bin/adapters/universal.md`**
 
-| Agent | Adapter File |
-|-------|--------------|
-| Cursor | `bin/adapters/cursor.md` |
-| Windsurf | `bin/adapters/windsurf.md` |
-| Claude Code | `bin/adapters/claude.md` |
-| Antigravity | `bin/adapters/antigravity.md` |
-| GitHub Copilot | `bin/adapters/copilot.md` |
-| JetBrains AI | `bin/adapters/jetbrains.md` |
-| Aider | `bin/adapters/aider.md` |
-| Generic LLM | `bin/adapters/generic.md` |
+Supported: Cursor • Windsurf • Claude Code • GitHub Copilot • JetBrains AI • Aider • Antigravity • Generic LLMs
 
 ### If You Use Multiple Tools
 

@@ -17,14 +17,14 @@ UCP is a **standardized governance layer** that sits between your codebase and A
 
 | Feature | Description |
 |---------|-------------|
-| **🚀 Boot Protocol** | Agents run a startup checklist to load context automatically |
-| **🔌 Multi-Agent Support** | Works with 8+ AI assistants (Cursor, Claude, Copilot, Windsurf, Aider, and more) |
-| **🤝 Session Handoffs** | Incomplete work is saved—next session picks it up, even with a different agent |
+| **🧠 Smart Kernel v3.1** | High-speed boot with auto-fix for stale context, broken locks, and missing data |
+| **🔌 Multi-Agent Support** | Works with 8+ AI assistants via unified adapter |
+| **🤝 Session Handoffs** | Incomplete work is saved—next session picks it up |
+| **🔄 Auto-Maintenance** | Agents self-correct: break stale locks, trigger audits, prune old learnings |
 | **📂 Monorepo Ready** | Define sub-projects with scoped contexts |
 | **🧠 Knowledge Persistence** | Patterns, gotchas, and decisions survive across sessions |
-| **📋 Pre-Built Workflows** | High-performance pseudo-code for audits, features, bugfixes, refactoring, and maintenance |
 | **⚡ Context Budget System** | Tiered loading prevents LLM context overload |
-| **🎓 Agent Learning** | Tracks user preferences, what worked/failed, and external dependencies |
+| **🔁 `/reset` Command** | Clear working context and start fresh |
 
 ## 🔧 Supported AI Assistants
 
