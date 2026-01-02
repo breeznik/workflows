@@ -11,6 +11,13 @@
 - `context/active/`: Volatile State (Lock file)
 - `knowledge/`: Persistent Wisdom
 
-## 🏗️ Architecture
-- **Atomic Pack**: Self-contained in one folder.
-- **Universal Pointer**: `[CONTEXT_ROOT]/boot.md`.
+## 🏗️ Logic & Architecture
+- **Pattern**: *[e.g. Monolith / Microservices / Next.js Pages]*
+- **Key Logic Flows**:
+  - *[e.g. User Login: AuthProvider -> LoginScreen -> API]*
+  - *[e.g. Data Sync: Webhook -> Parser -> DB]*
+
+## 🧩 Component Relations
+> Map how major parts talk to each other.
+- `[Component A]` dependencies: `[Comp B]`, `[Comp C]`
+- `[Component B]` triggers: `[Event X]`

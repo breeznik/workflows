@@ -38,9 +38,9 @@ After loading context, greet the user with status + menu:
 ═══════════════════════════════════════════════════════════════
 
 📋 DEVELOPMENT
-   1. ✨ Feature      — Add new functionality
-   2. 🐛 Bugfix       — Fix a reported issue
-   3. ♻️ Refactor     — Improve existing code
+   1. ✨ Feature      — Add new functionality (runs development.md)
+   2. 🐛 Bugfix       — Fix a reported issue (runs development.md)
+   3. ♻️ Refactor     — Improve existing code (runs development.md)
    4. 🔍 Audit        — Scan & populate project context
 
 📊 CONTEXT MANAGEMENT
@@ -112,12 +112,8 @@ Agents MUST analyze context and provide ONE smart suggestion. Use this priority:
 
 ## 🔌 Agent Detection
 
-Check `bin/adapters/manifest.yaml` for your adapter:
-- Cursor → `bin/adapters/cursor.md`
-- Windsurf → `bin/adapters/windsurf.md`
-- Claude → `bin/adapters/claude.md`
-- Antigravity → `bin/adapters/antigravity.md`
-- Copilot → `bin/adapters/copilot.md`
+Check `bin/adapters/manifest.yaml` or just read:
+- **`bin/adapters/universal.md`** (All Agents)
 
 ---
 
@@ -127,3 +123,6 @@ Check `bin/adapters/manifest.yaml` for your adapter:
 2. **Write Last**: Update `changelog.md` before finishing
 3. **Respect Locks**: Check `context/active/` for conflicts
 4. **Sync Often**: Run `bin/workflows/sync.md` at checkpoints
+6. **🛡️ Stale Check**:
+   > Verify `Last Audit` date in `context/tech.md`.
+   > **IF** > 48 hours old: WARN "⚠️ Context Stale — Run Audit"

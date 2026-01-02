@@ -1,7 +1,7 @@
 # Agent Detection & Integration Manifest
 # This file tells AI agents how to detect themselves and integrate with .ai/
 
-version: "1.0"
+version: "1.1"
 description: "Maps AI coding assistants to their config directories and integration rules"
 
 # Known agents and their detection patterns
@@ -13,7 +13,7 @@ agents:
       - ".cursorrules"
     config_format: "mdc (markdown + YAML frontmatter)"
     scope: "project"
-    adapter_file: "bin/adapters/cursor.md"
+    adapter_file: "bin/adapters/universal.md"
     
   windsurf:
     name: "Windsurf / Codeium"
@@ -22,7 +22,7 @@ agents:
       - ".windsurfrules"
     config_format: "markdown"
     scope: "project"
-    adapter_file: "bin/adapters/windsurf.md"
+    adapter_file: "bin/adapters/universal.md"
     
   claude:
     name: "Claude Code / Anthropic"
@@ -31,7 +31,7 @@ agents:
       - ".claude/"
     config_format: "markdown"
     scope: "project"
-    adapter_file: "bin/adapters/claude.md"
+    adapter_file: "bin/adapters/universal.md"
     
   jetbrains:
     name: "JetBrains AI Assistant"
@@ -39,7 +39,7 @@ agents:
       - ".aiassistant/rules/"
     config_format: "markdown"
     scope: "project"
-    adapter_file: "bin/adapters/jetbrains.md"
+    adapter_file: "bin/adapters/universal.md"
     
   copilot:
     name: "GitHub Copilot"
@@ -48,7 +48,7 @@ agents:
       - "AGENTS.md"
     config_format: "yaml + markdown"
     scope: "project"
-    adapter_file: "bin/adapters/copilot.md"
+    adapter_file: "bin/adapters/universal.md"
     
   antigravity:
     name: "Antigravity (Google)"
@@ -57,7 +57,7 @@ agents:
     config_format: "markdown"
     scope: "global"
     notes: "Global user-level config, not project-specific"
-    adapter_file: "bin/adapters/antigravity.md"
+    adapter_file: "bin/adapters/universal.md"
     
   aider:
     name: "Aider"
@@ -65,7 +65,7 @@ agents:
       - ".aider.conf.yml"
     config_format: "yaml"
     scope: "project + global"
-    adapter_file: "bin/adapters/aider.md"
+    adapter_file: "bin/adapters/universal.md"
 
 # Precedence rules for config resolution
 precedence:
@@ -105,8 +105,8 @@ self_identification:
         - Other (please specify)
         
     - step: 4
-      action: "Fall back to generic.md"
-      details: "If user doesn't know or you're via API, use bin/adapters/generic.md"
+      action: "Fall back to universal.md"
+      details: "If user doesn't know or you're via API, use bin/adapters/universal.md"
 
 # Integration rules
 rules:

@@ -1,117 +1,77 @@
 # Unified Context Protocol (UCP)
 
-> A drop-in context system that makes AI agents **actually remember** your project.
+**A drop-in context system that makes AI coding assistants *actually remember* your project.**
 
-## The Problem
+## 🎯 The Problem
 
-AI coding assistants forget everything between sessions. You waste time re-explaining your project, and agents create conflicting work.
+AI coding assistants forget everything between sessions. You waste time re-explaining your project architecture, coding standards, and past decisions—and agents often create conflicting or inconsistent work.
 
-## The Solution
+## 💡 The Solution
 
-Install this pack into your project's context directory (e.g. `.context` or `.doc`). Agents automatically discover it, load project state, and coordinate with each other.
+UCP is a **standardized governance layer** that sits between your codebase and AI agents. It provides a file-system-based protocol for persistent context, enabling agents to:
+- **Read** project state and history
+- **Write** learnings and decisions
+- **Coordinate** across sessions and tools
 
-## 🛠️ Tooling (Optional)
-This protocol is designed to be **Agent-Agnostic**. You can manage these files manually, or use the **corepackai CLI** for automation.
+## ✨ Key Features
 
-### Using with corepackai CLI (Recommended)
-If you are using the CLI (`corepackai`), it provides "Bridge Tools" that allow your Agent to self-maintain this context.
+| Feature | Description |
+|---------|-------------|
+| **🚀 Boot Protocol** | Agents run a startup checklist to load context automatically |
+| **🔌 Multi-Agent Support** | Works with 8+ AI assistants (Cursor, Claude, Copilot, Windsurf, Aider, and more) |
+| **🤝 Session Handoffs** | Incomplete work is saved—next session picks it up, even with a different agent |
+| **📂 Monorepo Ready** | Define sub-projects with scoped contexts |
+| **🧠 Knowledge Persistence** | Patterns, gotchas, and decisions survive across sessions |
+| **📋 Pre-Built Workflows** | High-performance pseudo-code for audits, features, bugfixes, refactoring, and maintenance |
+| **⚡ Context Budget System** | Tiered loading prevents LLM context overload |
+| **🎓 Agent Learning** | Tracks user preferences, what worked/failed, and external dependencies |
 
-- **Initialization**: `npx corepackai init`
-- **Maintenance**: `corepackai write`, `corepackai read`
+## 🔧 Supported AI Assistants
 
-See `context/CLI_GUIDE.md` for tool instructions if you are using the CLI. If you are using this raw, you can ignore that file.
+See [Universal Adapter](bin/adapters/universal.md).
 
----
+Cursor • Windsurf • Claude Code • GitHub Copilot • JetBrains AI • Aider • Gemini Antigravity • Generic LLMs
 
-## ✨ Features
+## 📂 What's Included
 
-### 🚀 Boot Protocol
-Agents automatically run a startup checklist:
-1. Read `boot.md` → Load context files
-2. **Smart Suggestion** — agent analyzes context and recommends what to do next
-3. **Present 14-item Agent Menu** — guides users through all workflows
-4. **UCP Loop** — agents return to menu after each task until Exit
-
-### 🔌 Multi-Agent Support
-Works with **8 AI coding assistants** out of the box:
-
-| Agent | Adapter |
-|-------|---------|
-| Cursor | `bin/adapters/cursor.md` |
-| Windsurf | `bin/adapters/windsurf.md` |
-| Claude Code | `bin/adapters/claude.md` |
-| Antigravity | `bin/adapters/antigravity.md` |
-| GitHub Copilot | `bin/adapters/copilot.md` |
-| JetBrains AI | `bin/adapters/jetbrains.md` |
-| Aider | `bin/adapters/aider.md` |
-| Generic LLM | `bin/adapters/generic.md` |
-
-### 🤝 Session Handoffs
-When work is incomplete, agents save state to `context/active/`. Next session picks it up — even if it's a different agent.
-
-### 📂 Monorepo Ready
-Define sub-projects in `context/map.md`. Each gets its own scoped context while sharing the global knowledge base.
-
-### 🧠 Knowledge Persistence
-Patterns, gotchas, and decisions go in `knowledge/`. Agents can learn and remember across sessions.
-
-### 📋 Standardized Workflows
-Pre-built high-perf Pseudo-Code in `bin/workflows/`:
-- `audit.md` — Initial project discovery
-- `feature.md` — Adding new features
-- `bugfix.md` — Fixing issues
-- `refactor.md` — Code improvements
-- `boot.md` — Session startup with context budget
-- `onboarding.md` — One-time agent setup (The "Key")
-- `maintenance.md` — Prune and archive context
-- `integrate-agent.md` — Set up your agent config
-- `upgrade.md` — SmartSync non-destructive upgrade
-- `export.md` — Export all knowledge for migration
-- `sync.md` — Hybrid Sync (Dump memory to disk)
-
-### ⚡ Context Budget System
-Prevents LLM overload with tiered loading:
-
-| Priority | Files | Load When |
-|----------|-------|-----------|
-| **P0** | MASTER.md, adapter | Always |
-| **P1** | tech, patterns, user-prefs | Based on task |
-| **P2** | decisions, boundaries | On demand |
-
-### 🎓 Agent Learning
-- `user-prefs.md` — Remembers style & Anti-Patterns
-- `learnings.md` — What worked/failed in this project
-- `bin/workflows/learning.md` — Active context refinement loop
-- `boundaries.md` — What agent knows vs. needs to ask
-- `dependencies.md` — External APIs reference
-
-### 🔄 Upgrade & Migration
-- **VERSION** file tracks installed UCP version
-- **upgrade.md** workflow for non-destructive upgrades
-- **export.md** compiles all knowledge to portable document
-
----
+```text
+unified_context_protocol/
+├── boot.md           # Agent entry point
+├── context/          # Project state (MASTER.md, tech.md, changelog.md...)
+├── knowledge/        # Persistent learnings & decisions
+├── bin/
+│   ├── workflows/    # audit, development, maintenance...
+│   └── adapters/     # Per-agent integration guides
+└── archive/          # Historical context storage
+```
 
 ## 🚀 Quick Start
 
+### 1. Install
+**Via CLI (Recommended):**
 ```bash
-# 1. Install UCP Pack
-# Manually:
-cp -r * /path/to/your/project/context/
-
-# OR via CLI:
-npx corepackai install ucp --target ./context
+npx corepackai install ucp
 ```
 
-# 2. Run the onboarding workflow (One-time setup)
-# Tell your agent: "Read bin/workflows/onboarding.md" and follow the instructions.
+**Or Manual:**
+Copy the pack into your project's context directory (e.g., `.context/` or `.ai/`).
 
-# 3. Run the audit workflow
-# Tell your agent: "Read bin/workflows/audit.md and audit this project"
+### 2. Initialize
+Tell your agent:
+> "Read bin/workflows/onboarding.md"
 
-# 4. Done! Agent now has persistent context
+### 3. Audit
+Tell your agent:
+> "Read bin/workflows/audit.md and audit this project"
 
----
+**Done!** Your agents now have persistent, coordinated context.
+
+## 🏆 Why UCP?
+
+- **Escape vendor lock-in**: Your context lives in version-controlled files, not proprietary cloud systems
+- **Tool-agnostic**: Switch between AI assistants without losing context
+- **Human-readable**: All files are markdown—you can edit them directly
+- **Version-controlled**: Commit your context alongside your code
 
 ## 📖 Documentation
 
@@ -119,4 +79,4 @@ npx corepackai install ucp --target ./context
 |----------|-------------|
 | [User Guide](USER_GUIDE.md) | Detailed setup and usage for humans |
 | [boot.md](boot.md) | Agent entry point (boot protocol, structure) |
-| [bin/workflows/integrate-agent.md](bin/workflows/integrate-agent.md) | Set up your agent to auto-discover UCP |
+| [CLI Guide](context/CLI_GUIDE.md) | Automation tool instructions |

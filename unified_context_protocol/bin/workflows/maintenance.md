@@ -24,7 +24,7 @@ FOREACH file IN context:
       IF lines > 200: SPLIT or ARCHIVE old_sections
     
     CASE "active/*.md":
-      IF age > 7_days: ARCHIVE or COMPLETE
+      IF age > 48_hours: ARCHIVE or COMPLETE
 ```
 
 ## 3. Learning & Audit
