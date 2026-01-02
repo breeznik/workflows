@@ -4,6 +4,27 @@
 
 ---
 
+## v2.2.0 (2026-01-02)
+
+### Added
+- **Smart Suggestions**: Agent now analyzes context and suggests the most relevant next action
+  - Priority-based logic table for intelligent recommendations
+  - Example suggestions for common scenarios (empty project, pending tasks, etc.)
+
+### Fixed
+- **Menu Formatting**: Resolved line collapsing issue when agents render the boot menu
+  - Changed code block to explicit `text` type for consistent rendering
+  - Added box drawing characters for visual structure
+  - Fixed inconsistent indentation (2-space → 3-space)
+  - Aligned double-digit menu items (10-13) properly
+  - Replaced `---` separators with `═══` to avoid markdown interpretation
+
+### Changed
+- `boot.md`: Added `💡 SUGGESTED NEXT:` section with context-aware recommendations
+- Menu now includes `[Enter number or command]` prompt for clarity
+
+---
+
 ## v2.1.0 (2025-12-31)
 
 ### Fixed

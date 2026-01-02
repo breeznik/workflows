@@ -28,8 +28,9 @@ See `context/CLI_GUIDE.md` for tool instructions if you are using the CLI. If yo
 ### 🚀 Boot Protocol
 Agents automatically run a startup checklist:
 1. Read `boot.md` → Load context files
-2. **Present 14-item Agent Menu** — guides users through all workflows
-3. **UCP Loop** — agents return to menu after each task until Exit
+2. **Smart Suggestion** — agent analyzes context and recommends what to do next
+3. **Present 14-item Agent Menu** — guides users through all workflows
+4. **UCP Loop** — agents return to menu after each task until Exit
 
 ### 🔌 Multi-Agent Support
 Works with **8 AI coding assistants** out of the box:
