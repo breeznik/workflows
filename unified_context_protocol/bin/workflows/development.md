@@ -1,75 +1,42 @@
-# Universal Development Workflow
+# Universal Development Workflow (v3.0)
 
-> **Triggers**: user asks for "Feature", "Bugfix", or "Refactor".
-> **Usage**: `MODE=[Feature|Bugfix|Refactor] dev_loop(goal)`
+> **Policy**: Test-Driven, Context-Aware, Atomic Commits.
+> **Triggers**: Feature, Bugfix, Refactor.
 
-## 1. Safety Checks (ALL MODES)
+## 1. PRE-FLIGHT (Mandatory)
+- **Check Locks**: If `context/active/` is locked by another task, ABORT.
+- **Check Version**: If `bin/VERSION` has pending breaking changes, WARN.
 
-```pseudo
-CHECK context/active/:
-  IF locked by another task: FAIL "Lock file exists"
-  
-CHECK bin/VERSION:
-  IF breaking changes pending: WARN USER
-```
+## 2. MODES & POLICIES
 
-## 2. Mode Selection & Planning
+### ✨ Feature
+- **Rule**: Update `context/product/vision.md` FIRST if the feature isn't defined there.
+- **TDD**: Write the "Expectation Test" before the Implementation code.
 
-### MODE: ✨ Feature
-> Adding new functionality.
-- **Goal**: Implement new requirement $X.
-- **Focus**: Integration, User Experience, Edge Cases.
-- **Check**: `context/product/vision.md` (Does this align?)
+### 🐛 Bugfix
+- **Rule**: NEVER fix without reproduction.
+- **Step 1**: Create `repro_case.[py|js]`.
+- **Step 2**: Verify it FAILS.
+- **Step 3**: Fix code.
+- **Step 4**: Verify it PASSES.
 
-### MODE: 🐛 Bugfix
-> Fixing broken behavior.
-- **Goal**: Restore expected behavior $Y.
-- **Focus**: Root Cause Analysis, Regression Testing.
-- **Check**: `knowledge/gotchas.md` (Is this a known issue?)
-- **Action**: CREATE REPLICATION CASE first.
+### ♻️ Refactor
+- **Rule**: NO behavior changes.
+- **Constraint**: Existing tests MUST pass without modification.
 
-### MODE: ♻️ Refactor
-> Improving code without changing behavior.
-- **Goal**: Optimize structure/performance.
-- **Focus**: Maintainability, Test Coverage.
-- **Check**: `knowledge/patterns.md` (Align with standards).
-- **Constraint**: NO behavior changes allowed.
+## 3. EXECUTION LOOP
+1. **Plan**: Update `context/active/PLAN.md` with granular steps.
+2. **Code**: Edit files.
+3. **Verify**: Run tests/build.
+4. **Loop**: If fail, read error -> fix -> retry.
 
-## 3. Execution Loop
-
-```pseudo
-WHILE task_incomplete:
-  read_relevant_files()
-  
-  IF MODE == "Bugfix":
-    reproduce_failure()
-    
-  create_plan()
-  write_code()
-  
-  verify_fix_or_feature()
-  
-  IF failed:
-    update_learnings("What went wrong")
-    retry()
-```
-
-## 4. Documentation & Commit
-
-```pseudo
-FUNCTION finalize():
-  UPDATE "context/tech.md":
-    - New dependencies?
-    - Architecture changes?
-    
-  UPDATE "context/map.md":
-    - New file relationships?
-
-  UPDATE "knowledge/learnings.md":
-    - "Tried X, failed, used Y instead"
-
-  UPDATE "CHANGELOG.md":
-    - "[Type] Description of change"
-    
-  RUN "bin/workflows/commit.md"
-```
+## 4. FINALIZE (Definition of Done)
+1. **Context Update**:
+   - `context/tech.md`: Add new dependencies?
+   - `context/map.md`: Add new files/components?
+2. **Knowledge**:
+   - `knowledge/learnings.md`: Did you learn a new pattern?
+3. **Changelog**:
+   - `CHANGELOG.md`: Apped `[Type] Description`.
+4. **Commit**:
+    - Run `bin/workflows/commit.md`.

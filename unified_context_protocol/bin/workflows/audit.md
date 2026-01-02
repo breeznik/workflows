@@ -39,6 +39,8 @@ FUNCTION update_context(findings):
     - UPDATE "Last Audit" timestamp to TODAY
     - Frameworks & Versions
     - "Architecture & Data Flow": Summarize the execution trace from Step 2
+    - **PRUNE**: DELETE sections (Backend/Frontend/Infra) that don't apply.
+      > Empty "*TBD*" tables are cognitive drain. Remove them.
   
   WRITE to "[CONTEXT_ROOT]/context/map.md":
     - Fill "Logic & Architecture" with identified patterns

@@ -34,6 +34,8 @@ FUNCTION validate_learnings():
   FOREACH entry IN "[CONTEXT_ROOT]/knowledge/learnings.md":
     IF entry.is_outdated: MOVE TO archive
     IF entry.is_pattern: MOVE TO "[CONTEXT_ROOT]/knowledge/patterns.md"
+    IF entry.age > 30_days AND NOT referenced_in_patterns:
+      MOVE TO "[CONTEXT_ROOT]/archive/learnings-YYYY-MM.md"
 
 FUNCTION validate_prefs():
   SCAN "[CONTEXT_ROOT]/context/user-prefs.md"
