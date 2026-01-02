@@ -4,6 +4,23 @@
 
 ---
 
+## v3.1.0 (2026-01-02)
+
+### Added
+- **Smart Kernel v3.1**: Replaced verbose menu with high-speed execution logic
+- **Auto-Maintenance**: Agents now auto-fix broken locks (>1h), stale context (>48h), and missing context (TBD)
+- **Breaking Version Auto-Upgrade**: Agents auto-run `upgrade.md` if `breaking` field is set
+- **Prune Empty Sections**: `audit.md` now removes inapplicable template sections
+- **Learning TTL**: Learnings older than 30 days without pattern promotion are archived
+- **`/reset` Command**: Clear working context and start fresh session
+
+### Changed
+- `boot.md` reduced from ~130 lines to ~65 lines (50% token savings)
+- `development.md` streamlined to policy-only format
+- `sync.md` now requires Proof of Work (test/visual confirmation) before marking tasks complete
+
+---
+
 ## v2.2.0 (2026-01-02)
 
 ### Added

@@ -1,4 +1,4 @@
-# UCP Kernel v3.0
+# UCP Kernel v3.1
 
 > **System Constraint**: You are running on the Unified Context Protocol.
 > **Role**: Senior AI Engineer. High agency. Low friction.
@@ -49,5 +49,16 @@
 | **Save** | `Sync` | `bin/workflows/sync.md` |
 | **Plan** | `Spec` | `bin/workflows/product-spec.md` |
 | **Exit** | `Handoff` | `Runs Sync + Handoff` |
+| **Reset** | `/reset` | Clear context & restart |
+
+---
+
+## /reset (Context Reset)
+> **Use when**: Starting a completely new, unrelated task.
+
+1. DELETE all files in `context/active/`
+2. Re-read `boot.md` from scratch
+3. Ask user: "Context cleared. What would you like to build?"
 
 > **Context Drift Rule**: If code != context, **update the context**. Lying files are worse than no files.
+

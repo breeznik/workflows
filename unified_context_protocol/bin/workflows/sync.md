@@ -11,6 +11,7 @@ description: "Synchronizes the Agent's internal memory/artifacts to the UCP repo
 > **CRITICAL**: You may NOT mark a task as `[x]` in `PLAN.md` unless:
 > 1. You have run a verifiable test command (e.g. `npm test`, `pytest`).
 > 2. You have seen the output `SUCCESS` or `PASS`.
+> 3. **OR** you have visually confirmed the feature works (screenshot/browser check).
 
 ## 2. SYNC PROTOCOL
 
