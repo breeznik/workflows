@@ -4,7 +4,17 @@
 
 ---
 
-## v3.1.0 (2026-01-02)
+## v3.2.0 (2026-01-03)
+
+### Added
+- **Command Palette Menu**: Boot protocol and task completion now trigger a standardized Command Palette menu for easier navigation.
+- **Startup Team Pack**: New `@corepackai/startup-team` pack added, featuring a generic Agentic Board (Strategy & Personas) and UCP dependency.
+- **Pack Dependencies**: `pack.config.json` support for defining pack dependencies (e.g. Startup Team depends on UCP).
+
+### Changed
+- **Boot Protocol**: Updated `boot.md` to enforce menu display on boot and post-task.
+- **Template Fixes**: Synced `boot.md` fixes to the public template.
+
 
 ### Added
 - **Smart Kernel v3.1**: Replaced verbose menu with high-speed execution logic
