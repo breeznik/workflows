@@ -30,11 +30,17 @@
 
 ### IF `active/TASK.md` exists:
 - **RESUME WORK**.
-- Read the file. Check the last checkbox. Continue immediately.
-- *Do not wait for user input.*
+- Read the file.
+- **IF** task is **INCOMPLETE**:
+    - Check the last checkbox (progress).
+    - Continue immediately. *Do not wait for user input.*
+- **IF** task is **COMPLETE**:
+    - **DISPLAY** the **Command Palette** table.
+    - Wait for User Command.
 
 ### ELSE (New Session):
 - Analyze `MASTER.md` vs `context/active/`.
+- **DISPLAY** the **Command Palette** table.
 - **SUGGEST** the logical next step (Feature, Bugfix, or Planning).
 - Wait for User Command.
 
