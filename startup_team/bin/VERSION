@@ -1,0 +1,12 @@
+version: "2.0.0"
+installed: 2026-01-03
+last_upgrade: 2026-01-03
+breaking: ""
+
+# Startup Team Version Tracking
+# 
+# version: Semantic version of this pack
+# installed: When this pack was first installed
+# last_upgrade: When upgrade was last run
+# breaking: If not empty, displays alert on boot
+
