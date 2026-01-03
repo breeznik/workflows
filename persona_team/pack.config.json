@@ -1,0 +1,8 @@
+{
+    "name": "@corepackai/persona-team",
+    "version": "1.0.0",
+    "description": "Multi-persona orchestration with interactive onboarding",
+    "dependencies": {
+        "@corepackai/ucp": "latest"
+    }
+}
