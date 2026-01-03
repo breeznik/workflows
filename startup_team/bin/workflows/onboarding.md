@@ -1,70 +1,30 @@
-# Onboarding: Startup Team Setup
+# Onboarding
 
-> **Purpose**: Configure your AI persona team.
-> **Output**: Generates `context/team.md`.
+> Setup your persona team → `context/team.md`
 
----
+## 1. Roles (comma-separated)
+| Role | Focus |
+|------|-------|
+| Strategist | Planning |
+| Engineer | Code |
+| Marketer | Growth |
 
-## Step 1: Role Selection
+Example: `Strategist, Engineer`
 
-**Question**: Which roles do you need on your team? (Comma-separated)
+## 2. Style
+Examples: "Professional", "Casual", "Direct"
 
-| Role | Focus Area |
-|------|------------|
-| `Strategist` | Planning, roadmaps, big-picture thinking |
-| `Marketer` | Content, growth, audience engagement |
-| `Engineer` | Code quality, architecture, implementation |
-
-**Example Answer**: `Strategist, Engineer, Marketer`
-
----
-
-## Step 2: Style Preference
-
-**Question**: Describe your preferred AI communication style.
-
-**Examples**:
-- "Professional and concise, like a consultant."
-- "Casual and witty, like a friend who knows tech."
-- "Direct and efficient, no fluff."
-
-**Example Answer**: `Professional but friendly, uses clear explanations.`
-
----
-
-## Output: Generate `context/team.md`
-
-Based on user answers, create:
-
+## Output
 ```yaml
 ---
 team_status: on
-active_role: [first selected role]
+active_role: [first role]
 ---
-
-# Team Configuration
-
-## Personas
-
-### [Role 1]
-- status: enabled
-- theme: default
-- style: [user's style preference]
-
-### [Role 2]
-- status: enabled
-- theme: default
-- style: [user's style preference]
+# Personas
+## [Role]
+status: enabled
+style: [your style]
 ```
 
----
-
-## Completion Message
-
-> "Your persona team is ready! Active role: **[first role]**."
-> 
-> **Commands:**
-> - `Switch to [Role]` — Change personas
-> - `Team Off` — Disable persona layer
-> - `Disable [Role]` — Turn off a specific role
+Done! Use `Switch to [Role]` to change.
 

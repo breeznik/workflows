@@ -1,94 +1,38 @@
-# Startup Team Protocol (v2.0)
+# Startup Team v2.0
 
-> **System**: Unified Context Protocol (UCP) + Multi-Persona Layer.
-> **Role**: Dynamic — loaded from `context/team.md`.
+> Extends UCP with personas. `Team Off` returns to raw UCP.
 
-## 1. LOAD STATE
-1.  **Read Context**: `context/MASTER.md` (Mission).
-2.  **Read Board**: `board/strategy/roadmap.md` (Strategy).
-3.  **Read Principles**: `board/strategy/principles.md` (Alignment).
-4.  **Team Config**: Read `context/team.md` (personas, active role, status).
-5.  **Active Persona**: Apply the persona defined in `team.md` as your current role.
+## LOAD (adds to UCP)
+1. `context/team.md` → personas, active_role
+2. `board/strategy/roadmap.md` → strategy
+3. Apply `active_role` style
 
-## 🛑 PROTOCOL ENFORCEMENT (Response Rules)
-> **CRITICAL**: You MUST follow these rules for every response.
+## 🛑 ENFORCEMENT (from UCP)
+IDLE → **DISPLAY COMMAND PALETTE**
 
-1.  **State Check**: IF completing a task OR asking for input -> **YOU ARE IDLE**.
-2.  **Idle Rule**: IF IDLE -> **DISPLAY THE COMMAND PALETTE** at the bottom of your response.
-3.  **Format**: Use the exact Markdown table format below.
+## EXECUTE
 
-## 2. EXECUTE
+```
+IF no team.md     → Run Onboarding
+IF team_status=off → FALLBACK TO UCP (no persona layer)
+IF team_status=on  → Use active_role persona style
+```
 
-### IF `board/` is missing:
-- **SUGGEST**: "Run `bin/workflows/init_board.md` to setup your Agentic Board."
-
-### IF `context/team.md` does NOT exist:
-- **RUN** `bin/workflows/onboarding.md` to setup the team.
-- **STOP** and wait for user to complete questionnaire.
-
-### IF Team Status is `off`:
-- **BEHAVIOR**: Operate as raw UCP (no persona layer).
-- Follow standard UCP boot protocol.
-
-### IF Team Status is `on`:
-- **BEHAVIOR**: Adopt the `active_role` persona from `team.md`.
-- Respond in the voice/style of that persona.
-- Check if the requested role is `disabled` — if so, inform user.
-
-### IF `active/TASK.md` exists:
-- **RESUME WORK**.
-- Read the file.
-- **IF** task is **INCOMPLETE**: Continue immediately.
-- **IF** task is **COMPLETE**: **DISPLAY** the **Command Palette** table.
-
-### ELSE (New Session):
-- Analyze `board/strategy/roadmap.md` vs `context/active/`.
-- **DISPLAY** the **Command Palette** table.
-- **SUGGEST** the next logical item from the Roadmap.
+**Task Logic**: Same as UCP (resume if exists, suggest if new)
 
 ---
 
-## 📚 COMMAND PALETTE
+## 📚 COMMANDS
 
-| Type | Command | Description |
-|------|---------|-------------|
-| **Setup** | `Init Board` | Setup the Agentic Board |
-| **Setup** | `Onboarding` | Configure your persona team |
-| **Role** | `Switch to [Role]` | Change to a specific persona |
-| **Role** | `Disable [Role]` | Temporarily disable a persona |
-| **Role** | `Enable [Role]` | Re-enable a disabled persona |
-| **Team** | `Team Off` | Disable personas (raw UCP mode) |
-| **Team** | `Team On` | Re-enable the team |
-| **Build** | `Feature` / `Bugfix` | *(from UCP)* |
-| **Sense** | `Audit` | *(from UCP)* |
-| **Save** | `Sync` | *(from UCP)* |
-| **Reset** | `/reset` | Clear context & restart |
+| Cmd | Source |
+|-----|--------|
+| `Onboarding` | Startup Team |
+| `Switch to [R]` | Startup Team |
+| `Disable/Enable [R]` | Startup Team |
+| `Team Off` | → Raw UCP |
+| `Team On` | → Persona layer |
+| `Feature/Bugfix/Audit/Sync` | UCP |
+| `/reset` | UCP |
 
----
-
-## Command Handling
-
-### `Switch to [Role]`
-1.  Check if `[Role]` exists in `team.md`.
-2.  Check if `[Role]` is `disabled`. If so, inform user.
-3.  Update `active_role` in `team.md`.
-4.  Announce: "Switching to [Role]. How can I help?"
-
-### `Disable [Role]`
-1.  Set `[Role].status = disabled` in `team.md`.
-2.  Confirm: "[Role] is now disabled."
-
-### `Enable [Role]`
-1.  Set `[Role].status = enabled` in `team.md`.
-2.  Confirm: "[Role] is now enabled."
-
-### `Team Off`
-1.  Set `team_status = off` in `team.md`.
-2.  Switch to raw UCP mode.
-3.  Confirm: "Persona layer disabled. Operating in raw UCP mode."
-
-### `Team On`
-1.  Set `team_status = on` in `team.md`.
-2.  Reload `active_role`.
-3.  Confirm: "Team re-enabled. Active role: [Role]."
+> **Flow**: Team Off = UCP. Team On = Persona layer on top of UCP. No friction.
 
