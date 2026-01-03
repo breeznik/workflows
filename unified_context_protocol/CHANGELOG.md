@@ -4,6 +4,19 @@
 
 ---
 
+## v3.3.0 (2026-01-03)
+
+### Added
+- **Command Registry**: Centralized `context/commands.md` for dynamic pack command registration.
+- **Pack Command Manifest**: Packs can define `pack.commands.json` to register commands with UCP.
+- **CLI Integration**: `registerPackCommands()` and `unregisterPackCommands()` for install/uninstall.
+
+### Changed
+- **Boot Protocol**: Command Palette now reads from registry instead of hardcoded list.
+- **Startup Team v2.0**: Merged persona-team, added "defer to UCP" pattern for idle state.
+
+---
+
 ## v3.2.0 (2026-01-03)
 
 ### Added

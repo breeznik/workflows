@@ -1,6 +1,6 @@
-version: "3.2.0"
+version: "3.3.0"
 installed: 2025-12-22
-last_upgrade: 2026-01-02
+last_upgrade: 2026-01-03
 breaking: ""
 
 # UCP Version Tracking
