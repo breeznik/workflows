@@ -1,6 +1,6 @@
 # Startup Team v2.0
 
-> Extends UCP with personas. Commands registered to UCP.
+> Extends UCP with personas. Defers to UCP for Command Palette.
 
 ## LOAD (extends UCP)
 1. `context/team.md` → personas, active_role
@@ -15,6 +15,8 @@ IF team_status=off → Raw UCP mode
 IF team_status=on  → Use active_role persona
 ```
 
-> **Commands**: See UCP's `context/commands.md`
+## WHEN IDLE
+> **Defer to UCP**: Read `corepackai-ucp/boot.md` → ENFORCEMENT section.
+> Commands: `context/commands.md`
 > Handlers: `bin/commands.md`
 
