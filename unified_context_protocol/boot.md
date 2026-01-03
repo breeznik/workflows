@@ -9,6 +9,13 @@
 3. **Tech Stack**: Read `context/tech.md` (Constraints & Patterns).
 4. **Integration**: Read `bin/adapters/universal.md` (Tooling).
 
+## 🛑 PROTOCOL ENFORCEMENT (Response Rules)
+> **CRITICAL**: You MUST follow these rules for every response.
+
+1.  **State Check**: IF you are completing a task OR asking for input -> **YOU ARE IDLE**.
+2.  **Idle Rule**: IF IDLE -> **DISPLAY THE COMMAND PALETTE** at the bottom of your response.
+3.  **Format**: Use the exact Markdown table format below.
+
 ## 2. AUTO-MAINTENANCE (Self-Correcting)
 > **Rule**: Do not ask for permission to fix the environment.
 > **Prerequisite**: Agent's current date MUST be provided in System Prompt metadata.
@@ -35,12 +42,12 @@
     - Check the last checkbox (progress).
     - Continue immediately. *Do not wait for user input.*
 - **IF** task is **COMPLETE**:
-    - **DISPLAY** the **Command Palette** table.
+    - **DISPLAY** the **Command Palette** table (See Enforcement).
     - Wait for User Command.
 
 ### ELSE (New Session):
 - Analyze `MASTER.md` vs `context/active/`.
-- **DISPLAY** the **Command Palette** table.
+- **DISPLAY** the **Command Palette** table (See Enforcement).
 - **SUGGEST** the logical next step (Feature, Bugfix, or Planning).
 - Wait for User Command.
 

@@ -8,6 +8,13 @@
 2.  **Read Board**: `board/strategy/roadmap.md` (Strategy).
 3.  **Read Principles**: `board/strategy/principles.md` (Alignment).
 
+## 🛑 PROTOCOL ENFORCEMENT (Response Rules)
+> **CRITICAL**: You MUST follow these rules for every response.
+
+1.  **State Check**: IF you are completing a task OR asking for input -> **YOU ARE IDLE**.
+2.  **Idle Rule**: IF IDLE -> **DISPLAY THE COMMAND PALETTE** at the bottom of your response.
+3.  **Format**: Use the exact Markdown table format below.
+
 ## 2. EXECUTE
 ### IF `active/TASK.md` exists:
 - **RESUME WORK**.
