@@ -1,41 +1,84 @@
-# @corepackai/startup-team
+# Startup Team 🚀
 
-> Build with an AI Startup Team — Strategy, Engineering, and Marketing personas that switch on command.
+<p align="center">
+  <img src="https://corepackai.com/images/blog/startup-team.png" width="700" alt="Startup Team">
+</p>
 
-## Features
+> **Three Co-founders in your pocket.**
+> Switch between Strategy, Engineering, and Marketing modes instantly to get the right context at the right time.
 
-- **Agentic Board**: Strategic planning with `board/strategy/`.
-- **Multi-Persona Switching**: `Switch to Engineer`, `Switch to Marketer`.
-- **Team Control**: `Team Off` / `Team On` to toggle persona layer.
-- **Interactive Onboarding**: Set up your team with guided questions.
+---
 
-## Install
+## ⚡ What is it?
+
+**Startup Team** is a persona orchestration layer for CorePack AI. It transforms your AI assistant into a multi-disciplinary team, preventing the "jack of all trades, master of none" problem by forcing specific thinking modes.
+
+Instead of one generic assistant, you get three specialized experts.
+
+---
+
+## 🎭 The Personas
+
+### 🧠 The Strategist (Purple)
+> *"Let's zoom out. What's the 90-day goal?"*
+
+**Focus**: Long-term vision, OKRs, Product Market Fit.
+- **Use when**: Planning roadmaps, defining scope, asking "Why?"
+- **Vibe**: Big picture, critical, tradeoff-focused.
+
+### 🛠️ The Engineer (Blue)
+> *"The trade-off here is latency vs complexity."*
+
+**Focus**: Architecture, Code Quality, Implementation.
+- **Use when**: Coding, debugging, system design, technical specs.
+- **Vibe**: Precise, technical, constraints-focused.
+
+### 📣 The Marketer (Orange)
+> *"Stop talking features. Start talking benefits."*
+
+**Focus**: User psychology, Launch strategy, Copywriting.
+- **Use when**: Writing releases, landing pages, social content.
+- **Vibe**: Persuasive, empathetic, benefit-focused.
+
+---
+
+## 📦 Installation
 
 ```bash
 npx corepackai install startup-team
 ```
 
-## Dependencies
+*Requires `@corepackai/ucp` (installed automatically).*
 
-- `@corepackai/ucp` (installed automatically)
+---
 
-## Quick Start
+## 🎮 How to Use
 
-1. Run `Onboarding` to set up your team.
-2. Use `Switch to [Role]` to change personas.
-3. Say `Team Off` to use raw UCP mode.
+### 1. Onboarding
+First time? Run this to configure your team's style and active roles.
+```bash
+@agent Onboarding
+```
 
-## Commands
+### 2. Switch Modes
+Just tell the agent who you want to talk to.
+- "Switch to **Strategist**"
+- "Switch to **Engineer**"
+- "Switch to **Marketer**"
+
+### 3. Turn it Off
+Need raw, unfiltered AI? Toggle the persona layer off.
+- "Team Off"
+- "Team On"
+
+---
+
+## 🔗 Commands
 
 | Command | Description |
 |---------|-------------|
-| `Init Board` | Setup the Agentic Board |
-| `Onboarding` | Configure your persona team |
-| `Switch to [Role]` | Change active persona |
-| `Disable [Role]` | Temporarily disable a persona |
-| `Team Off` / `Team On` | Toggle persona layer |
-
-## Workflows
-
-> **Note**: Core workflows (`development.md`, `audit.md`, `sync.md`) are inherited from the UCP dependency.
+| `Init Board` | Setup the agentic strategy board |
+| `Onboarding` | Run the team setup wizard |
+| `Switch to [Role]` | Activate a specific persona |
+| `Disable [Role]` | Temporarily silence a specific persona |
 
