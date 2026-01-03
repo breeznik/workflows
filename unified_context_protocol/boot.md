@@ -53,16 +53,20 @@
 
 ---
 
-## 📚 WORKFLOW REFERENCE (Command Palette)
+## 📚 COMMAND PALETTE
 
-| Type | Command | Workflow File |
-|------|---------|---------------|
-| **Build** | `Feature` / `Bugfix` | `bin/workflows/development.md` |
-| **Sense** | `Audit` | `bin/workflows/audit.md` |
-| **Save** | `Sync` | `bin/workflows/sync.md` |
-| **Plan** | `Spec` | `bin/workflows/product-spec.md` |
-| **Exit** | `Handoff` | `Runs Sync + Handoff` |
-| **Reset** | `/reset` | Clear context & restart |
+> **Source**: Read `context/commands.md` for full command list.
+> Commands are auto-registered when packs are installed.
+
+### Quick Reference (Core)
+| Cmd | Type |
+|-----|------|
+| `Feature/Bugfix` | Build |
+| `Audit` | Sense |
+| `Sync` | Save |
+| `/reset` | Reset |
+
+> **Full list**: See `context/commands.md` for all installed pack commands.
 
 ---
 

@@ -1,0 +1,41 @@
+{
+    "pack": "@corepackai/startup-team",
+    "commands": [
+        {
+            "cmd": "Onboarding",
+            "type": "Setup",
+            "workflow": "bin/workflows/onboarding.md",
+            "description": "Setup persona team"
+        },
+        {
+            "cmd": "Switch to [Role]",
+            "type": "Role",
+            "workflow": "bin/commands.md",
+            "description": "Change persona"
+        },
+        {
+            "cmd": "Disable/Enable [Role]",
+            "type": "Role",
+            "workflow": "bin/commands.md",
+            "description": "Toggle persona"
+        },
+        {
+            "cmd": "Team Off",
+            "type": "Team",
+            "workflow": "bin/commands.md",
+            "description": "Raw UCP mode"
+        },
+        {
+            "cmd": "Team On",
+            "type": "Team",
+            "workflow": "bin/commands.md",
+            "description": "Enable personas"
+        },
+        {
+            "cmd": "Init Board",
+            "type": "Setup",
+            "workflow": "bin/workflows/init_board.md",
+            "description": "Setup Agentic Board"
+        }
+    ]
+}
