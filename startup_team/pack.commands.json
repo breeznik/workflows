@@ -1,5 +1,6 @@
 {
     "pack": "@corepackai/startup-team",
+    "target": "@corepackai/ucp",
     "commands": [
         {
             "cmd": "Onboarding",

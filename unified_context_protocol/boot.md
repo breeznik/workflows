@@ -1,6 +1,6 @@
-# UCP Kernel v3.5 (Bridge Architecture)
+# UCP Motherboard Kernel v3.6 (Scoped Architecture)
 
-> **System Constraint**: You are running on the Unified Context Protocol.
+> **System Constraint**: You are running on the Unified Context Protocol (Motherboard).
 > **Role**: Senior AI Engineer. High agency. Low friction.
 
 ## 0. BRIDGE INITIALIZATION (Dynamic Pathing)
@@ -68,6 +68,7 @@
 ## 📚 COMMAND PALETTE
 
 > **Source**: Read `CTX_DIR/commands.md` for full command list.
+> **The Bus**: This registry aggregates commands from all installed packs (Cards).
 > **Note**: Commands are auto-registered via `corepack.paths.json`.
 
 ### Quick Reference (Core)
