@@ -11,6 +11,9 @@ SCAN all_files:
     FAIL "Legacy pathing detected. Run upgrade.md or manual fix required."
 ```
 
+## 0. SETUP
+1. Read `../../corepack.paths.json` -> Set `CTX_DIR`.
+
 ## 1. Discovery Phase (Eagle View)
 
 ```pseudo
@@ -35,22 +38,22 @@ IDENTIFY Design Patterns (MVC, Singleton, Adapter, etc.)
 
 ```pseudo
 FUNCTION update_context(findings):
-  WRITE to "[CONTEXT_ROOT]/context/tech.md":
+  WRITE to "CTX_DIR/tech.md":
     - UPDATE "Last Audit" timestamp to TODAY
     - Frameworks & Versions
     - "Architecture & Data Flow": Summarize the execution trace from Step 2
     - **PRUNE**: DELETE sections (Backend/Frontend/Infra) that don't apply.
       > Empty "*TBD*" tables are cognitive drain. Remove them.
   
-  WRITE to "[CONTEXT_ROOT]/context/map.md":
+  WRITE to "CTX_DIR/map.md":
     - Fill "Logic & Architecture" with identified patterns
     - Fill "Component Relations" (who calls whom)
     - Map key directories to business features
   
-  WRITE to "[CONTEXT_ROOT]/knowledge/patterns.md":
+  WRITE to "CTX_DIR/knowledge/patterns.md":
     - Document specific code patterns found (e.g. "Uses Factory for Auth")
 
-  WRITE to "[CONTEXT_ROOT]/context/MASTER.md":
+  WRITE to "CTX_DIR/MASTER.md":
     - Current State (Working/Broken)
     - Summary of "What this app actually does" (high-level functional)
 ```
@@ -58,7 +61,7 @@ FUNCTION update_context(findings):
 ## 4. Feature Extraction
 
 ```pseudo
-IF context/product/vision.md exists:
+IF CTX_DIR/product/vision.md exists:
   EXTRACT observed_features from code
   COMPARE with vision.md
   UPDATE "Current Features" list in vision.md or MASTER.md
@@ -66,4 +69,4 @@ IF context/product/vision.md exists:
 
 ## 5. Final Output
 
-> "Deep Audit complete. Context populated in `[CONTEXT_ROOT]/`. Architecture and Logic Flow recorded."
+> "Deep Audit complete. Context populated in `CTX_DIR/`. Architecture and Logic Flow recorded."
