@@ -3,8 +3,8 @@
 > Extends UCP with personas. Defers to UCP for Command Palette.
 
 ## LOAD (extends UCP)
-1. `context/team.md` → personas, active_role
-2. `board/strategy/roadmap.md` → strategy
+6. `../../../context/corepackai/startup-team/context/team.md` → personas, active_role
+7. `../../../context/corepackai/startup-team/board/strategy/roadmap.md` → strategy
 3. Apply `active_role` style
 
 ## EXECUTE

@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "hash": "dc28cc638ee575ad12dc5e38d8b03a2cdc6f54e9e5efc02c7278e4c51efbae75",
+  "files": {
+    "bin/commands.md": "217b44e7ceb8d536736e775b3bf8377960458573ab157a289b987f6d646a15c4",
+    "bin/VERSION": "5e58c01a65c9171b62c7afe4101722c93ad81b8e3bbb014efe416ff4dfab40c7",
+    "bin/workflows/init_board.md": "5337af56f6991640c7141c87fb259c5576e8d16ddde0b88dcee2c5cb0b27b54c",
+    "bin/workflows/onboarding.md": "bed9b5008b849ead4f5861520c2cb0ba2a7e8aa38ebbca04d8af71c0787d6498",
+    "boot.md": "09021877c7c82a4382fb5835b5ffd440ee6fb550336c6c8b6bf61cc056afbcea",
+    "context/team.md": "24020b0115f8d7cf6c1663c85087dd8cc42e57f966069946d12d10261b20dac7",
+    "pack.commands.json": "d96d98a1aaa2a7b98e73ba589197d3bc229392f1d069bdb095f61501f8c93be0",
+    "pack.config.json": "d9011ab10cc57e166e21135020a43f305acea8033ad71824ae6a03f6ea5d89bf",
+    "README.md": "d240bd5e519a3cef230c4212334f1add11e96a1ecbbcef88b67e87c8f25c4233",
+    "templates/board/strategy/principles.md": "f405249aba7928666d51cdf09e81d3685702c845a161eba678e53a323f2bb8d4",
+    "templates/board/strategy/roadmap.md": "23cc44d682d7b5c8fac2aa1b4be645971661c0165ec94fdffa8a4d36fc427005"
+  },
+  "dependencies": {}
+}
