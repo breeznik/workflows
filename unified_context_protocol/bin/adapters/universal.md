@@ -7,7 +7,7 @@
 
 Regardless of which agent you are, follow these **Protocol Rules**:
 
-1.  **Boot**: At the start of EVERY session, read `[CONTEXT_ROOT]/bin/workflows/boot.md`.
+1.  **Boot**: At the start of EVERY session, read `.ai/boot.md` (The Power Button).
 2.  **Context**: Store project state in `[CONTEXT_ROOT]/context/`, NOT in your private memory.
 3.  **End**: Before exiting, read `[CONTEXT_ROOT]/bin/workflows/sync.md` to save state.
 4.  **Drift**: If code contradicts context, AUTO-UPDATE the context.
@@ -27,7 +27,7 @@ globs: *
 alwaysApply: true
 ---
 # UCP Protocol
-1. BOOT: Read `.ai/bin/workflows/boot.md` immediately.
+1. BOOT: Read `.ai/boot.md` immediately.
 2. CONTEXT: Use `.ai/context/MASTER.md` as source of truth.
 ```
 
@@ -35,7 +35,7 @@ alwaysApply: true
 **File**: `.windsurf/rules`
 ```markdown
 # UCP Protocol
-- ON SESSION START: Read `.ai/bin/workflows/boot.md`
+- ON SESSION START: Read `.ai/boot.md`
 - ON SESSION END: Run `.ai/bin/workflows/sync.md`
 ```
 
@@ -44,7 +44,7 @@ alwaysApply: true
 ```markdown
 # UCP Governance
 You must follow the Unified Context Protocol.
-- Start every task by reading `.ai/bin/workflows/boot.md`
+- Start every task by reading `.ai/boot.md`
 - Check `.ai/context/active/` for locks before working.
 ```
 
@@ -59,18 +59,18 @@ You must follow the Unified Context Protocol.
 ### 🧠 JetBrains AI
 **File**: `.aiassistant/rules`
 ```markdown
-Follow `.ai/bin/workflows/boot.md` protocol.
+Follow `.ai/boot.md` protocol.
 ```
 
 ### 🟣 Antigravity (Google)
 **File**: `.agent/workflows/ucp.md`
 ```markdown
 # UCP Pointer
-Read `.ai/bin/workflows/boot.md` to initialize project context.
+Read `.ai/boot.md` to initialize project context.
 ```
 
 ### 🗣️ Aider / CLI Agents
 **File**: `.aider.conf.yml` or System Prompt
 ```yaml
-read: .ai/bin/workflows/boot.md
+read: .ai/boot.md
 ```
