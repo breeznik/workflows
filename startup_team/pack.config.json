@@ -1,7 +1,15 @@
 {
   "name": "@corepackai/startup-team",
-  "version": "1.2.5",
+  "version": "1.2.8",
   "dependencies": {
     "@corepackai/ucp": "latest"
-  }
+  },
+  "context_engine": "bin",
+  "context_template": "templates",
+  "tags": [
+    "startup",
+    "team",
+    "personas",
+    "roles"
+  ]
 }

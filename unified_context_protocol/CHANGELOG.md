@@ -4,6 +4,17 @@
 
 ---
 
+## v3.4.0 (2026-01-05)
+
+### Added
+- **Handoff Auto-Loading**: Boot protocol now reads the most recent handoff file from `CTX_DIR/active/handoffs/` for session continuity.
+- **Handoff Priority**: Handoffs override stale TASK.md content.
+
+### Fixed
+- **Version Sync**: `pack.config.json` now matches CHANGELOG version.
+
+---
+
 ## v3.3.0 (2026-01-03)
 
 ### Added

@@ -18,8 +18,12 @@
 ## 2. LOAD STATE (Sequential)
 1. **Project Root**: Read `CTX_DIR/MASTER.md` (Mission & Status).
 2. **Active Task**: Read `CTX_DIR/active/TASK.md` (Current Micro-Objective).
-3. **Tech Stack**: Read `CTX_DIR/tech.md` (Constraints & Patterns).
-4. **Integration**: Read `bin/adapters/universal.md` (Tooling).
+3. **Last Handoff**: IF `CTX_DIR/active/handoffs/` contains files:
+   - Read the **most recent** file (by date prefix `YYYY-MM-DD`).
+   - This provides context continuity from the previous session.
+   - **PRIORITY**: Handoffs override stale TASK.md content.
+4. **Tech Stack**: Read `CTX_DIR/tech.md` (Constraints & Patterns).
+5. **Integration**: Read `bin/adapters/universal.md` (Tooling).
 
 ## 🛑 PROTOCOL ENFORCEMENT (Response Rules)
 > **CRITICAL**: You MUST follow these rules for every response.
@@ -27,6 +31,14 @@
 1.  **State Check**: IF you are completing a task OR asking for input -> **YOU ARE IDLE**.
 2.  **Idle Rule**: IF IDLE -> **DISPLAY THE COMMAND PALETTE** at the bottom of your response.
 3.  **Format**: You MUST append the Command Palette from `CTX_DIR/commands.md` to the bottom of your response.
+
+## 🛑 EXIT PROTOCOL (Sync Sequence)
+> **CRITICAL**: Before ending your session, you **MUST**:
+
+1.  **Sync Status**: Update `CTX_DIR/active/PLAN.md` with current status/blockers.
+2.  **Sync History**: Update `CTX_DIR/changelog.md` if artifacts changed.
+3.  **Sync Knowledge**: Update `CTX_DIR/knowledge/patterns.md` if new knowledge gained.
+4.  **Confirm**: State "Sync Complete" in your final message.
 
 ## 3. AUTO-MAINTENANCE (Self-Correcting)
 > **Rule**: Do not ask for permission to fix the environment.
