@@ -87,7 +87,8 @@
 | Cmd | Type |
 |-----|------|
 | `Feature/Bugfix` | Build |
-| `Audit` | Sense |
+| `Audit` | Sense (Context & Structure) |
+| `Clean` | Run Zero Waste Protocol |
 | `Sync` | Save |
 | `/reset` | Reset |
 

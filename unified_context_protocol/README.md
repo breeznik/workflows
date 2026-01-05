@@ -1,84 +1,60 @@
 # Unified Context Protocol (UCP)
 
-**A drop-in context system that makes AI coding assistants *actually remember* your project.**
+**The Standard Kernel for Agent-Native Development.**
 
 ## 🎯 The Problem
 
-AI coding assistants forget everything between sessions. You waste time re-explaining your project architecture, coding standards, and past decisions—and agents often create conflicting or inconsistent work.
+Agents without architecture are just chatbots. They "forget" technical decisions, ignore conventions, and drift off-course. Prompting them repeatedly is fragile and unscalable.
 
 ## 💡 The Solution
 
-UCP is a **standardized governance layer** that sits between your codebase and AI agents. It provides a file-system-based protocol for persistent context, enabling agents to:
-- **Read** project state and history
-- **Write** learnings and decisions
-- **Coordinate** across sessions and tools
+UCP is a **Behavioral Architecture** that installs directly into your project. It acts as an operating system for your AI agents, providing:
+- **Memory**: A structured file system for project state.
+- **governance**: Strict protocols for decision making.
+- **Coordination**: A shared language for multi-agent collaboration.
 
 ## ✨ Key Features
 
 | Feature | Description |
 |---------|-------------|
-| **🧠 Smart Kernel v3.1** | High-speed boot with auto-fix for stale context, broken locks, and missing data |
-| **🔌 Multi-Agent Support** | Works with 8+ AI assistants via unified adapter |
-| **🤝 Session Handoffs** | Incomplete work is saved—next session picks it up |
-| **🔄 Auto-Maintenance** | Agents self-correct: break stale locks, trigger audits, prune old learnings |
-| **📂 Monorepo Ready** | Define sub-projects with scoped contexts |
-| **🧠 Knowledge Persistence** | Patterns, gotchas, and decisions survive across sessions |
-| **⚡ Context Budget System** | Tiered loading prevents LLM context overload |
-| **🔁 `/reset` Command** | Clear working context and start fresh |
-
-## 🔧 Supported AI Assistants
-
-See [Universal Adapter](bin/adapters/universal.md).
-
-Cursor • Windsurf • Claude Code • GitHub Copilot • JetBrains AI • Aider • Gemini Antigravity • Generic LLMs
-
-## 📂 What's Included
-
-```text
-unified_context_protocol/
-├── boot.md           # Agent entry point
-├── context/          # Project state (MASTER.md, tech.md, changelog.md...)
-├── knowledge/        # Persistent learnings & decisions
-├── bin/
-│   ├── workflows/    # audit, development, maintenance...
-│   └── adapters/     # Per-agent integration guides
-└── archive/          # Historical context storage
-```
+| **🧠 Smart Kernel v3.1** | High-speed boot with auto-fix for stale context |
+| **🔌 Universal Adapter** | Run the same behavior on Cursor, Windsurf, or Claude |
+| **🤝 Session Persistence** | "Save Game" for your codebase—never explain context twice |
+| **📂 Monorepo Ready** | Scoped contexts for complex projects |
+| **⚡ Context Budgeting** | Tiered loading prevents LLM overload |
 
 ## 🚀 Quick Start
 
 ### 1. Install
-**Via CLI (Recommended):**
+**Via CLI:**
 ```bash
 npx corepackai install @corepackai/ucp
-# OR for a full team setup:
-npx corepackai install @corepackai/startup-team
 ```
 
-**Or Manual:**
-Copy the pack into your project's context directory (e.g., `.context/` or `.ai/`).
-
-### 2. Initialize
+### 2. Boot
 Tell your agent:
-> "Read bin/workflows/onboarding.md"
+> "Read .ai/boot.md and follow the instructions."
 
-### 3. Audit
-Tell your agent:
-> "Read bin/workflows/audit.md and audit this project"
+## 📂 Architecture
 
-**Done!** Your agents now have persistent, coordinated context.
+```text
+unified_context_protocol/
+├── boot.md           # The Kernel Entry Point
+├── context/          # Mutable Project State (MASTER.md)
+├── knowledge/        # Immutable Learnings
+└── bin/              # Workflows & Protocols
+```
 
 ## 🏆 Why UCP?
 
-- **Escape vendor lock-in**: Your context lives in version-controlled files, not proprietary cloud systems
-- **Tool-agnostic**: Switch between AI assistants without losing context
-- **Human-readable**: All files are markdown—you can edit them directly
-- **Version-controlled**: Commit your context alongside your code
+- **Agent-Native**: Designed for LLMs, not just humans.
+- **Vendor Agnostic**: Works with any AI model or IDE.
+- **Zero Lock-in**: It's just Markdown files in your repo.
+- **Version Controlled**: Your agent's brain lives in git.
 
 ## 📖 Documentation
 
 | Resource | Description |
 |----------|-------------|
-| [User Guide](USER_GUIDE.md) | Detailed setup and usage for humans |
-| [boot.md](boot.md) | Agent entry point (boot protocol, structure) |
-| [CLI Guide](context/CLI_GUIDE.md) | Automation tool instructions |
+| [User Guide](USER_GUIDE.md) | Detailed usage instructions |
+| [boot.md](boot.md) | Kernel Protocol |
