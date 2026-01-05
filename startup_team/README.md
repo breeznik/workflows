@@ -45,7 +45,7 @@ Instead of one generic assistant, you get three specialized experts.
 ## 📦 Installation
 
 ```bash
-npx corepackai install startup-team
+npx corepackai install @corepackai/startup-team
 ```
 
 *Requires `@corepackai/ucp` (installed automatically).*

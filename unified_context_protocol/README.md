@@ -50,9 +50,9 @@ unified_context_protocol/
 ### 1. Install
 **Via CLI (Recommended):**
 ```bash
-npx corepackai install ucp
+npx corepackai install @corepackai/ucp
 # OR for a full team setup:
-npx corepackai install startup-team
+npx corepackai install @corepackai/startup-team
 ```
 
 **Or Manual:**

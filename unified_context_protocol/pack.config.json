@@ -1,6 +1,6 @@
 {
     "name": "@corepackai/ucp",
-    "version": "3.4.4",
+    "version": "3.4.5",
     "description": "Unified Context Protocol (Motherboard). The standard for AI memory and context management.",
     "visibility": "public",
     "context_engine": "bin",

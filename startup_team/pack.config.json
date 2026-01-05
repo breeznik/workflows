@@ -1,6 +1,6 @@
 {
   "name": "@corepackai/startup-team",
-  "version": "1.2.8",
+  "version": "1.2.9",
   "dependencies": {
     "@corepackai/ucp": "latest"
   },

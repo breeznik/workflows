@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "hash": "705f192c0c26712b7f42eabd5f8e6bfab90f24082ad4f02bde14fa1739229668",
+  "hash": "782bdf8ff53acbe4a7dc33603d696f3fab0f8d698adf55a37f060d22d4b9096a",
   "files": {
     "archive/README.md": "d4ac1276dab899c1b2347528162781125aadda848abb9ad8b2501ac3b7479e2e",
     "bin/adapters/manifest.yaml": "19a9b851683e974aca1b83ac296e3d86a92f32a09690b8ef4af06f6a3f50f471",
@@ -27,8 +27,8 @@
     "boot.md": "272d70bc0b71418dac589e6e70779a51b3306287037234fe6fbe97c1f5778d32",
     "CHANGELOG.md": "284c4694021f17ea761551c014ab5ebfb3133e4c4e01e82329d39e05db1402a7",
     "cli-hooks.json": "c72d72160a93da23aacd1ae40fabe3d94d9212a2eb604bef52e721e6387562ee",
-    "pack.config.json": "a4f97041a19b2a97e43bedc867efbcf21904a7acd78cd30c99278788b520ed95",
-    "README.md": "c82e3b831b15d430c5b667b110987cbd8c9471937377921f6206564407b78550",
+    "pack.config.json": "f8c1beb54867d38ef371c7cb2978c4e53a983972c80de512254173c4d918f259",
+    "README.md": "4ead47080fddd1909e03bfd4a29ffa8d6d56b411294066f10b90a3d9d7d6a0b8",
     "templates/active/PLAN.md": "8cdc727059de025bb3d57f61748a91d22268f0587b623ffb6df37a1cb473832a",
     "templates/active/status.json": "859c981309d4df37b2f924a7472e5e80385e5d3eb35219ce10769a2f344cb824",
     "templates/changelog.md": "cb5549ca170515b5bd40d6288987f8f2331ad6ec7598bcf053dc6a1f83d9e784",
